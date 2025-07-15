@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OutfitBlack.ttf</string>
+		<string>OutfitBold.ttf</string>
+		<string>OutfitExtraBold.ttf</string>
+		<string>OutfitExtraLight.ttf</string>
+		<string>OutfitLight1.ttf</string>
+		<string>OutfitMedium.ttf</string>
+		<string>OutfitRegular.ttf</string>
+		<string>OutfitSemiBold.ttf</string>
+		<string>OutfitVariableFont_wght1.ttf</string>
+	</array>
+</dict>
+</plist>

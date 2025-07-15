@@ -1,0 +1,919 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD7310322E24DC25009A50EC /* JoinThePackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310312E24DC25009A50EC /* JoinThePackView.swift */; };
+		DD73106A2E24E0C9009A50EC /* HelperFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310692E24E0C9009A50EC /* HelperFile.swift */; };
+		DD73106E2E24EB08009A50EC /* PhoneNumberLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73106D2E24EB08009A50EC /* PhoneNumberLoginView.swift */; };
+		DD7310732E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310722E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift */; };
+		DD7310782E25017E009A50EC /* VerifyPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310772E25017E009A50EC /* VerifyPhoneView.swift */; };
+		DD73107A2E2505EA009A50EC /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310792E2505EA009A50EC /* OTPFieldView.swift */; };
+		DD73107D2E2509C2009A50EC /* VerifyPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73107C2E2509C2009A50EC /* VerifyPhoneViewModel.swift */; };
+		DD7310832E250C70009A50EC /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73107E2E250C70009A50EC /* EmailLoginViewModel.swift */; };
+		DD7310842E250C70009A50EC /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310802E250C70009A50EC /* EmailLoginView.swift */; };
+		DD73108A2E251754009A50EC /* VerifyEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310852E251754009A50EC /* VerifyEmailViewModel.swift */; };
+		DD73108B2E251754009A50EC /* VerifyEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310872E251754009A50EC /* VerifyEmailView.swift */; };
+		DD73108F2E251851009A50EC /* NotificationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73108E2E251851009A50EC /* NotificationPermissionView.swift */; };
+		DD7310EE2E251D15009A50EC /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310EC2E251D15009A50EC /* LocationPermissionView.swift */; };
+		DD7310F22E251FB6009A50EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310F12E251FB6009A50EC /* HomeView.swift */; };
+		DD7310F42E251FFF009A50EC /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310F32E251FFF009A50EC /* HomeDataModel.swift */; };
+		DD7310F62E252029009A50EC /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310F52E252029009A50EC /* PostCard.swift */; };
+		DD7310F82E252036009A50EC /* AdCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310F72E252036009A50EC /* AdCard.swift */; };
+		DD7310FA2E252043009A50EC /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310F92E252043009A50EC /* EventCard.swift */; };
+		DD7310FC2E25204B009A50EC /* PostActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310FB2E25204B009A50EC /* PostActions.swift */; };
+		DD7310FE2E252090009A50EC /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310FD2E252090009A50EC /* VideoCard.swift */; };
+		DDD527572E21143E008454B1 /* Slodoggies_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527562E21143E008454B1 /* Slodoggies_AppApp.swift */; };
+		DDD527592E21143E008454B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527582E21143E008454B1 /* ContentView.swift */; };
+		DDD5275B2E21143F008454B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDD5275A2E21143F008454B1 /* Assets.xcassets */; };
+		DDD5275D2E21143F008454B1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD5275C2E21143F008454B1 /* Persistence.swift */; };
+		DDD527602E21143F008454B1 /* Slodoggies_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDD5275E2E21143F008454B1 /* Slodoggies_App.xcdatamodeld */; };
+		DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527AB2E21257C008454B1 /* OnboardingView.swift */; };
+		DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527B42E214511008454B1 /* OnboardingPage.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDD527662E21143F008454B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD5274B2E21143E008454B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDD527522E21143E008454B1;
+			remoteInfo = "Slodoggies App";
+		};
+		DDD527702E21143F008454B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD5274B2E21143E008454B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDD527522E21143E008454B1;
+			remoteInfo = "Slodoggies App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD7310312E24DC25009A50EC /* JoinThePackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinThePackView.swift; sourceTree = "<group>"; };
+		DD7310692E24E0C9009A50EC /* HelperFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFile.swift; sourceTree = "<group>"; };
+		DD73106D2E24EB08009A50EC /* PhoneNumberLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginView.swift; sourceTree = "<group>"; };
+		DD7310722E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginViewModel.swift; sourceTree = "<group>"; };
+		DD7310772E25017E009A50EC /* VerifyPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneView.swift; sourceTree = "<group>"; };
+		DD7310792E2505EA009A50EC /* OTPFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFieldView.swift; sourceTree = "<group>"; };
+		DD73107C2E2509C2009A50EC /* VerifyPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneViewModel.swift; sourceTree = "<group>"; };
+		DD73107E2E250C70009A50EC /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
+		DD7310802E250C70009A50EC /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
+		DD7310852E251754009A50EC /* VerifyEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewModel.swift; sourceTree = "<group>"; };
+		DD7310872E251754009A50EC /* VerifyEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailView.swift; sourceTree = "<group>"; };
+		DD73108E2E251851009A50EC /* NotificationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionView.swift; sourceTree = "<group>"; };
+		DD7310CD2E251AAB009A50EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD7310EC2E251D15009A50EC /* LocationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionView.swift; sourceTree = "<group>"; };
+		DD7310F12E251FB6009A50EC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DD7310F32E251FFF009A50EC /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
+		DD7310F52E252029009A50EC /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
+		DD7310F72E252036009A50EC /* AdCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCard.swift; sourceTree = "<group>"; };
+		DD7310F92E252043009A50EC /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
+		DD7310FB2E25204B009A50EC /* PostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActions.swift; sourceTree = "<group>"; };
+		DD7310FD2E252090009A50EC /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
+		DDD527532E21143E008454B1 /* Slodoggies App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slodoggies App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD527562E21143E008454B1 /* Slodoggies_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slodoggies_AppApp.swift; sourceTree = "<group>"; };
+		DDD527582E21143E008454B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDD5275A2E21143F008454B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDD5275C2E21143F008454B1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		DDD5275F2E21143F008454B1 /* Slodoggies_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Slodoggies_App.xcdatamodel; sourceTree = "<group>"; };
+		DDD527652E21143F008454B1 /* Slodoggies AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slodoggies AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD5276F2E21143F008454B1 /* Slodoggies AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slodoggies AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD527AB2E21257C008454B1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		DDD527B42E214511008454B1 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DDD527D02E21460A008454B1 /* Exceptions for "App" folder in "Slodoggies App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LaunchScreenView.swift,
+				Route.swift,
+			);
+			target = DDD527522E21143E008454B1 /* Slodoggies App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DDD527682E21143F008454B1 /* Slodoggies AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Slodoggies AppTests";
+			sourceTree = "<group>";
+		};
+		DDD527722E21143F008454B1 /* Slodoggies AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Slodoggies AppUITests";
+			sourceTree = "<group>";
+		};
+		DDD527C12E21460A008454B1 /* outfitFont */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = outfitFont;
+			sourceTree = "<group>";
+		};
+		DDD527C42E21460A008454B1 /* App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DDD527D02E21460A008454B1 /* Exceptions for "App" folder in "Slodoggies App" target */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDD527502E21143E008454B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD527622E21143F008454B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD5276C2E21143F008454B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD73102F2E24D9C5009A50EC /* JoinAs */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310302E24D9FE009A50EC /* View */,
+			);
+			path = JoinAs;
+			sourceTree = "<group>";
+		};
+		DD7310302E24D9FE009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310312E24DC25009A50EC /* JoinThePackView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD73106B2E24EAED009A50EC /* Phone Number Login */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310712E24F8C3009A50EC /* ViewModel */,
+				DD73106C2E24EB04009A50EC /* View */,
+			);
+			path = "Phone Number Login";
+			sourceTree = "<group>";
+		};
+		DD73106C2E24EB04009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD73106D2E24EB08009A50EC /* PhoneNumberLoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7310712E24F8C3009A50EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310722E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD7310742E250155009A50EC /* PhoneVerify */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310762E25016C009A50EC /* ViewModel */,
+				DD7310752E250167009A50EC /* View */,
+			);
+			path = PhoneVerify;
+			sourceTree = "<group>";
+		};
+		DD7310752E250167009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310772E25017E009A50EC /* VerifyPhoneView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7310762E25016C009A50EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD73107C2E2509C2009A50EC /* VerifyPhoneViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD73107B2E25072D009A50EC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310792E2505EA009A50EC /* OTPFieldView.swift */,
+				DD7310692E24E0C9009A50EC /* HelperFile.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		DD73107F2E250C70009A50EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD73107E2E250C70009A50EC /* EmailLoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD7310812E250C70009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310802E250C70009A50EC /* EmailLoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7310822E250C70009A50EC /* Email Login */ = {
+			isa = PBXGroup;
+			children = (
+				DD73107F2E250C70009A50EC /* ViewModel */,
+				DD7310812E250C70009A50EC /* View */,
+			);
+			path = "Email Login";
+			sourceTree = "<group>";
+		};
+		DD7310862E251754009A50EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310852E251754009A50EC /* VerifyEmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD7310882E251754009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310872E251754009A50EC /* VerifyEmailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7310892E251754009A50EC /* EmailVerify */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310862E251754009A50EC /* ViewModel */,
+				DD7310882E251754009A50EC /* View */,
+			);
+			path = EmailVerify;
+			sourceTree = "<group>";
+		};
+		DD73108C2E25182B009A50EC /* NotifictionPermission */ = {
+			isa = PBXGroup;
+			children = (
+				DD73108D2E251840009A50EC /* View */,
+			);
+			path = NotifictionPermission;
+			sourceTree = "<group>";
+		};
+		DD73108D2E251840009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD73108E2E251851009A50EC /* NotificationPermissionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7310EB2E251D00009A50EC /* LocationPermission */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310ED2E251D15009A50EC /* View */,
+			);
+			path = LocationPermission;
+			sourceTree = "<group>";
+		};
+		DD7310ED2E251D15009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310EC2E251D15009A50EC /* LocationPermissionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7310EF2E251F82009A50EC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DD7311352E2542CD009A50EC /* HomeDataModel */,
+				DD7310F02E251F98009A50EC /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DD7310F02E251F98009A50EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310F12E251FB6009A50EC /* HomeView.swift */,
+				DD7310F52E252029009A50EC /* PostCard.swift */,
+				DD7310F72E252036009A50EC /* AdCard.swift */,
+				DD7310F92E252043009A50EC /* EventCard.swift */,
+				DD7310FB2E25204B009A50EC /* PostActions.swift */,
+				DD7310FD2E252090009A50EC /* VideoCard.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7311352E2542CD009A50EC /* HomeDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD7310F32E251FFF009A50EC /* HomeDataModel.swift */,
+			);
+			path = HomeDataModel;
+			sourceTree = "<group>";
+		};
+		DDD5274A2E21143E008454B1 = {
+			isa = PBXGroup;
+			children = (
+				DDD527B72E2145F8008454B1 /* Slodoggies App */,
+				DDD527682E21143F008454B1 /* Slodoggies AppTests */,
+				DDD527722E21143F008454B1 /* Slodoggies AppUITests */,
+				DDD527542E21143E008454B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDD527542E21143E008454B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDD527532E21143E008454B1 /* Slodoggies App.app */,
+				DDD527652E21143F008454B1 /* Slodoggies AppTests.xctest */,
+				DDD5276F2E21143F008454B1 /* Slodoggies AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDD527B12E2144DE008454B1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DDD527B32E2144F5008454B1 /* Model */,
+				DDD527B22E2144E7008454B1 /* View */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DDD527B22E2144E7008454B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDD527AB2E21257C008454B1 /* OnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDD527B32E2144F5008454B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDD527B42E214511008454B1 /* OnboardingPage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDD527B72E2145F8008454B1 /* Slodoggies App */ = {
+			isa = PBXGroup;
+			children = (
+				DD73107B2E25072D009A50EC /* Helper */,
+				DDD5275A2E21143F008454B1 /* Assets.xcassets */,
+				DDD527582E21143E008454B1 /* ContentView.swift */,
+				DDD5275C2E21143F008454B1 /* Persistence.swift */,
+				DDD5275E2E21143F008454B1 /* Slodoggies_App.xcdatamodeld */,
+				DDD527562E21143E008454B1 /* Slodoggies_AppApp.swift */,
+				DDD527C12E21460A008454B1 /* outfitFont */,
+				DDD527C42E21460A008454B1 /* App */,
+				DDD527B12E2144DE008454B1 /* Onboarding */,
+				DD73102F2E24D9C5009A50EC /* JoinAs */,
+				DD73106B2E24EAED009A50EC /* Phone Number Login */,
+				DD7310742E250155009A50EC /* PhoneVerify */,
+				DD7310822E250C70009A50EC /* Email Login */,
+				DD7310892E251754009A50EC /* EmailVerify */,
+				DD73108C2E25182B009A50EC /* NotifictionPermission */,
+				DD7310EB2E251D00009A50EC /* LocationPermission */,
+				DD7310EF2E251F82009A50EC /* Home */,
+				DD7310CD2E251AAB009A50EC /* Info.plist */,
+			);
+			path = "Slodoggies App";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDD527522E21143E008454B1 /* Slodoggies App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDD527792E21143F008454B1 /* Build configuration list for PBXNativeTarget "Slodoggies App" */;
+			buildPhases = (
+				DDD5274F2E21143E008454B1 /* Sources */,
+				DDD527502E21143E008454B1 /* Frameworks */,
+				DDD527512E21143E008454B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DDD527C12E21460A008454B1 /* outfitFont */,
+			);
+			name = "Slodoggies App";
+			packageProductDependencies = (
+			);
+			productName = "Slodoggies App";
+			productReference = DDD527532E21143E008454B1 /* Slodoggies App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDD527642E21143F008454B1 /* Slodoggies AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDD5277C2E21143F008454B1 /* Build configuration list for PBXNativeTarget "Slodoggies AppTests" */;
+			buildPhases = (
+				DDD527612E21143F008454B1 /* Sources */,
+				DDD527622E21143F008454B1 /* Frameworks */,
+				DDD527632E21143F008454B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDD527672E21143F008454B1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDD527682E21143F008454B1 /* Slodoggies AppTests */,
+			);
+			name = "Slodoggies AppTests";
+			packageProductDependencies = (
+			);
+			productName = "Slodoggies AppTests";
+			productReference = DDD527652E21143F008454B1 /* Slodoggies AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDD5276E2E21143F008454B1 /* Slodoggies AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDD5277F2E21143F008454B1 /* Build configuration list for PBXNativeTarget "Slodoggies AppUITests" */;
+			buildPhases = (
+				DDD5276B2E21143F008454B1 /* Sources */,
+				DDD5276C2E21143F008454B1 /* Frameworks */,
+				DDD5276D2E21143F008454B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDD527712E21143F008454B1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDD527722E21143F008454B1 /* Slodoggies AppUITests */,
+			);
+			name = "Slodoggies AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "Slodoggies AppUITests";
+			productReference = DDD5276F2E21143F008454B1 /* Slodoggies AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDD5274B2E21143E008454B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					DDD527522E21143E008454B1 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					DDD527642E21143F008454B1 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDD527522E21143E008454B1;
+					};
+					DDD5276E2E21143F008454B1 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDD527522E21143E008454B1;
+					};
+				};
+			};
+			buildConfigurationList = DDD5274E2E21143E008454B1 /* Build configuration list for PBXProject "Slodoggies App" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDD5274A2E21143E008454B1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DDD527542E21143E008454B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDD527522E21143E008454B1 /* Slodoggies App */,
+				DDD527642E21143F008454B1 /* Slodoggies AppTests */,
+				DDD5276E2E21143F008454B1 /* Slodoggies AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDD527512E21143E008454B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDD5275B2E21143F008454B1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD527632E21143F008454B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD5276D2E21143F008454B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDD5274F2E21143E008454B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD7310FC2E25204B009A50EC /* PostActions.swift in Sources */,
+				DD73108F2E251851009A50EC /* NotificationPermissionView.swift in Sources */,
+				DD7310F62E252029009A50EC /* PostCard.swift in Sources */,
+				DDD5275D2E21143F008454B1 /* Persistence.swift in Sources */,
+				DD73107A2E2505EA009A50EC /* OTPFieldView.swift in Sources */,
+				DD7310F42E251FFF009A50EC /* HomeDataModel.swift in Sources */,
+				DD7310832E250C70009A50EC /* EmailLoginViewModel.swift in Sources */,
+				DDD527592E21143E008454B1 /* ContentView.swift in Sources */,
+				DD7310732E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift in Sources */,
+				DD7310F22E251FB6009A50EC /* HomeView.swift in Sources */,
+				DDD527572E21143E008454B1 /* Slodoggies_AppApp.swift in Sources */,
+				DD73106E2E24EB08009A50EC /* PhoneNumberLoginView.swift in Sources */,
+				DD7310F82E252036009A50EC /* AdCard.swift in Sources */,
+				DD7310FA2E252043009A50EC /* EventCard.swift in Sources */,
+				DD73107D2E2509C2009A50EC /* VerifyPhoneViewModel.swift in Sources */,
+				DD73106A2E24E0C9009A50EC /* HelperFile.swift in Sources */,
+				DD73108B2E251754009A50EC /* VerifyEmailView.swift in Sources */,
+				DDD527602E21143F008454B1 /* Slodoggies_App.xcdatamodeld in Sources */,
+				DD7310842E250C70009A50EC /* EmailLoginView.swift in Sources */,
+				DD73108A2E251754009A50EC /* VerifyEmailViewModel.swift in Sources */,
+				DD7310322E24DC25009A50EC /* JoinThePackView.swift in Sources */,
+				DD7310FE2E252090009A50EC /* VideoCard.swift in Sources */,
+				DD7310EE2E251D15009A50EC /* LocationPermissionView.swift in Sources */,
+				DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */,
+				DD7310782E25017E009A50EC /* VerifyPhoneView.swift in Sources */,
+				DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD527612E21143F008454B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD5276B2E21143F008454B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDD527672E21143F008454B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDD527522E21143E008454B1 /* Slodoggies App */;
+			targetProxy = DDD527662E21143F008454B1 /* PBXContainerItemProxy */;
+		};
+		DDD527712E21143F008454B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDD527522E21143E008454B1 /* Slodoggies App */;
+			targetProxy = DDD527702E21143F008454B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DDD527772E21143F008454B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 52853JTM76;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DDD527782E21143F008454B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 52853JTM76;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDD5277A2E21143F008454B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52853JTM76;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Slodoggies-App-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "YesITLab.Slodoggies-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDD5277B2E21143F008454B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52853JTM76;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Slodoggies-App-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "YesITLab.Slodoggies-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DDD5277D2E21143F008454B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52853JTM76;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "YesITLab.Slodoggies-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slodoggies App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Slodoggies App";
+			};
+			name = Debug;
+		};
+		DDD5277E2E21143F008454B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52853JTM76;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "YesITLab.Slodoggies-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slodoggies App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Slodoggies App";
+			};
+			name = Release;
+		};
+		DDD527802E21143F008454B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52853JTM76;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "YesITLab.Slodoggies-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Slodoggies App";
+			};
+			name = Debug;
+		};
+		DDD527812E21143F008454B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52853JTM76;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "YesITLab.Slodoggies-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Slodoggies App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDD5274E2E21143E008454B1 /* Build configuration list for PBXProject "Slodoggies App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD527772E21143F008454B1 /* Debug */,
+				DDD527782E21143F008454B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDD527792E21143F008454B1 /* Build configuration list for PBXNativeTarget "Slodoggies App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD5277A2E21143F008454B1 /* Debug */,
+				DDD5277B2E21143F008454B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDD5277C2E21143F008454B1 /* Build configuration list for PBXNativeTarget "Slodoggies AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD5277D2E21143F008454B1 /* Debug */,
+				DDD5277E2E21143F008454B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDD5277F2E21143F008454B1 /* Build configuration list for PBXNativeTarget "Slodoggies AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD527802E21143F008454B1 /* Debug */,
+				DDD527812E21143F008454B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DDD5275E2E21143F008454B1 /* Slodoggies_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DDD5275F2E21143F008454B1 /* Slodoggies_App.xcdatamodel */,
+			);
+			currentVersion = DDD5275F2E21143F008454B1 /* Slodoggies_App.xcdatamodel */;
+			path = Slodoggies_App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DDD5274B2E21143E008454B1 /* Project object */;
+}
