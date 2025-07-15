@@ -61,7 +61,7 @@ struct VerifyEmailView: View {
             }
 
             Button(action: {
-                
+                coordinator.push(.notificationpermision)
                 print("Verifying with OTP: \(viewModel.otp)")
             }) {
                 HStack {

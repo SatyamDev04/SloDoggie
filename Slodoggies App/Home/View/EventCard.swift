@@ -49,7 +49,7 @@ struct EventCard: View {
                 }
 
             }
-            .padding(.horizontal)
+            .padding(10)
             
             VStack(alignment: .leading,spacing: 6){
                 HStack{
@@ -184,7 +184,7 @@ struct EventCard: View {
         .background(Color.white)
         .cornerRadius(16)
         .shadow(color: .gray.opacity(0.2), radius: 6, x: 0, y: 4)
-        .padding(.vertical)
+        .padding(.horizontal)
     }
 }
 #Preview {

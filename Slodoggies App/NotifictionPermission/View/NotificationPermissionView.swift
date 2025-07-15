@@ -9,6 +9,7 @@ import SwiftUI
 import UserNotifications
 
 struct NotificationPermissionView: View {
+    @EnvironmentObject private var coordinator: Coordinator
     var body: some View {
             VStack(spacing: 32) {
                 Spacer().frame(height: 80)
@@ -34,7 +35,8 @@ struct NotificationPermissionView: View {
 
                 // Turn On button
                 Button(action: {
-                    requestNotificationPermission()
+                    coordinator.push(.locationPermission)
+//                    requestNotificationPermission()
                 }) {
                     Text("Turn On")
                         .font(.custom("Outfit-SemiBold", size: 18))
@@ -76,6 +78,7 @@ struct NotificationPermissionView: View {
                 } else {
                     print("Notifications not allowed")
                 }
+                coordinator.push(.locationPermission)
             }
         }
 }

@@ -12,6 +12,10 @@ enum Route: Hashable {
     case phoneNumberLogin
     case verifyPhone
     case emailLogin
+    case verifyEmail
+    case notificationpermision
+    case locationPermission
+    case tabBar
 }
 
 final class Coordinator: ObservableObject {

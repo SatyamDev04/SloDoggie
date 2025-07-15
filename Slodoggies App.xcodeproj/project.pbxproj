@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD70E62F2E2638E500461295 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E62E2E2638E500461295 /* CustomTabBar.swift */; };
+		DD70E6312E263AFA00461295 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6302E263AFA00461295 /* MainTabView.swift */; };
+		DD70E6692E26533700461295 /* WelcomePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6682E26533700461295 /* WelcomePopUp.swift */; };
+		DD70E6882E265D9E00461295 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6872E265D9E00461295 /* HomeViewModel.swift */; };
+		DD70E6C02E26684500461295 /* PetInfoPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6BF2E26684500461295 /* PetInfoPopupView.swift */; };
+		DD70E6C22E267ACE00461295 /* AddYourDetailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6C12E267ACE00461295 /* AddYourDetailPopUpView.swift */; };
+		DD70E6C42E26861A00461295 /* CustomTextfilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6C32E26861A00461295 /* CustomTextfilds.swift */; };
+		DD70E6C72E2687E800461295 /* ProfileCreatedPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6C62E2687E800461295 /* ProfileCreatedPopUpView.swift */; };
+		DD70E6C92E26928C00461295 /* CommentPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E6C82E26928C00461295 /* CommentPopupView.swift */; };
 		DD7310322E24DC25009A50EC /* JoinThePackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310312E24DC25009A50EC /* JoinThePackView.swift */; };
 		DD73106A2E24E0C9009A50EC /* HelperFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7310692E24E0C9009A50EC /* HelperFile.swift */; };
 		DD73106E2E24EB08009A50EC /* PhoneNumberLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73106D2E24EB08009A50EC /* PhoneNumberLoginView.swift */; };
@@ -65,6 +74,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD70E62E2E2638E500461295 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		DD70E6302E263AFA00461295 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		DD70E6682E26533700461295 /* WelcomePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePopUp.swift; sourceTree = "<group>"; };
+		DD70E6872E265D9E00461295 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DD70E6BF2E26684500461295 /* PetInfoPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoPopupView.swift; sourceTree = "<group>"; };
+		DD70E6C12E267ACE00461295 /* AddYourDetailPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourDetailPopUpView.swift; sourceTree = "<group>"; };
+		DD70E6C32E26861A00461295 /* CustomTextfilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfilds.swift; sourceTree = "<group>"; };
+		DD70E6C62E2687E800461295 /* ProfileCreatedPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreatedPopUpView.swift; sourceTree = "<group>"; };
+		DD70E6C82E26928C00461295 /* CommentPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPopupView.swift; sourceTree = "<group>"; };
 		DD7310312E24DC25009A50EC /* JoinThePackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinThePackView.swift; sourceTree = "<group>"; };
 		DD7310692E24E0C9009A50EC /* HelperFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFile.swift; sourceTree = "<group>"; };
 		DD73106D2E24EB08009A50EC /* PhoneNumberLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginView.swift; sourceTree = "<group>"; };
@@ -171,6 +189,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD70E62C2E2638C400461295 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DD70E62D2E2638E100461295 /* View */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		DD70E62D2E2638E100461295 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD70E6302E263AFA00461295 /* MainTabView.swift */,
+				DD70E62E2E2638E500461295 /* CustomTabBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD70E6862E265D7800461295 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD70E6872E265D9E00461295 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD70E6C52E2686EC00461295 /* PopUpViews */ = {
+			isa = PBXGroup;
+			children = (
+				DD70E6C82E26928C00461295 /* CommentPopupView.swift */,
+				DD70E6682E26533700461295 /* WelcomePopUp.swift */,
+				DD70E6C62E2687E800461295 /* ProfileCreatedPopUpView.swift */,
+				DD70E6BF2E26684500461295 /* PetInfoPopupView.swift */,
+				DD70E6C12E267ACE00461295 /* AddYourDetailPopUpView.swift */,
+			);
+			path = PopUpViews;
+			sourceTree = "<group>";
+		};
 		DD73102F2E24D9C5009A50EC /* JoinAs */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +295,7 @@
 		DD73107B2E25072D009A50EC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				DD70E6C32E26861A00461295 /* CustomTextfilds.swift */,
 				DD7310792E2505EA009A50EC /* OTPFieldView.swift */,
 				DD7310692E24E0C9009A50EC /* HelperFile.swift */,
 			);
@@ -331,6 +387,7 @@
 		DD7310EF2E251F82009A50EC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DD70E6862E265D7800461295 /* ViewModel */,
 				DD7311352E2542CD009A50EC /* HomeDataModel */,
 				DD7310F02E251F98009A50EC /* View */,
 			);
@@ -340,6 +397,7 @@
 		DD7310F02E251F98009A50EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD70E6C52E2686EC00461295 /* PopUpViews */,
 				DD7310F12E251FB6009A50EC /* HomeView.swift */,
 				DD7310F52E252029009A50EC /* PostCard.swift */,
 				DD7310F72E252036009A50EC /* AdCard.swift */,
@@ -422,6 +480,7 @@
 				DD7310892E251754009A50EC /* EmailVerify */,
 				DD73108C2E25182B009A50EC /* NotifictionPermission */,
 				DD7310EB2E251D00009A50EC /* LocationPermission */,
+				DD70E62C2E2638C400461295 /* TabBar */,
 				DD7310EF2E251F82009A50EC /* Home */,
 				E96874CA2E263CB50011E709 /* AboutUs */,
 				E96874D62E2665200011E709 /* FAQs */,
@@ -681,10 +740,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7310FC2E25204B009A50EC /* PostActions.swift in Sources */,
+<<<<<<< Updated upstream
 				E96874E72E267FE30011E709 /* HelpSupportView.swift in Sources */,
+=======
+				DD70E6C72E2687E800461295 /* ProfileCreatedPopUpView.swift in Sources */,
+>>>>>>> Stashed changes
 				DD73108F2E251851009A50EC /* NotificationPermissionView.swift in Sources */,
 				E96874D32E26602C0011E709 /* TermConditionView.swift in Sources */,
 				DD7310F62E252029009A50EC /* PostCard.swift in Sources */,
+				DD70E6882E265D9E00461295 /* HomeViewModel.swift in Sources */,
 				DDD5275D2E21143F008454B1 /* Persistence.swift in Sources */,
 				DD73107A2E2505EA009A50EC /* OTPFieldView.swift in Sources */,
 				E96874DA2E2665860011E709 /* FAQsView.swift in Sources */,
@@ -696,6 +760,7 @@
 				DD7310F22E251FB6009A50EC /* HomeView.swift in Sources */,
 				DDD527572E21143E008454B1 /* Slodoggies_AppApp.swift in Sources */,
 				DD73106E2E24EB08009A50EC /* PhoneNumberLoginView.swift in Sources */,
+				DD70E6C02E26684500461295 /* PetInfoPopupView.swift in Sources */,
 				DD7310F82E252036009A50EC /* AdCard.swift in Sources */,
 				DD7310FA2E252043009A50EC /* EventCard.swift in Sources */,
 				DD73107D2E2509C2009A50EC /* VerifyPhoneViewModel.swift in Sources */,
@@ -706,17 +771,26 @@
 				E96874D02E26505D0011E709 /* ViewModal.swift in Sources */,
 				DD7310842E250C70009A50EC /* EmailLoginView.swift in Sources */,
 				DD73108A2E251754009A50EC /* VerifyEmailViewModel.swift in Sources */,
+				DD70E6692E26533700461295 /* WelcomePopUp.swift in Sources */,
 				DD7310322E24DC25009A50EC /* JoinThePackView.swift in Sources */,
 				E96874E92E267FF80011E709 /* HelpSupportViewModal.swift in Sources */,
 				E96874CE2E263D1F0011E709 /* AboutUSView.swift in Sources */,
 				DD7310FE2E252090009A50EC /* VideoCard.swift in Sources */,
+<<<<<<< Updated upstream
 				E96874E22E266A4E0011E709 /* FAQViewModal.swift in Sources */,
 				E96874D52E2663B70011E709 /* PrivacyPolicyView.swift in Sources */,
+=======
+				DD70E6C42E26861A00461295 /* CustomTextfilds.swift in Sources */,
+>>>>>>> Stashed changes
 				DD7310EE2E251D15009A50EC /* LocationPermissionView.swift in Sources */,
 				E96874EC2E2680950011E709 /* HelpSupportModal.swift in Sources */,
 				DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */,
+				DD70E6C92E26928C00461295 /* CommentPopupView.swift in Sources */,
+				DD70E6C22E267ACE00461295 /* AddYourDetailPopUpView.swift in Sources */,
 				DD7310782E25017E009A50EC /* VerifyPhoneView.swift in Sources */,
 				DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */,
+				DD70E62F2E2638E500461295 /* CustomTabBar.swift in Sources */,
+				DD70E6312E263AFA00461295 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

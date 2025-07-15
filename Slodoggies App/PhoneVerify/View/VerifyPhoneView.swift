@@ -61,8 +61,8 @@ struct VerifyPhoneView: View {
             }
 
             Button(action: {
-                
                 print("Verifying with OTP: \(viewModel.otp)")
+                coordinator.push(.notificationpermision)
             }) {
                 HStack {
                     Spacer()

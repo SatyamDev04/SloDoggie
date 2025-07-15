@@ -22,13 +22,13 @@ struct VideoCard: View {
             HStack(alignment: .top) {
                 // Profile image
                 ZStack {
-                   Image("Lady") // Your human image
+                   Image("Lady")
                        .resizable()
                        .aspectRatio(contentMode: .fill)
                        .frame(width: 50, height: 50)
                        .clipShape(Circle())
 
-                   Image("Dog") // Your dog image
+                   Image("Dog")
                        .resizable()
                        .aspectRatio(contentMode: .fill)
                        .frame(width: 50, height: 50)
@@ -65,8 +65,6 @@ struct VideoCard: View {
                     }
                 }
 
-                Spacer()
-
                 Button("Follow") {
                 }
                 .font(.custom("Outfit-Regular", size: 12))
@@ -76,6 +74,8 @@ struct VideoCard: View {
                 .foregroundColor(.white)
                 .cornerRadius(6)
 
+                Spacer()
+                
                 Button(action: {
                    
                 }) {
@@ -91,7 +91,7 @@ struct VideoCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("🐶 Say hello to Jimmi! Three years of cuddles, chaos, and unconditional love. Here’s to more adventures with my favorite fur companion! 🐾 #JimmiTheDog #LifeWithPets #SloDoggiesLove #PetParentGoals #DogVibesOnly")
                     .font(.custom("Outfit-Regular", size: 13))
-                    .lineLimit(readMoreTapped ? nil : 2) // <- FIXED
+                    .lineLimit(readMoreTapped ? nil : 2) 
 
                    if !readMoreTapped {
                        Button("Read More") {
@@ -106,17 +106,40 @@ struct VideoCard: View {
             ZStack(alignment: .bottom) {
                 TabView(selection: $currentIndex) {
                     ForEach(0..<images.count, id: \.self) { index in
-                        Image(images[index])
-                            .resizable()
-                            .scaledToFill()
-                            .clipped()
-//                            .cornerRadius(10)
-                            .tag(index)
+                        ZStack {
+                            Image(images[index])
+                                .resizable()
+                                .scaledToFill()
+                                .frame(height: 350)
+                                .clipped()
+
+                            // Center Play Button
+                            Image("PlayButton")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.white)
+                                .shadow(radius: 4)
+                        }
+                        .tag(index)
                     }
                 }
                 .frame(height: 350)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
+                // Video progress bar (dummy progress)
+                Rectangle()
+                    .fill(Color.white.opacity(0.7))
+                    .frame(height: 4)
+                    .overlay(
+                        GeometryReader { geometry in
+                            // Dummy progress value, you can replace with actual video progress
+                            let progress: CGFloat = 0.4
+                            Rectangle()
+                                .fill(Color(hex: "#258694"))
+                                .frame(width: geometry.size.width * progress)
+                        }
+                    )
+            
                 HStack(spacing: 6) {
                     ForEach(0..<images.count, id: \.self) { index in
                         if currentIndex == index {

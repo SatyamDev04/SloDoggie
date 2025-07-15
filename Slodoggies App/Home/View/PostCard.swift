@@ -13,6 +13,7 @@ struct PetPostCardView: View {
     @State private var isLiked = false
     @State private var likeCount = 120
     @State private var isBookmarked = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             
@@ -49,6 +50,8 @@ struct PetPostCardView: View {
                     .font(.subheadline)
 
                     HStack(spacing: 6) {
+                       
+                        
                         Text("Pet Mom")
                             .font(.custom("Outfit-Medium", size: 8))
                             .padding(.horizontal, 6)
@@ -63,7 +66,6 @@ struct PetPostCardView: View {
                     }
                 }
 
-                Spacer()
 
                 Button("Follow") {
                 }
@@ -74,6 +76,8 @@ struct PetPostCardView: View {
                 .foregroundColor(.white)
                 .cornerRadius(6)
 
+                Spacer()
+                
                 Button(action: {
                    
                 }) {

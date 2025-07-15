@@ -36,7 +36,7 @@ private extension LaunchScreenView {
     func handleOnAppear() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation {
-                coordinator.push(.onboarding)
+                coordinator.push(.tabBar)
 //                if viewModel.isUserLoggedIn {
 //                    coordinator.push(.tabBar)
 //                }else{
@@ -69,6 +69,18 @@ private extension LaunchScreenView {
                 .navigationBarBackButtonHidden()
         case .emailLogin:
             EmailLoginView()
+                .navigationBarBackButtonHidden()
+        case .verifyEmail:
+            VerifyEmailView()
+                .navigationBarBackButtonHidden()
+        case .notificationpermision:
+            NotificationPermissionView()
+                .navigationBarBackButtonHidden()
+        case .locationPermission:
+            LocationPermissionView()
+                .navigationBarBackButtonHidden()
+        case .tabBar:
+            MainTabView()
                 .navigationBarBackButtonHidden()
         }
     }

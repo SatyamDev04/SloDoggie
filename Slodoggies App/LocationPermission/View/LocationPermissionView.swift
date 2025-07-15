@@ -9,6 +9,7 @@ import SwiftUI
 import UserNotifications
 
 struct LocationPermissionView: View {
+    @EnvironmentObject private var coordinator: Coordinator
     var body: some View {
             VStack(spacing: 32) {
                 Spacer().frame(height: 80)
@@ -21,7 +22,7 @@ struct LocationPermissionView: View {
                 // Title and subtitle
                 VStack(spacing: 8) {
                     Text("Turn on Location")
-                        .font(.custom("OutfitSemiBold", size: 26))
+                        .font(.custom("Outfit-SemiBold", size: 26))
 //                        .fontWeight(.bold)
                         .foregroundColor(.black)
 
@@ -33,7 +34,7 @@ struct LocationPermissionView: View {
 
                 // Turn On button
                 Button(action: {
-                    requestNotificationPermission()
+                    coordinator.push(.tabBar)
                 }) {
                     Text("Turn On")
                         .font(.custom("Outfit-SemiBold", size: 18))
@@ -66,17 +67,7 @@ struct LocationPermissionView: View {
             }
         }
 
-        // Request notification permission
-        func requestNotificationPermission() {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                if granted {
-                    print("Notifications allowed")
-                    // Navigate to next screen
-                } else {
-                    print("Notifications not allowed")
-                }
-            }
-        }
+       
 }
 
 #Preview {
