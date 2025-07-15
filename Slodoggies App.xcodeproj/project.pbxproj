@@ -34,6 +34,17 @@
 		DDD527602E21143F008454B1 /* Slodoggies_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDD5275E2E21143F008454B1 /* Slodoggies_App.xcdatamodeld */; };
 		DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527AB2E21257C008454B1 /* OnboardingView.swift */; };
 		DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527B42E214511008454B1 /* OnboardingPage.swift */; };
+		E96874CE2E263D1F0011E709 /* AboutUSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874CD2E263D140011E709 /* AboutUSView.swift */; };
+		E96874D02E26505D0011E709 /* ViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874CF2E2650550011E709 /* ViewModal.swift */; };
+		E96874D32E26602C0011E709 /* TermConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874D22E26601F0011E709 /* TermConditionView.swift */; };
+		E96874D52E2663B70011E709 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874D42E2663AC0011E709 /* PrivacyPolicyView.swift */; };
+		E96874DA2E2665860011E709 /* FAQsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874D92E2665570011E709 /* FAQsView.swift */; };
+		E96874E02E266A350011E709 /* FaqModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874DF2E266A1E0011E709 /* FaqModal.swift */; };
+		E96874E22E266A4E0011E709 /* FAQViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874E12E266A450011E709 /* FAQViewModal.swift */; };
+		E96874E72E267FE30011E709 /* HelpSupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874E62E267FD00011E709 /* HelpSupportView.swift */; };
+		E96874E92E267FF80011E709 /* HelpSupportViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874E82E267FE90011E709 /* HelpSupportViewModal.swift */; };
+		E96874EC2E2680950011E709 /* HelpSupportModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874EB2E2680860011E709 /* HelpSupportModal.swift */; };
+		E96874EF2E2692AE0011E709 /* DeleteAccPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874EE2E2692A10011E709 /* DeleteAccPopUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +96,17 @@
 		DDD5276F2E21143F008454B1 /* Slodoggies AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slodoggies AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD527AB2E21257C008454B1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DDD527B42E214511008454B1 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		E96874CD2E263D140011E709 /* AboutUSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUSView.swift; sourceTree = "<group>"; };
+		E96874CF2E2650550011E709 /* ViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModal.swift; sourceTree = "<group>"; };
+		E96874D22E26601F0011E709 /* TermConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermConditionView.swift; sourceTree = "<group>"; };
+		E96874D42E2663AC0011E709 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		E96874D92E2665570011E709 /* FAQsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsView.swift; sourceTree = "<group>"; };
+		E96874DF2E266A1E0011E709 /* FaqModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqModal.swift; sourceTree = "<group>"; };
+		E96874E12E266A450011E709 /* FAQViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModal.swift; sourceTree = "<group>"; };
+		E96874E62E267FD00011E709 /* HelpSupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSupportView.swift; sourceTree = "<group>"; };
+		E96874E82E267FE90011E709 /* HelpSupportViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSupportViewModal.swift; sourceTree = "<group>"; };
+		E96874EB2E2680860011E709 /* HelpSupportModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSupportModal.swift; sourceTree = "<group>"; };
+		E96874EE2E2692A10011E709 /* DeleteAccPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccPopUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -401,9 +423,116 @@
 				DD73108C2E25182B009A50EC /* NotifictionPermission */,
 				DD7310EB2E251D00009A50EC /* LocationPermission */,
 				DD7310EF2E251F82009A50EC /* Home */,
+				E96874CA2E263CB50011E709 /* AboutUs */,
+				E96874D62E2665200011E709 /* FAQs */,
+				E96874E32E267F820011E709 /* Help&Support */,
+				E96874ED2E26928B0011E709 /* DeleteAccount */,
 				DD7310CD2E251AAB009A50EC /* Info.plist */,
 			);
 			path = "Slodoggies App";
+			sourceTree = "<group>";
+		};
+		E96874CA2E263CB50011E709 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				E96874CC2E263D0A0011E709 /* View */,
+				E96874D12E2650790011E709 /* ViewModal */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		E96874CC2E263D0A0011E709 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E96874CD2E263D140011E709 /* AboutUSView.swift */,
+				E96874D22E26601F0011E709 /* TermConditionView.swift */,
+				E96874D42E2663AC0011E709 /* PrivacyPolicyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E96874D12E2650790011E709 /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				E96874CF2E2650550011E709 /* ViewModal.swift */,
+			);
+			path = ViewModal;
+			sourceTree = "<group>";
+		};
+		E96874D62E2665200011E709 /* FAQs */ = {
+			isa = PBXGroup;
+			children = (
+				E96874D72E2665370011E709 /* View */,
+				E96874D82E26653F0011E709 /* ViewModal */,
+				E96874DD2E2669CF0011E709 /* Modal */,
+			);
+			path = FAQs;
+			sourceTree = "<group>";
+		};
+		E96874D72E2665370011E709 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E96874D92E2665570011E709 /* FAQsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E96874D82E26653F0011E709 /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				E96874E12E266A450011E709 /* FAQViewModal.swift */,
+			);
+			path = ViewModal;
+			sourceTree = "<group>";
+		};
+		E96874DD2E2669CF0011E709 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				E96874DF2E266A1E0011E709 /* FaqModal.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		E96874E32E267F820011E709 /* Help&Support */ = {
+			isa = PBXGroup;
+			children = (
+				E96874E42E267FB00011E709 /* View */,
+				E96874E52E267FB90011E709 /* ViewModal */,
+				E96874EA2E26807F0011E709 /* Modal */,
+			);
+			path = "Help&Support";
+			sourceTree = "<group>";
+		};
+		E96874E42E267FB00011E709 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E96874E62E267FD00011E709 /* HelpSupportView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E96874E52E267FB90011E709 /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				E96874E82E267FE90011E709 /* HelpSupportViewModal.swift */,
+			);
+			path = ViewModal;
+			sourceTree = "<group>";
+		};
+		E96874EA2E26807F0011E709 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				E96874EB2E2680860011E709 /* HelpSupportModal.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		E96874ED2E26928B0011E709 /* DeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				E96874EE2E2692A10011E709 /* DeleteAccPopUpView.swift */,
+			);
+			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,14 +681,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7310FC2E25204B009A50EC /* PostActions.swift in Sources */,
+				E96874E72E267FE30011E709 /* HelpSupportView.swift in Sources */,
 				DD73108F2E251851009A50EC /* NotificationPermissionView.swift in Sources */,
+				E96874D32E26602C0011E709 /* TermConditionView.swift in Sources */,
 				DD7310F62E252029009A50EC /* PostCard.swift in Sources */,
 				DDD5275D2E21143F008454B1 /* Persistence.swift in Sources */,
 				DD73107A2E2505EA009A50EC /* OTPFieldView.swift in Sources */,
+				E96874DA2E2665860011E709 /* FAQsView.swift in Sources */,
 				DD7310F42E251FFF009A50EC /* HomeDataModel.swift in Sources */,
 				DD7310832E250C70009A50EC /* EmailLoginViewModel.swift in Sources */,
 				DDD527592E21143E008454B1 /* ContentView.swift in Sources */,
 				DD7310732E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift in Sources */,
+				E96874E02E266A350011E709 /* FaqModal.swift in Sources */,
 				DD7310F22E251FB6009A50EC /* HomeView.swift in Sources */,
 				DDD527572E21143E008454B1 /* Slodoggies_AppApp.swift in Sources */,
 				DD73106E2E24EB08009A50EC /* PhoneNumberLoginView.swift in Sources */,
@@ -569,11 +702,18 @@
 				DD73106A2E24E0C9009A50EC /* HelperFile.swift in Sources */,
 				DD73108B2E251754009A50EC /* VerifyEmailView.swift in Sources */,
 				DDD527602E21143F008454B1 /* Slodoggies_App.xcdatamodeld in Sources */,
+				E96874EF2E2692AE0011E709 /* DeleteAccPopUpView.swift in Sources */,
+				E96874D02E26505D0011E709 /* ViewModal.swift in Sources */,
 				DD7310842E250C70009A50EC /* EmailLoginView.swift in Sources */,
 				DD73108A2E251754009A50EC /* VerifyEmailViewModel.swift in Sources */,
 				DD7310322E24DC25009A50EC /* JoinThePackView.swift in Sources */,
+				E96874E92E267FF80011E709 /* HelpSupportViewModal.swift in Sources */,
+				E96874CE2E263D1F0011E709 /* AboutUSView.swift in Sources */,
 				DD7310FE2E252090009A50EC /* VideoCard.swift in Sources */,
+				E96874E22E266A4E0011E709 /* FAQViewModal.swift in Sources */,
+				E96874D52E2663B70011E709 /* PrivacyPolicyView.swift in Sources */,
 				DD7310EE2E251D15009A50EC /* LocationPermissionView.swift in Sources */,
+				E96874EC2E2680950011E709 /* HelpSupportModal.swift in Sources */,
 				DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */,
 				DD7310782E25017E009A50EC /* VerifyPhoneView.swift in Sources */,
 				DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */,
