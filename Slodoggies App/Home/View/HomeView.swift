@@ -18,7 +18,6 @@ struct HomeView: View {
         .video(VideoModel(title: "Say hello to Jimmi!", description: "Three years of cuddles...", tags: ["#LifeWithPets", "#SloDoggiesLove"], thumbnail: "video_dog", likes: 200, comments: 100, shares: 15))
     ]
     
-    
     var body: some View {
         ZStack{
             VStack{
