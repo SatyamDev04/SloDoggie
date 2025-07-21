@@ -27,8 +27,8 @@ private extension LaunchScreenView {
         VStack {
             Image("Launch Image Logo")
 //                .resizable()
-                .scaledToFit()
-                .edgesIgnoringSafeArea(.all)
+                  .scaledToFit()
+                  .edgesIgnoringSafeArea(.all)
                 
         }
     }
@@ -81,6 +81,33 @@ private extension LaunchScreenView {
                 .navigationBarBackButtonHidden()
         case .tabBar:
             MainTabView()
+                .navigationBarBackButtonHidden()
+        case .settingView:
+            SettingView()
+                .navigationBarBackButtonHidden()
+        case .savedView:
+            SavedView()
+                .navigationBarBackButtonHidden()
+        case .aboutUs:
+            AboutUSView()
+                .navigationBarBackButtonHidden()
+        case .privacyPolicy:
+            PrivacyPolicyView()
+                .navigationBarBackButtonHidden()
+        case .termsAndCondition:
+            TermConditionView()
+                .navigationBarBackButtonHidden()
+        case .faq:
+            FAQsView()
+                .navigationBarBackButtonHidden()
+        case .helpSupport:
+            HelpSupportView()
+                .navigationBarBackButtonHidden()
+        case .EventParticipants:
+            EventParticipantsView()
+                .navigationBarBackButtonHidden()
+        case .addParticipants:
+            AddParticipantsView()
                 .navigationBarBackButtonHidden()
         }
     }

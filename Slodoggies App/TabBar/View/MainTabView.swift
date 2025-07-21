@@ -7,7 +7,6 @@
 
 import SwiftUICore
 
-
 struct MainTabView: View {
     @State private var selectedTab: CustomTab = .home
     @State var showWelcomPopUp: Bool = true
@@ -29,7 +28,8 @@ struct MainTabView: View {
                     case .services:
                         Text("Services View")
                     case .profile:
-                        Text("Profile View")
+                        SettingView()
+                        //Text("Profile View")
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

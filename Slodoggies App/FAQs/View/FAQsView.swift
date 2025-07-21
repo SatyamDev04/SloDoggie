@@ -10,13 +10,14 @@ import SwiftUI
 
 struct FAQsView: View {
     @StateObject private var viewModel = FAQViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         VStack(spacing: 0) {
             // Custom Header
             HStack(spacing: 12) {
                 Button(action: {
-                    // Action for back
+                    coordinator.pop()
                 }) {
                     Image("Back")
                         .resizable()

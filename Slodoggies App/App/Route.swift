@@ -16,6 +16,15 @@ enum Route: Hashable {
     case notificationpermision
     case locationPermission
     case tabBar
+    case settingView
+    case savedView
+    case aboutUs
+    case privacyPolicy
+    case termsAndCondition
+    case faq
+    case helpSupport
+    case EventParticipants
+    case addParticipants
 }
 
 final class Coordinator: ObservableObject {

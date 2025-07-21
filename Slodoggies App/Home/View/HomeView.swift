@@ -44,12 +44,11 @@ struct HomeView: View {
                     .frame(width: 40, height: 40)
                 }
                 .padding(.horizontal,25)
-//                .padding(.bottom,2)
+                //                .padding(.bottom,2)
                 
-                
-                        Divider()
-                            .frame(height: 2)
-                            .background(Color(hex: "#258694"))
+                Divider()
+                    .frame(height: 2)
+                    .background(Color(hex: "#258694"))
                 ScrollView {
                     Spacer().frame(height: 10)
                     VStack(spacing: 16) {
@@ -71,13 +70,13 @@ struct HomeView: View {
                     }
                     .padding(.bottom, 40) // for safe area / tab bar
                     
-                }
+                 }
                 .background(Color(hex: "#E5EFF2"))
-            }
-           
-        }
-    }
-}
-#Preview {
-    HomeView()
-}
+              }
+          }
+      }
+  }
+
+  #Preview {
+     HomeView()
+ }

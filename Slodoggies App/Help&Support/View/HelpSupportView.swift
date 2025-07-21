@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HelpSupportView: View {
     @StateObject private var viewModel = HelpSupportViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         VStack(spacing: 0) {
@@ -16,7 +17,7 @@ struct HelpSupportView: View {
             // Header
             HStack(spacing: 12) {
                 Button(action: {
-                    // Action for back
+                    coordinator.pop()
                 }) {
                     Image("Back")
                         .resizable()

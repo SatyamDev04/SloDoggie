@@ -6,9 +6,9 @@
 //
 
 
-import SwiftUI
+ import SwiftUI
 
-struct EmailLoginView: View {
+ struct EmailLoginView: View {
     @StateObject var viewModel = EmailLoginViewModel()
     @EnvironmentObject private var coordinator: Coordinator
     
@@ -117,12 +117,11 @@ struct EmailLoginView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: 10)
                     .padding(.horizontal,30)
-            }
+              }
+           }
         }
-    }
-  
-}
+     }
 
-#Preview {
-    PhoneNumberLoginView()
-}
+   #Preview {
+     PhoneNumberLoginView()
+   }

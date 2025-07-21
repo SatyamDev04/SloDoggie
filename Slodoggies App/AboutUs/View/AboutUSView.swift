@@ -9,12 +9,13 @@ import SwiftUI
 
 struct AboutUSView: View {
     @StateObject private var viewModal = AboutUsViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         Spacer()
         HStack(spacing: 20){
             Button(action: {
-                
+                coordinator.pop()
             }){
                 Image("Back")
                     .resizable()
