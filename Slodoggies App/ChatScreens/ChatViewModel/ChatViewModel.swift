@@ -9,21 +9,50 @@ import Foundation
 import Combine
 
 class ChatViewModel: ObservableObject {
-    @Published var messages: [ChatMessage] = []
+    @Published var messages: [ChatMessage] = [
+        ChatMessage(userId: "user_2",
+                    userName: "Jane Cooper",
+                    avatar: "ChatProfile",
+                    message: "Hello! I am interested in your grooming service.",
+                    timestamp: Date()),
+        
+        ChatMessage(userId: "user_1",
+                    userName: "You",
+                    avatar: "ChatProfile",
+                    message: "Hi! Thank you for reaching out. How can I assist you today?",
+                    timestamp: Date()),
+        
+        ChatMessage(userId: "user_2",
+                    userName: "Jane Cooper",
+                    avatar: "ChatProfile",
+                    message: "Can you tell me about the available packages?",
+                    timestamp: Date()),
+        
+        ChatMessage(userId: "user_2",
+                    userName: "Aspen Carder",
+                    avatar: "ChatProfile",
+                    message: "",
+                    timestamp: Date(),
+                    isCard: true,
+                    cardTitle: "Aspen Carder",
+                    cardSubtitle: "The game in...",
+                    cardImage: "dog_sample")
+    ]
+    
     @Published var newMessage = ""
-
+    
     let currentUserId = "user_1"
     let currentUserName = "You"
-
+    
     func sendMessage() {
         guard !newMessage.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-
+        
         let new = ChatMessage(userId: currentUserId,
                               userName: currentUserName,
-                              avatar: "person.fill",
+                              avatar: "profile_me",
                               message: newMessage,
                               timestamp: Date())
         messages.append(new)
         newMessage = ""
+      }
     }
-}

@@ -51,7 +51,6 @@ struct PetPostCardView: View {
 
                     HStack(spacing: 6) {
                        
-                        
                         Text("Pet Mom")
                             .font(.custom("Outfit-Medium", size: 8))
                             .padding(.horizontal, 6)
@@ -65,7 +64,6 @@ struct PetPostCardView: View {
                             .foregroundColor(.gray)
                     }
                 }
-
 
                 Button("Follow") {
                 }

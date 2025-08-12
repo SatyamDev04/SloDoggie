@@ -63,6 +63,6 @@ struct EditParticipantsView: View {
    }
 
 
-#Preview {
-    EditParticipantsView(isPresented: .constant(true))
-}
+  #Preview {
+     EditParticipantsView(isPresented: .constant(true))
+   }

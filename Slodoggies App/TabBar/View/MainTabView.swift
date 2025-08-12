@@ -13,10 +13,12 @@ struct MainTabView: View {
     @State var petInfoPopView: Bool = false
     @State var addYourInfoPopView: Bool = false
     @State var profileCreatedPopView: Bool = false
+    @EnvironmentObject private var coordinator: Coordinator
+    
     var body: some View {
         ZStack{
             VStack(spacing: 0) {
-                //            Spacer()
+            //  Spacer()
                 Group {
                     switch selectedTab {
                     case .home:
@@ -24,11 +26,13 @@ struct MainTabView: View {
                     case .discover:
                         Text("Discover View")
                     case .add:
-                        Text("Add Pet View")
+                       // Text("Add Pet View")
+                        CreatePostScreen()
                     case .services:
-                        Text("Services View")
+                        ServicesView()
+                        //Text("Services View")
                     case .profile:
-                        SettingView()
+                        ProfileView()
                         //Text("Profile View")
                     }
                 }

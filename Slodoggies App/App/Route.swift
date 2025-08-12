@@ -23,8 +23,15 @@ enum Route: Hashable {
     case termsAndCondition
     case faq
     case helpSupport
+    case myEvents
+    case chatView
     case EventParticipants
     case addParticipants
+    case editPetProfileView
+    case editProfileView
+    case providerProfileView
+    case createPostEventView
+    
 }
 
 final class Coordinator: ObservableObject {

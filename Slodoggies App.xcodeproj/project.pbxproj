@@ -43,6 +43,7 @@
 		DDD527602E21143F008454B1 /* Slodoggies_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDD5275E2E21143F008454B1 /* Slodoggies_App.xcdatamodeld */; };
 		DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527AB2E21257C008454B1 /* OnboardingView.swift */; };
 		DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527B42E214511008454B1 /* OnboardingPage.swift */; };
+		E902F2E92E4B183C0084FBCB /* ReportUserPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F2E82E4B182F0084FBCB /* ReportUserPopUpView.swift */; };
 		E96874CE2E263D1F0011E709 /* AboutUSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874CD2E263D140011E709 /* AboutUSView.swift */; };
 		E96874D02E26505D0011E709 /* ViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874CF2E2650550011E709 /* ViewModal.swift */; };
 		E96874D32E26602C0011E709 /* TermConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874D22E26601F0011E709 /* TermConditionView.swift */; };
@@ -54,6 +55,27 @@
 		E96874E92E267FF80011E709 /* HelpSupportViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874E82E267FE90011E709 /* HelpSupportViewModal.swift */; };
 		E96874EC2E2680950011E709 /* HelpSupportModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874EB2E2680860011E709 /* HelpSupportModal.swift */; };
 		E96874EF2E2692AE0011E709 /* DeleteAccPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874EE2E2692A10011E709 /* DeleteAccPopUpView.swift */; };
+		E97CDB922E38A4A0005E8FA8 /* CreateGroup&EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CDB912E38A48E005E8FA8 /* CreateGroup&EventView.swift */; };
+		E97CDB942E38A4B8005E8FA8 /* Group&EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CDB932E38A4AA005E8FA8 /* Group&EventViewModel.swift */; };
+		E97CDB962E38A4D1005E8FA8 /* Group&EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CDB952E38A4BC005E8FA8 /* Group&EventModel.swift */; };
+		E97CDB982E38A62C005E8FA8 /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CDB972E38A622005E8FA8 /* PostFormView.swift */; };
+		E97CDB9A2E38A635005E8FA8 /* EventFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CDB992E38A62F005E8FA8 /* EventFormView.swift */; };
+		E97CDB9C2E38A683005E8FA8 /* UploadMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CDB9B2E38A66D005E8FA8 /* UploadMediaView.swift */; };
+		E9864E1A2E338226008044CF /* ProviderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E192E33821F008044CF /* ProviderModel.swift */; };
+		E9864E1C2E338232008044CF /* ProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E1B2E33822A008044CF /* ProviderViewModel.swift */; };
+		E9864E1E2E33823E008044CF /* ProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E1D2E338237008044CF /* ProviderView.swift */; };
+		E9864E202E3382C2008044CF /* ProviderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E1F2E3382B5008044CF /* ProviderHeaderView.swift */; };
+		E9864E222E3382E8008044CF /* ServiceTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E212E3382DF008044CF /* ServiceTabView.swift */; };
+		E9864E242E33830A008044CF /* ReviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E232E338302008044CF /* ReviewTabView.swift */; };
+		E9AF8C4D2E2FA436006C2108 /* PetProfileUpdatedSuccPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C4C2E2FA421006C2108 /* PetProfileUpdatedSuccPopUp.swift */; };
+		E9AF8C4F2E2FAF31006C2108 /* ProfileSuccUpdatedPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C4E2E2FAF12006C2108 /* ProfileSuccUpdatedPopUp.swift */; };
+		E9AF8C552E2FBB53006C2108 /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C542E2FBB4B006C2108 /* ProfileDataModel.swift */; };
+		E9AF8C572E2FBB60006C2108 /* ProfileDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C562E2FBB58006C2108 /* ProfileDataViewModel.swift */; };
+		E9AF8C592E2FBB6A006C2108 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C582E2FBB65006C2108 /* ProfileView.swift */; };
+		E9AF8C5B2E2FBC53006C2108 /* PetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C5A2E2FBC47006C2108 /* PetCardView.swift */; };
+		E9AF8C5D2E2FBC66006C2108 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C5C2E2FBC60006C2108 /* StatusView.swift */; };
+		E9AF8C5F2E2FBC74006C2108 /* EmptyPetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C5E2E2FBC72006C2108 /* EmptyPetCardView.swift */; };
+		E9AF8C612E2FBC81006C2108 /* OwnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C602E2FBC7E006C2108 /* OwnerCardView.swift */; };
 		E9CA221F2E278C64001536BB /* LogoutAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA221E2E278C58001536BB /* LogoutAccountView.swift */; };
 		E9CA225D2E27A219001536BB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA225C2E27A213001536BB /* SettingView.swift */; };
 		E9CA22612E27A3EB001536BB /* SettingViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA22602E27A3E2001536BB /* SettingViewModal.swift */; };
@@ -65,8 +87,35 @@
 		E9CA22752E27DA71001536BB /* EventCommViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA22742E27DA61001536BB /* EventCommViewModel.swift */; };
 		E9CA22792E27DABC001536BB /* EventCommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA22782E27DAB3001536BB /* EventCommunityView.swift */; };
 		E9CA227B2E27E5B9001536BB /* RenameCommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA227A2E27E5A2001536BB /* RenameCommunityView.swift */; };
+		E9D2297E2E4A088A00FD343A /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2297D2E4A087D00FD343A /* ChatListView.swift */; };
+		E9D229802E4A08AA00FD343A /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2297F2E4A089E00FD343A /* ChatListViewModel.swift */; };
+		E9D229822E4A08BC00FD343A /* ChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D229812E4A08B000FD343A /* ChatListModel.swift */; };
+		E9D229842E4A25DD00FD343A /* DeleteChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D229832E4A25D400FD343A /* DeleteChatView.swift */; };
+		E9D97C072E322F26006498ED /* GalleryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C062E322F19006498ED /* GalleryCardView.swift */; };
+		E9D97C0A2E324B5F006498ED /* AddYourPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C092E324B50006498ED /* AddYourPetView.swift */; };
+		E9D97C0C2E3264D4006498ED /* PetAddSuccPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C0B2E3264C9006498ED /* PetAddSuccPopUp.swift */; };
+		E9D97C132E326EC7006498ED /* ServiceModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C122E326EBE006498ED /* ServiceModelView.swift */; };
+		E9D97C152E326ED7006498ED /* ServiceViewModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C142E326ECB006498ED /* ServiceViewModelView.swift */; };
+		E9D97C172E326EE0006498ED /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C162E326EDC006498ED /* ServiceView.swift */; };
+		E9D97C192E326F49006498ED /* ServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C182E326F42006498ED /* ServiceCardView.swift */; };
+		E9D97C1D2E326F66006498ED /* ServiceFilterChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C1C2E326F5F006498ED /* ServiceFilterChip.swift */; };
+		E9D97C1F2E326F70006498ED /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C1E2E326F6A006498ED /* SearchView.swift */; };
 		E9DFAA822E2A65A600F7F157 /* EditParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DFAA812E2A659500F7F157 /* EditParticipantsView.swift */; };
 		E9DFAA842E2A73CA00F7F157 /* RemoveUserPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DFAA832E2A73BF00F7F157 /* RemoveUserPopUpView.swift */; };
+		E9ED9FBF2E2E346F00592432 /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FBE2E2E346800592432 /* MyEventsView.swift */; };
+		E9ED9FC12E2E347D00592432 /* MyEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FC02E2E347400592432 /* MyEventsViewModel.swift */; };
+		E9ED9FC32E2E349600592432 /* MyEventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FC22E2E348800592432 /* MyEventsModel.swift */; };
+		E9ED9FC52E2E34E000592432 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FC42E2E34D700592432 /* EventCardView.swift */; };
+		E9ED9FF12E2E7A2300592432 /* EditPetProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FF02E2E7A1000592432 /* EditPetProfileModel.swift */; };
+		E9ED9FF32E2E7A3000592432 /* EditPetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FF22E2E7A2800592432 /* EditPetProfileViewModel.swift */; };
+		E9ED9FF52E2E7A3C00592432 /* EditPetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FF42E2E7A3400592432 /* EditPetProfileView.swift */; };
+		E9ED9FFD2E2E7A9C00592432 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FFC2E2E7A9000592432 /* EditProfileModel.swift */; };
+		E9ED9FFF2E2E7AAB00592432 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FFE2E2E7AA100592432 /* EditProfileViewModel.swift */; };
+		E9EDA0012E2E7AB800592432 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDA0002E2E7AB000592432 /* EditProfileView.swift */; };
+		E9EDA0032E2E7B6100592432 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDA0022E2E7B5400592432 /* ImagePickerView.swift */; };
+		E9F701A52E37B2CF00B3D331 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F701A42E37B2C100B3D331 /* NotificationView.swift */; };
+		E9F701A72E37B2E400B3D331 /* NotiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F701A62E37B2D600B3D331 /* NotiViewModel.swift */; };
+		E9F701A92E37B2F700B3D331 /* NotiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F701A82E37B2E800B3D331 /* NotiModel.swift */; };
 		E9FC99C02E28DC8400194707 /* AddParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC99BF2E28DC7A00194707 /* AddParticipantsView.swift */; };
 		E9FC99C22E28DCA400194707 /* AddParticipantsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC99C12E28DC9000194707 /* AddParticipantsViewModal.swift */; };
 		E9FC99C42E28DCD400194707 /* AddParticipantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC99C32E28DCC600194707 /* AddParticipantsModel.swift */; };
@@ -134,6 +183,8 @@
 		DDD5276F2E21143F008454B1 /* Slodoggies AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slodoggies AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD527AB2E21257C008454B1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DDD527B42E214511008454B1 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		E902F2E82E4B182F0084FBCB /* ReportUserPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserPopUpView.swift; sourceTree = "<group>"; };
+		E902F2EA2E4B54470084FBCB /* Slodoggies App.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Slodoggies App.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		E96874CD2E263D140011E709 /* AboutUSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUSView.swift; sourceTree = "<group>"; };
 		E96874CF2E2650550011E709 /* ViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModal.swift; sourceTree = "<group>"; };
 		E96874D22E26601F0011E709 /* TermConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermConditionView.swift; sourceTree = "<group>"; };
@@ -145,6 +196,27 @@
 		E96874E82E267FE90011E709 /* HelpSupportViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSupportViewModal.swift; sourceTree = "<group>"; };
 		E96874EB2E2680860011E709 /* HelpSupportModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSupportModal.swift; sourceTree = "<group>"; };
 		E96874EE2E2692A10011E709 /* DeleteAccPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccPopUpView.swift; sourceTree = "<group>"; };
+		E97CDB912E38A48E005E8FA8 /* CreateGroup&EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateGroup&EventView.swift"; sourceTree = "<group>"; };
+		E97CDB932E38A4AA005E8FA8 /* Group&EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group&EventViewModel.swift"; sourceTree = "<group>"; };
+		E97CDB952E38A4BC005E8FA8 /* Group&EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group&EventModel.swift"; sourceTree = "<group>"; };
+		E97CDB972E38A622005E8FA8 /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
+		E97CDB992E38A62F005E8FA8 /* EventFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFormView.swift; sourceTree = "<group>"; };
+		E97CDB9B2E38A66D005E8FA8 /* UploadMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadMediaView.swift; sourceTree = "<group>"; };
+		E9864E192E33821F008044CF /* ProviderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderModel.swift; sourceTree = "<group>"; };
+		E9864E1B2E33822A008044CF /* ProviderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewModel.swift; sourceTree = "<group>"; };
+		E9864E1D2E338237008044CF /* ProviderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderView.swift; sourceTree = "<group>"; };
+		E9864E1F2E3382B5008044CF /* ProviderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderHeaderView.swift; sourceTree = "<group>"; };
+		E9864E212E3382DF008044CF /* ServiceTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTabView.swift; sourceTree = "<group>"; };
+		E9864E232E338302008044CF /* ReviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTabView.swift; sourceTree = "<group>"; };
+		E9AF8C4C2E2FA421006C2108 /* PetProfileUpdatedSuccPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileUpdatedSuccPopUp.swift; sourceTree = "<group>"; };
+		E9AF8C4E2E2FAF12006C2108 /* ProfileSuccUpdatedPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSuccUpdatedPopUp.swift; sourceTree = "<group>"; };
+		E9AF8C542E2FBB4B006C2108 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
+		E9AF8C562E2FBB58006C2108 /* ProfileDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataViewModel.swift; sourceTree = "<group>"; };
+		E9AF8C582E2FBB65006C2108 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E9AF8C5A2E2FBC47006C2108 /* PetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardView.swift; sourceTree = "<group>"; };
+		E9AF8C5C2E2FBC60006C2108 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		E9AF8C5E2E2FBC72006C2108 /* EmptyPetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPetCardView.swift; sourceTree = "<group>"; };
+		E9AF8C602E2FBC7E006C2108 /* OwnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerCardView.swift; sourceTree = "<group>"; };
 		E9CA221E2E278C58001536BB /* LogoutAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAccountView.swift; sourceTree = "<group>"; };
 		E9CA225C2E27A213001536BB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		E9CA22602E27A3E2001536BB /* SettingViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModal.swift; sourceTree = "<group>"; };
@@ -156,8 +228,35 @@
 		E9CA22742E27DA61001536BB /* EventCommViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommViewModel.swift; sourceTree = "<group>"; };
 		E9CA22782E27DAB3001536BB /* EventCommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommunityView.swift; sourceTree = "<group>"; };
 		E9CA227A2E27E5A2001536BB /* RenameCommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameCommunityView.swift; sourceTree = "<group>"; };
+		E9D2297D2E4A087D00FD343A /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		E9D2297F2E4A089E00FD343A /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		E9D229812E4A08B000FD343A /* ChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModel.swift; sourceTree = "<group>"; };
+		E9D229832E4A25D400FD343A /* DeleteChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteChatView.swift; sourceTree = "<group>"; };
+		E9D97C062E322F19006498ED /* GalleryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCardView.swift; sourceTree = "<group>"; };
+		E9D97C092E324B50006498ED /* AddYourPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourPetView.swift; sourceTree = "<group>"; };
+		E9D97C0B2E3264C9006498ED /* PetAddSuccPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAddSuccPopUp.swift; sourceTree = "<group>"; };
+		E9D97C122E326EBE006498ED /* ServiceModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModelView.swift; sourceTree = "<group>"; };
+		E9D97C142E326ECB006498ED /* ServiceViewModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModelView.swift; sourceTree = "<group>"; };
+		E9D97C162E326EDC006498ED /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
+		E9D97C182E326F42006498ED /* ServiceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCardView.swift; sourceTree = "<group>"; };
+		E9D97C1C2E326F5F006498ED /* ServiceFilterChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFilterChip.swift; sourceTree = "<group>"; };
+		E9D97C1E2E326F6A006498ED /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E9DFAA812E2A659500F7F157 /* EditParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditParticipantsView.swift; sourceTree = "<group>"; };
 		E9DFAA832E2A73BF00F7F157 /* RemoveUserPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveUserPopUpView.swift; sourceTree = "<group>"; };
+		E9ED9FBE2E2E346800592432 /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
+		E9ED9FC02E2E347400592432 /* MyEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewModel.swift; sourceTree = "<group>"; };
+		E9ED9FC22E2E348800592432 /* MyEventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsModel.swift; sourceTree = "<group>"; };
+		E9ED9FC42E2E34D700592432 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
+		E9ED9FF02E2E7A1000592432 /* EditPetProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetProfileModel.swift; sourceTree = "<group>"; };
+		E9ED9FF22E2E7A2800592432 /* EditPetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetProfileViewModel.swift; sourceTree = "<group>"; };
+		E9ED9FF42E2E7A3400592432 /* EditPetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetProfileView.swift; sourceTree = "<group>"; };
+		E9ED9FFC2E2E7A9000592432 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
+		E9ED9FFE2E2E7AA100592432 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		E9EDA0002E2E7AB000592432 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		E9EDA0022E2E7B5400592432 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		E9F701A42E37B2C100B3D331 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		E9F701A62E37B2D600B3D331 /* NotiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiViewModel.swift; sourceTree = "<group>"; };
+		E9F701A82E37B2E800B3D331 /* NotiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiModel.swift; sourceTree = "<group>"; };
 		E9FC99BF2E28DC7A00194707 /* AddParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantsView.swift; sourceTree = "<group>"; };
 		E9FC99C12E28DC9000194707 /* AddParticipantsViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantsViewModal.swift; sourceTree = "<group>"; };
 		E9FC99C32E28DCC600194707 /* AddParticipantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantsModel.swift; sourceTree = "<group>"; };
@@ -200,6 +299,11 @@
 				DD6D48C52E27765800A16D48 /* Exceptions for "App" folder in "Slodoggies App" target */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		E9ED9FCA2E2E4CD200592432 /* ProfileFolowersView */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProfileFolowersView;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -339,6 +443,7 @@
 				DD6D48DE2E27789300A16D48 /* CustomTextfilds.swift */,
 				DD7310792E2505EA009A50EC /* OTPFieldView.swift */,
 				DD7310692E24E0C9009A50EC /* HelperFile.swift */,
+				E902F2EA2E4B54470084FBCB /* Slodoggies App.xcodeproj */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -532,7 +637,17 @@
 				E9CA22622E27BC40001536BB /* Saved */,
 				E9CA226E2E27DA04001536BB /* EventCommunity */,
 				E9FC99B82E28DC1000194707 /* AddParticipents */,
+				E9ED9FCA2E2E4CD200592432 /* ProfileFolowersView */,
+				E9D229792E4A080600FD343A /* ChatMsgListView */,
 				E9FC99FF2E28F3ED00194707 /* ChatScreens */,
+				E9ED9FBA2E2E342900592432 /* MyEvents */,
+				E9AF8C502E2FBB18006C2108 /* Profile Screen */,
+				E9ED9FEC2E2E79E000592432 /* Edit Pet Profile */,
+				E9ED9FF62E2E7A4400592432 /* Edit Profile */,
+				E9D97C0E2E326E7F006498ED /* Service View */,
+				E9F701A02E37B29300B3D331 /* Notification View */,
+				E97CDB8D2E38A3FE005E8FA8 /* Create Post & Event view */,
+				E9864E152E3381C6008044CF /* ProviderDetailsView */,
 				DD7310CD2E251AAB009A50EC /* Info.plist */,
 			);
 			path = "Slodoggies App";
@@ -641,6 +756,120 @@
 			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
+		E97CDB8D2E38A3FE005E8FA8 /* Create Post & Event view */ = {
+			isa = PBXGroup;
+			children = (
+				E97CDB902E38A486005E8FA8 /* View */,
+				E97CDB8F2E38A448005E8FA8 /* ViewModel */,
+				E97CDB8E2E38A432005E8FA8 /* Model */,
+			);
+			path = "Create Post & Event view";
+			sourceTree = "<group>";
+		};
+		E97CDB8E2E38A432005E8FA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E97CDB952E38A4BC005E8FA8 /* Group&EventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E97CDB8F2E38A448005E8FA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E97CDB932E38A4AA005E8FA8 /* Group&EventViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E97CDB902E38A486005E8FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E97CDB912E38A48E005E8FA8 /* CreateGroup&EventView.swift */,
+				E97CDB972E38A622005E8FA8 /* PostFormView.swift */,
+				E97CDB992E38A62F005E8FA8 /* EventFormView.swift */,
+				E97CDB9B2E38A66D005E8FA8 /* UploadMediaView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9864E152E3381C6008044CF /* ProviderDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				E9864E182E338202008044CF /* ProviderModel */,
+				E9864E172E3381F7008044CF /* ProviderViewModel */,
+				E9864E162E3381E3008044CF /* ProviderView */,
+			);
+			path = ProviderDetailsView;
+			sourceTree = "<group>";
+		};
+		E9864E162E3381E3008044CF /* ProviderView */ = {
+			isa = PBXGroup;
+			children = (
+				E9864E1D2E338237008044CF /* ProviderView.swift */,
+				E9864E1F2E3382B5008044CF /* ProviderHeaderView.swift */,
+				E9864E212E3382DF008044CF /* ServiceTabView.swift */,
+				E9864E232E338302008044CF /* ReviewTabView.swift */,
+			);
+			path = ProviderView;
+			sourceTree = "<group>";
+		};
+		E9864E172E3381F7008044CF /* ProviderViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9864E1B2E33822A008044CF /* ProviderViewModel.swift */,
+			);
+			path = ProviderViewModel;
+			sourceTree = "<group>";
+		};
+		E9864E182E338202008044CF /* ProviderModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9864E192E33821F008044CF /* ProviderModel.swift */,
+			);
+			path = ProviderModel;
+			sourceTree = "<group>";
+		};
+		E9AF8C502E2FBB18006C2108 /* Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E9AF8C532E2FBB41006C2108 /* Model */,
+				E9AF8C522E2FBB38006C2108 /* ViewModel */,
+				E9AF8C512E2FBB2F006C2108 /* View */,
+				E9D97C082E324B2F006498ED /* Add Your Pet */,
+			);
+			path = "Profile Screen";
+			sourceTree = "<group>";
+		};
+		E9AF8C512E2FBB2F006C2108 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9AF8C582E2FBB65006C2108 /* ProfileView.swift */,
+				E9AF8C5A2E2FBC47006C2108 /* PetCardView.swift */,
+				E9AF8C5C2E2FBC60006C2108 /* StatusView.swift */,
+				E9AF8C5E2E2FBC72006C2108 /* EmptyPetCardView.swift */,
+				E9AF8C602E2FBC7E006C2108 /* OwnerCardView.swift */,
+				E9D97C062E322F19006498ED /* GalleryCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9AF8C522E2FBB38006C2108 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9AF8C562E2FBB58006C2108 /* ProfileDataViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9AF8C532E2FBB41006C2108 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9AF8C542E2FBB4B006C2108 /* ProfileDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E9CA221D2E278C46001536BB /* LogoutAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +975,226 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E9D229792E4A080600FD343A /* ChatMsgListView */ = {
+			isa = PBXGroup;
+			children = (
+				E9D2297C2E4A083F00FD343A /* View */,
+				E9D2297B2E4A082E00FD343A /* ViewModel */,
+				E9D2297A2E4A081B00FD343A /* Model */,
+			);
+			path = ChatMsgListView;
+			sourceTree = "<group>";
+		};
+		E9D2297A2E4A081B00FD343A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9D229812E4A08B000FD343A /* ChatListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9D2297B2E4A082E00FD343A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9D2297F2E4A089E00FD343A /* ChatListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9D2297C2E4A083F00FD343A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D2297D2E4A087D00FD343A /* ChatListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9D97C082E324B2F006498ED /* Add Your Pet */ = {
+			isa = PBXGroup;
+			children = (
+				E9D97C092E324B50006498ED /* AddYourPetView.swift */,
+				E9D97C0B2E3264C9006498ED /* PetAddSuccPopUp.swift */,
+			);
+			path = "Add Your Pet";
+			sourceTree = "<group>";
+		};
+		E9D97C0E2E326E7F006498ED /* Service View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D97C112E326EB0006498ED /* View */,
+				E9D97C102E326EA2006498ED /* ViewModel */,
+				E9D97C0F2E326E97006498ED /* Model */,
+			);
+			path = "Service View";
+			sourceTree = "<group>";
+		};
+		E9D97C0F2E326E97006498ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9D97C122E326EBE006498ED /* ServiceModelView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9D97C102E326EA2006498ED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9D97C142E326ECB006498ED /* ServiceViewModelView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9D97C112E326EB0006498ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D97C162E326EDC006498ED /* ServiceView.swift */,
+				E9D97C182E326F42006498ED /* ServiceCardView.swift */,
+				E9D97C1C2E326F5F006498ED /* ServiceFilterChip.swift */,
+				E9D97C1E2E326F6A006498ED /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9ED9FBA2E2E342900592432 /* MyEvents */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FBD2E2E345D00592432 /* View */,
+				E9ED9FBC2E2E345500592432 /* ViewModel */,
+				E9ED9FBB2E2E344E00592432 /* Model */,
+			);
+			path = MyEvents;
+			sourceTree = "<group>";
+		};
+		E9ED9FBB2E2E344E00592432 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FC22E2E348800592432 /* MyEventsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9ED9FBC2E2E345500592432 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FC02E2E347400592432 /* MyEventsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9ED9FBD2E2E345D00592432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FBE2E2E346800592432 /* MyEventsView.swift */,
+				E9ED9FC42E2E34D700592432 /* EventCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9ED9FEC2E2E79E000592432 /* Edit Pet Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FEF2E2E7A0900592432 /* Model */,
+				E9ED9FEE2E2E7A0000592432 /* ViewModel */,
+				E9ED9FED2E2E79F900592432 /* View */,
+			);
+			path = "Edit Pet Profile";
+			sourceTree = "<group>";
+		};
+		E9ED9FED2E2E79F900592432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FF42E2E7A3400592432 /* EditPetProfileView.swift */,
+				E9EDA0022E2E7B5400592432 /* ImagePickerView.swift */,
+				E9AF8C4C2E2FA421006C2108 /* PetProfileUpdatedSuccPopUp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9ED9FEE2E2E7A0000592432 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FF22E2E7A2800592432 /* EditPetProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9ED9FEF2E2E7A0900592432 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FF02E2E7A1000592432 /* EditPetProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9ED9FF62E2E7A4400592432 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FFB2E2E7A8A00592432 /* Model */,
+				E9ED9FFA2E2E7A7D00592432 /* ViewModel */,
+				E9ED9FF72E2E7A6A00592432 /* View */,
+			);
+			path = "Edit Profile";
+			sourceTree = "<group>";
+		};
+		E9ED9FF72E2E7A6A00592432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9EDA0002E2E7AB000592432 /* EditProfileView.swift */,
+				E9AF8C4E2E2FAF12006C2108 /* ProfileSuccUpdatedPopUp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9ED9FFA2E2E7A7D00592432 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FFE2E2E7AA100592432 /* EditProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9ED9FFB2E2E7A8A00592432 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED9FFC2E2E7A9000592432 /* EditProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9F701A02E37B29300B3D331 /* Notification View */ = {
+			isa = PBXGroup;
+			children = (
+				E9F701A32E37B2B900B3D331 /* View */,
+				E9F701A22E37B2AF00B3D331 /* ViewModel */,
+				E9F701A12E37B2A700B3D331 /* Model */,
+			);
+			path = "Notification View";
+			sourceTree = "<group>";
+		};
+		E9F701A12E37B2A700B3D331 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9F701A82E37B2E800B3D331 /* NotiModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9F701A22E37B2AF00B3D331 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9F701A62E37B2D600B3D331 /* NotiViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9F701A32E37B2B900B3D331 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9F701A42E37B2C100B3D331 /* NotificationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E9FC99B82E28DC1000194707 /* AddParticipents */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +1268,8 @@
 			isa = PBXGroup;
 			children = (
 				E9FC9A092E28F6C500194707 /* ChatView.swift */,
+				E9D229832E4A25D400FD343A /* DeleteChatView.swift */,
+				E902F2E82E4B182F0084FBCB /* ReportUserPopUpView.swift */,
 			);
 			path = ChatScreenView;
 			sourceTree = "<group>";
@@ -840,6 +1291,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DDD527C12E21460A008454B1 /* outfitFont */,
+				E9ED9FCA2E2E4CD200592432 /* ProfileFolowersView */,
 			);
 			name = "Slodoggies App";
 			packageProductDependencies = (
@@ -968,72 +1420,121 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AF8C4F2E2FAF31006C2108 /* ProfileSuccUpdatedPopUp.swift in Sources */,
 				DD7310FC2E25204B009A50EC /* PostActions.swift in Sources */,
+				E9D229802E4A08AA00FD343A /* ChatListViewModel.swift in Sources */,
 				DD6D48DF2E27789300A16D48 /* CustomTextfilds.swift in Sources */,
 				E96874E72E267FE30011E709 /* HelpSupportView.swift in Sources */,
 				DD73108F2E251851009A50EC /* NotificationPermissionView.swift in Sources */,
 				E9FC9A0A2E28F6CC00194707 /* ChatView.swift in Sources */,
 				E96874D32E26602C0011E709 /* TermConditionView.swift in Sources */,
+				E9AF8C5B2E2FBC53006C2108 /* PetCardView.swift in Sources */,
+				E9F701A72E37B2E400B3D331 /* NotiViewModel.swift in Sources */,
 				DD7310F62E252029009A50EC /* PostCard.swift in Sources */,
 				DDD5275D2E21143F008454B1 /* Persistence.swift in Sources */,
 				DD73107A2E2505EA009A50EC /* OTPFieldView.swift in Sources */,
+				E9864E1E2E33823E008044CF /* ProviderView.swift in Sources */,
 				E96874DA2E2665860011E709 /* FAQsView.swift in Sources */,
 				E9FC9A082E28F68400194707 /* ChatBubbleView.swift in Sources */,
 				DD7310F42E251FFF009A50EC /* HomeDataModel.swift in Sources */,
+				E97CDB982E38A62C005E8FA8 /* PostFormView.swift in Sources */,
+				E9D97C0A2E324B5F006498ED /* AddYourPetView.swift in Sources */,
 				E9DFAA842E2A73CA00F7F157 /* RemoveUserPopUpView.swift in Sources */,
 				DD7310832E250C70009A50EC /* EmailLoginViewModel.swift in Sources */,
 				E9CA22752E27DA71001536BB /* EventCommViewModel.swift in Sources */,
+				E9ED9FC12E2E347D00592432 /* MyEventsViewModel.swift in Sources */,
+				E9AF8C4D2E2FA436006C2108 /* PetProfileUpdatedSuccPopUp.swift in Sources */,
+				E97CDB942E38A4B8005E8FA8 /* Group&EventViewModel.swift in Sources */,
 				DDD527592E21143E008454B1 /* ContentView.swift in Sources */,
 				DD7310732E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift in Sources */,
 				DD6D48D82E27784600A16D48 /* ProfileCreatedPopUpView.swift in Sources */,
 				DD6D48D92E27784600A16D48 /* WelcomePopUp.swift in Sources */,
 				DD6D48DA2E27784600A16D48 /* CommentPopupView.swift in Sources */,
+				E9ED9FC52E2E34E000592432 /* EventCardView.swift in Sources */,
+				E9AF8C572E2FBB60006C2108 /* ProfileDataViewModel.swift in Sources */,
 				DD6D48DB2E27784600A16D48 /* PetInfoPopupView.swift in Sources */,
+				E9ED9FFF2E2E7AAB00592432 /* EditProfileViewModel.swift in Sources */,
 				DD6D48DC2E27784600A16D48 /* AddYourDetailPopUpView.swift in Sources */,
 				E9FC99C42E28DCD400194707 /* AddParticipantsModel.swift in Sources */,
 				E9DFAA822E2A65A600F7F157 /* EditParticipantsView.swift in Sources */,
 				E9CA22692E27BC9D001536BB /* SavedModel.swift in Sources */,
 				E96874E02E266A350011E709 /* FaqModal.swift in Sources */,
+				E9D229842E4A25DD00FD343A /* DeleteChatView.swift in Sources */,
+				E9F701A52E37B2CF00B3D331 /* NotificationView.swift in Sources */,
+				E9ED9FF12E2E7A2300592432 /* EditPetProfileModel.swift in Sources */,
 				E9CA22732E27DA5C001536BB /* EventCommunityModel.swift in Sources */,
+				E9864E202E3382C2008044CF /* ProviderHeaderView.swift in Sources */,
 				E9FC9A042E28F61D00194707 /* ChatMsgModel.swift in Sources */,
 				DD7310F22E251FB6009A50EC /* HomeView.swift in Sources */,
+				E9AF8C552E2FBB53006C2108 /* ProfileDataModel.swift in Sources */,
+				E9ED9FBF2E2E346F00592432 /* MyEventsView.swift in Sources */,
 				DDD527572E21143E008454B1 /* Slodoggies_AppApp.swift in Sources */,
+				E9F701A92E37B2F700B3D331 /* NotiModel.swift in Sources */,
 				DD73106E2E24EB08009A50EC /* PhoneNumberLoginView.swift in Sources */,
 				DD7310F82E252036009A50EC /* AdCard.swift in Sources */,
 				E9CA22612E27A3EB001536BB /* SettingViewModal.swift in Sources */,
+				E9D97C132E326EC7006498ED /* ServiceModelView.swift in Sources */,
+				E97CDB9C2E38A683005E8FA8 /* UploadMediaView.swift in Sources */,
+				E9ED9FFD2E2E7A9C00592432 /* EditProfileModel.swift in Sources */,
+				E902F2E92E4B183C0084FBCB /* ReportUserPopUpView.swift in Sources */,
 				DD7310FA2E252043009A50EC /* EventCard.swift in Sources */,
 				DD73107D2E2509C2009A50EC /* VerifyPhoneViewModel.swift in Sources */,
 				E9CA22792E27DABC001536BB /* EventCommunityView.swift in Sources */,
+				E9D97C192E326F49006498ED /* ServiceCardView.swift in Sources */,
 				DD73106A2E24E0C9009A50EC /* HelperFile.swift in Sources */,
+				E9D97C1D2E326F66006498ED /* ServiceFilterChip.swift in Sources */,
 				DD6D48D02E27780E00A16D48 /* CustomTabBar.swift in Sources */,
 				DD6D48D12E27780E00A16D48 /* MainTabView.swift in Sources */,
+				E9AF8C5F2E2FBC74006C2108 /* EmptyPetCardView.swift in Sources */,
 				DD73108B2E251754009A50EC /* VerifyEmailView.swift in Sources */,
 				E9CA22672E27BC8F001536BB /* SavedViewModal.swift in Sources */,
 				E9CA226B2E27BCA8001536BB /* SavedView.swift in Sources */,
 				E9CA225D2E27A219001536BB /* SettingView.swift in Sources */,
 				E9CA227B2E27E5B9001536BB /* RenameCommunityView.swift in Sources */,
+				E9864E222E3382E8008044CF /* ServiceTabView.swift in Sources */,
+				E9ED9FC32E2E349600592432 /* MyEventsModel.swift in Sources */,
+				E97CDB9A2E38A635005E8FA8 /* EventFormView.swift in Sources */,
 				DDD527602E21143F008454B1 /* Slodoggies_App.xcdatamodeld in Sources */,
+				E9D97C0C2E3264D4006498ED /* PetAddSuccPopUp.swift in Sources */,
+				E97CDB922E38A4A0005E8FA8 /* CreateGroup&EventView.swift in Sources */,
+				E9D97C072E322F26006498ED /* GalleryCardView.swift in Sources */,
 				E96874EF2E2692AE0011E709 /* DeleteAccPopUpView.swift in Sources */,
 				E96874D02E26505D0011E709 /* ViewModal.swift in Sources */,
 				DD7310842E250C70009A50EC /* EmailLoginView.swift in Sources */,
+				E9D229822E4A08BC00FD343A /* ChatListModel.swift in Sources */,
 				DD73108A2E251754009A50EC /* VerifyEmailViewModel.swift in Sources */,
+				E9D97C152E326ED7006498ED /* ServiceViewModelView.swift in Sources */,
 				DD7310322E24DC25009A50EC /* JoinThePackView.swift in Sources */,
+				E9864E242E33830A008044CF /* ReviewTabView.swift in Sources */,
 				E9CA226D2E27C1B9001536BB /* MediaViewerView.swift in Sources */,
 				E96874E92E267FF80011E709 /* HelpSupportViewModal.swift in Sources */,
 				E96874CE2E263D1F0011E709 /* AboutUSView.swift in Sources */,
+				E9AF8C592E2FBB6A006C2108 /* ProfileView.swift in Sources */,
+				E9EDA0012E2E7AB800592432 /* EditProfileView.swift in Sources */,
+				E9EDA0032E2E7B6100592432 /* ImagePickerView.swift in Sources */,
+				E9AF8C612E2FBC81006C2108 /* OwnerCardView.swift in Sources */,
+				E9AF8C5D2E2FBC66006C2108 /* StatusView.swift in Sources */,
+				E9864E1A2E338226008044CF /* ProviderModel.swift in Sources */,
 				DD7310FE2E252090009A50EC /* VideoCard.swift in Sources */,
 				E9CA221F2E278C64001536BB /* LogoutAccountView.swift in Sources */,
+				E9ED9FF32E2E7A3000592432 /* EditPetProfileViewModel.swift in Sources */,
 				E96874E22E266A4E0011E709 /* FAQViewModal.swift in Sources */,
+				E9D97C1F2E326F70006498ED /* SearchView.swift in Sources */,
+				E9D97C172E326EE0006498ED /* ServiceView.swift in Sources */,
+				E9D2297E2E4A088A00FD343A /* ChatListView.swift in Sources */,
 				E96874D52E2663B70011E709 /* PrivacyPolicyView.swift in Sources */,
 				DD7310EE2E251D15009A50EC /* LocationPermissionView.swift in Sources */,
+				E9864E1C2E338232008044CF /* ProviderViewModel.swift in Sources */,
 				DD6D48CB2E2777DA00A16D48 /* HomeViewModel.swift in Sources */,
 				E96874EC2E2680950011E709 /* HelpSupportModal.swift in Sources */,
 				E9FC9A062E28F64400194707 /* ChatViewModel.swift in Sources */,
 				DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */,
 				DD7310782E25017E009A50EC /* VerifyPhoneView.swift in Sources */,
 				E9FC99C22E28DCA400194707 /* AddParticipantsViewModal.swift in Sources */,
+				E97CDB962E38A4D1005E8FA8 /* Group&EventModel.swift in Sources */,
 				DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */,
 				E9FC99C02E28DC8400194707 /* AddParticipantsView.swift in Sources */,
+				E9ED9FF52E2E7A3C00592432 /* EditPetProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

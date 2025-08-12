@@ -19,7 +19,7 @@ struct SettingView: View {
         VStack{
             HStack(spacing: 20){
                 Button(action: {
-                    // coordinator.pop()
+                     coordinator.pop()
                 }){
                     Image("Back")
                         .resizable()
@@ -50,7 +50,7 @@ struct SettingView: View {
                         Divider()
                         
                         settingsRow(title: "Events".localized(), image: "EventsIcon") {
-                             coordinator.push(.EventParticipants)
+                             coordinator.push(.myEvents)
                         }
                         Divider()
                         

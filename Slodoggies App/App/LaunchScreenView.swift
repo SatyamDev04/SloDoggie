@@ -22,7 +22,6 @@ struct LaunchScreenView: View {
 }
 
 private extension LaunchScreenView {
-    
     var launchImageView: some View {
         VStack {
             Image("Launch Image Logo")
@@ -108,6 +107,24 @@ private extension LaunchScreenView {
                 .navigationBarBackButtonHidden()
         case .addParticipants:
             AddParticipantsView()
+                .navigationBarBackButtonHidden()
+        case .editPetProfileView:
+            PetProfileView()
+                .navigationBarBackButtonHidden()
+        case .editProfileView:
+            EditProfileView()
+                .navigationBarBackButtonHidden()
+        case .myEvents:
+            EventListView()
+                .navigationBarBackButtonHidden()
+        case .chatView:
+            GroupChatView()
+                .navigationBarBackButtonHidden()
+        case .providerProfileView:
+            ProviderProfileView()
+                .navigationBarBackButtonHidden()
+        case .createPostEventView:
+            CreatePostScreen()
                 .navigationBarBackButtonHidden()
         }
     }
