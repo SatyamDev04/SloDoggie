@@ -653,6 +653,11 @@
 			path = "Slodoggies App";
 			sourceTree = "<group>";
 		};
+		E95244832E4DA912004CAC28 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E96874CA2E263CB50011E709 /* AboutUs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1381,6 +1386,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DDD527542E21143E008454B1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E95244832E4DA912004CAC28 /* Products */;
+					ProjectRef = E902F2EA2E4B54470084FBCB /* Slodoggies App.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DDD527522E21143E008454B1 /* Slodoggies App */,

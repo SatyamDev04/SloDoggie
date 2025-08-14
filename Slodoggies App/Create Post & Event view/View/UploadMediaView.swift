@@ -17,11 +17,14 @@ struct UploadMediaView: View {
                 .foregroundColor(Color(hex: "#258694"))
         }
         .frame(maxWidth: .infinity, minHeight: 100)
+        .background(
+            RoundedRectangle(cornerRadius: 8)
+                .fill(Color(red: 229/255, green: 239/255, blue: 242/255))
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                .foregroundColor(.teal)
-                .background(Color(red: 229/255, green: 239/255, blue: 242/255))
+                .foregroundColor(Color(hex: "#258694"))
         )
     }
 }

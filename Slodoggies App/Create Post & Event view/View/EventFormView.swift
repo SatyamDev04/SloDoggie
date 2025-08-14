@@ -83,7 +83,6 @@ struct EventFormView: View {
                            )
                        }
               
-
             Text("Location")
             Button(action: {}) {
                 HStack{
@@ -103,7 +102,7 @@ struct EventFormView: View {
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color.teal)
+            .background(Color(hex: "#258694"))
             .foregroundColor(.white)
             .cornerRadius(8)
         }

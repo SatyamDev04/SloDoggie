@@ -29,7 +29,7 @@ struct CreatePostScreen: View {
             }
             .padding(.leading, -180)
             .frame(alignment: .leading)
-            
+           
             ScrollView {
             HStack(spacing: 0) {
                 Button(action: { viewModel.selectedTab = .post }) {
@@ -37,7 +37,8 @@ struct CreatePostScreen: View {
                         .foregroundColor(viewModel.selectedTab == .post ? .white : .black)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(viewModel.selectedTab == .post ? Color(Color(hex: "#258694")) : Color.white)
+                        .frame(height: 34)
+                        .background(viewModel.selectedTab == .post ? Color(hex: "#258694") : Color.white)
                         .cornerRadius(6)
                 }
                 Button(action: { viewModel.selectedTab = .event }) {
@@ -45,21 +46,23 @@ struct CreatePostScreen: View {
                         .foregroundColor(viewModel.selectedTab == .event ? .white : .black)
                         .padding()
                         .frame(maxWidth: .infinity)
+                        .frame(height: 34)
                         .background(viewModel.selectedTab == .event ? Color(hex: "#258694") : Color.white)
                         .cornerRadius(6)
                 }
             }
-           // .padding()
+            .padding(.top, 40)
             .frame(height: 24)
             .padding(.horizontal)
-       
+            .padding(.bottom)
+                
                 if viewModel.selectedTab == .post {
                     PostFormView()
                 } else {
                     EventFormView()
                 }
             }
-            .padding(.top)
+            //.padding(.top, 40)
         }
         //.padding(.top)
       }
