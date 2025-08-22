@@ -15,7 +15,7 @@ struct OwnerCardView: View {
         HStack {
             Image(user.image)
                 .resizable()
-                .frame(width: 50, height: 50)
+                .frame(width: 60, height: 60)
                 .clipShape(Circle())
 
             VStack(alignment: .leading) {
@@ -25,13 +25,13 @@ struct OwnerCardView: View {
                     Button(action: {
                         coordinator.push(.editProfileView)
                     }) {
-                        Image("PencilIcon")
+                        Image("PencilIcons")
                     }
                 }
                 Text(user.tag)
-                    .font(.custom("Outfit-Medium", size: 12))
+                    .font(.custom("Outfit-Medium", size: 10))
                     .foregroundColor(Color(red: 0/255, green: 99/255, blue: 122/255))
-                    .padding(4).background(Color(red: 0/255, green: 99/255, blue: 122/255).opacity(0.10)).cornerRadius(6)
+                    .padding(.leading, 6) .padding(.trailing, 6) .background(Color(red: 0/255, green: 99/255, blue: 122/255).opacity(0.1)).cornerRadius(14)
                 Text(user.bio).font(.caption)
             }
         }

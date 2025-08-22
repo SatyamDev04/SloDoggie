@@ -12,75 +12,72 @@ struct LogoutAccountPopUpView: View {
     
     var body: some View {
         ZStack {
-            ZStack {
-                // Background dimming
-                Color(hex: "#3C3C434A").opacity(0.5)
-                    .ignoresSafeArea()
-                
-                VStack(spacing: 20) {
-                    // Trash icon
-                    Image("Logout")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .padding(.top, 33)
-                    
-                    // Title
-                    Text("Are you sure you want to log out of your account?")
-                        .font(.custom("Outfit-Regular", size: 16))
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                    
-                    // Buttons
-                    HStack {
-                        Button("Cancel") {
-                            isPresented = false
-                        }
-                        .font(.custom("Outfit-Medium", size: 16))
-                        .foregroundColor(.black)
-                        .padding()
-                        .frame(width: 144, height: 42)
-                        
-                        //Spacer()
-                        
-                        Button("Logout") {
-                            isPresented = false
-                            print("Account deleted")
-                            //isPresented = false
-                        }
-                        .padding()
-                        .frame(width: 140, height: 42)
-                        .font(.custom("Outfit-Bold", size: 15))
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .background(Color(hex: "#258694"))
-                        .cornerRadius(8, corners: .allCorners)
-                    }
-                    .padding([.horizontal])
-                    .padding(.bottom, 30)
+            // Background dimming
+            Color(hex: "#3C3C434A").opacity(0.5)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    isPresented = false
                 }
-                .background(.white)
-                .cornerRadius(16)
-                .padding()
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
-                
-            }
             
-            Button(action: {
-                isPresented = false
-            }) {
-                Image("crossIcon")
+            VStack(spacing: 20) {
+                Image("Logout")
                     .resizable()
-                    .frame(width: 38, height: 38)
-                    .background(Color.white.clipShape(Circle()))
-                    .padding(.top, -155)
-                    .padding(.leading, 270)
+                    .frame(width: 55, height: 55)
+                    .padding(.top, 33)
+                
+                Text("Are you sure you want to log out of your account?")
+                    .font(.custom("Outfit-Regular", size: 16))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                
+                HStack {
+                    Button("Cancel") {
+                        isPresented = false
+                    }
+                    .font(.custom("Outfit-Medium", size: 16))
+                    .foregroundColor(.black)
+                    .padding()
+                    .frame(width: 144, height: 42)
+                    
+                    Button("Logout") {
+                        isPresented = false
+                        print("Account logged out")
+                    }
+                    .padding()
+                    .frame(width: 140, height: 42)
+                    .font(.custom("Outfit-Bold", size: 15))
+                    .foregroundColor(.white)
+                    .background(Color(hex: "#258694"))
+                    .cornerRadius(8)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 30)
             }
-            .offset(x: 10, y: -10)
+            .background(Color.white)
+            .cornerRadius(16)
+            .padding(.horizontal, 30)
+            .overlay(
+                // Cross button in top-right corner of popup
+                Button(action: {
+                    isPresented = false
+                }) {
+                    Image("crossIcon")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .padding(8)
+                        //.background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
+                }
+                .padding(.top, -60)
+                .padding(.trailing, 30),
+                alignment: .topTrailing
+            )
         }
-     }
-  }
+    }
+}
 
- #Preview{
-     LogoutAccountPopUpView(isPresented: .constant(true))
- }
+#Preview {
+    LogoutAccountPopUpView(isPresented: .constant(true))
+}
+

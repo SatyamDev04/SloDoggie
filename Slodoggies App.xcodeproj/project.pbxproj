@@ -44,6 +44,9 @@
 		DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527AB2E21257C008454B1 /* OnboardingView.swift */; };
 		DDD527B52E214511008454B1 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD527B42E214511008454B1 /* OnboardingPage.swift */; };
 		E902F2E92E4B183C0084FBCB /* ReportUserPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F2E82E4B182F0084FBCB /* ReportUserPopUpView.swift */; };
+		E95244882E4DC71D004CAC28 /* PostCreatedPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95244872E4DC712004CAC28 /* PostCreatedPopup.swift */; };
+		E952448A2E4DC881004CAC28 /* EventCreatedPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95244892E4DC86F004CAC28 /* EventCreatedPopup.swift */; };
+		E95244B42E4E0D43004CAC28 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95244B32E4E0D3C004CAC28 /* MediaView.swift */; };
 		E96874CE2E263D1F0011E709 /* AboutUSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874CD2E263D140011E709 /* AboutUSView.swift */; };
 		E96874D02E26505D0011E709 /* ViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874CF2E2650550011E709 /* ViewModal.swift */; };
 		E96874D32E26602C0011E709 /* TermConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96874D22E26601F0011E709 /* TermConditionView.swift */; };
@@ -67,6 +70,20 @@
 		E9864E202E3382C2008044CF /* ProviderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E1F2E3382B5008044CF /* ProviderHeaderView.swift */; };
 		E9864E222E3382E8008044CF /* ServiceTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E212E3382DF008044CF /* ServiceTabView.swift */; };
 		E9864E242E33830A008044CF /* ReviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9864E232E338302008044CF /* ReviewTabView.swift */; };
+		E9997D6A2E5487F0004A81AB /* GroupChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9997D692E5487E7004A81AB /* GroupChatView.swift */; };
+		E9997D6C2E548808004A81AB /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9997D6B2E5487FF004A81AB /* MessageBubbleView.swift */; };
+		E9997D6E2E548821004A81AB /* GroupChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9997D6D2E54880E004A81AB /* GroupChatViewModel.swift */; };
+		E9997D702E54882E004A81AB /* GroupChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9997D6F2E548827004A81AB /* GroupChatModel.swift */; };
+		E99AA2462E574DC60074363A /* ProfileDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA2452E574DC00074363A /* ProfileDetailsView.swift */; };
+		E99AA2482E574DD10074363A /* ProfileDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA2472E574DCA0074363A /* ProfileDetailsViewModel.swift */; };
+		E99AA24A2E574DDA0074363A /* ProfileDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA2492E574DD40074363A /* ProfileDetailsModel.swift */; };
+		E99AA24C2E574FE70074363A /* PetCardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA24B2E574FDA0074363A /* PetCardDetailsView.swift */; };
+		E99AA24E2E574FFA0074363A /* StatusDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA24D2E574FEE0074363A /* StatusDetailsView.swift */; };
+		E99AA2502E5750160074363A /* EmptyPetCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA24F2E5750080074363A /* EmptyPetCardDetailView.swift */; };
+		E99AA2522E57502C0074363A /* OwnerCardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA2512E57501E0074363A /* OwnerCardDetailsView.swift */; };
+		E99AA2542E57508B0074363A /* GaleryCardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA2532E5750780074363A /* GaleryCardDetailsView.swift */; };
+		E99AA2562E57509C0074363A /* MediaDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA2552E5750910074363A /* MediaDetailsView.swift */; };
+		E99AA2802E575F0F0074363A /* CreateAccSuccessPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AA27F2E575F010074363A /* CreateAccSuccessPopUpView.swift */; };
 		E9AF8C4D2E2FA436006C2108 /* PetProfileUpdatedSuccPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C4C2E2FA421006C2108 /* PetProfileUpdatedSuccPopUp.swift */; };
 		E9AF8C4F2E2FAF31006C2108 /* ProfileSuccUpdatedPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C4E2E2FAF12006C2108 /* ProfileSuccUpdatedPopUp.swift */; };
 		E9AF8C552E2FBB53006C2108 /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF8C542E2FBB4B006C2108 /* ProfileDataModel.swift */; };
@@ -91,6 +108,13 @@
 		E9D229802E4A08AA00FD343A /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2297F2E4A089E00FD343A /* ChatListViewModel.swift */; };
 		E9D229822E4A08BC00FD343A /* ChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D229812E4A08B000FD343A /* ChatListModel.swift */; };
 		E9D229842E4A25DD00FD343A /* DeleteChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D229832E4A25D400FD343A /* DeleteChatView.swift */; };
+		E9D567A62E56F3BE00159BC6 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D567A52E56F3B900159BC6 /* DiscoverView.swift */; };
+		E9D567A82E56F3C900159BC6 /* DiscoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D567A72E56F3C200159BC6 /* DiscoverModel.swift */; };
+		E9D567AA2E56F3EC00159BC6 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D567A92E56F3E400159BC6 /* DiscoverViewModel.swift */; };
+		E9D567AC2E57236F00159BC6 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D567AB2E57236200159BC6 /* EventModel.swift */; };
+		E9D567AE2E5726C300159BC6 /* DiscoverEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D567AD2E5726AF00159BC6 /* DiscoverEventCard.swift */; };
+		E9D567B02E572C2600159BC6 /* PetPlacesDiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D567AF2E572C1500159BC6 /* PetPlacesDiscoverView.swift */; };
+		E9D567B22E573A0D00159BC6 /* ActivitiesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D567B12E573A0100159BC6 /* ActivitiesCardView.swift */; };
 		E9D97C072E322F26006498ED /* GalleryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C062E322F19006498ED /* GalleryCardView.swift */; };
 		E9D97C0A2E324B5F006498ED /* AddYourPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C092E324B50006498ED /* AddYourPetView.swift */; };
 		E9D97C0C2E3264D4006498ED /* PetAddSuccPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D97C0B2E3264C9006498ED /* PetAddSuccPopUp.swift */; };
@@ -113,6 +137,12 @@
 		E9ED9FFF2E2E7AAB00592432 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED9FFE2E2E7AA100592432 /* EditProfileViewModel.swift */; };
 		E9EDA0012E2E7AB800592432 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDA0002E2E7AB000592432 /* EditProfileView.swift */; };
 		E9EDA0032E2E7B6100592432 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDA0022E2E7B5400592432 /* ImagePickerView.swift */; };
+		E9F5D3CA2E5339A4003DAD35 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5D3C92E533996003DAD35 /* CreateAccountView.swift */; };
+		E9F5D3CE2E533A5F003DAD35 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5D3CD2E533A4F003DAD35 /* CreateAccountViewModel.swift */; };
+		E9F5D3D32E5344B6003DAD35 /* ChangePassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5D3D22E5344AE003DAD35 /* ChangePassView.swift */; };
+		E9F5D3D52E5344CB003DAD35 /* ChangePassViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5D3D42E5344BC003DAD35 /* ChangePassViewModal.swift */; };
+		E9F5D3D72E5347E0003DAD35 /* PasswordUpdateSuccPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5D3D62E5347D0003DAD35 /* PasswordUpdateSuccPopUp.swift */; };
+		E9F5D3DB2E535AB7003DAD35 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5D3DA2E535AAB003DAD35 /* ForgotPasswordView.swift */; };
 		E9F701A52E37B2CF00B3D331 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F701A42E37B2C100B3D331 /* NotificationView.swift */; };
 		E9F701A72E37B2E400B3D331 /* NotiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F701A62E37B2D600B3D331 /* NotiViewModel.swift */; };
 		E9F701A92E37B2F700B3D331 /* NotiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F701A82E37B2E800B3D331 /* NotiModel.swift */; };
@@ -185,6 +215,9 @@
 		DDD527B42E214511008454B1 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		E902F2E82E4B182F0084FBCB /* ReportUserPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserPopUpView.swift; sourceTree = "<group>"; };
 		E902F2EA2E4B54470084FBCB /* Slodoggies App.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Slodoggies App.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		E95244872E4DC712004CAC28 /* PostCreatedPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreatedPopup.swift; sourceTree = "<group>"; };
+		E95244892E4DC86F004CAC28 /* EventCreatedPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreatedPopup.swift; sourceTree = "<group>"; };
+		E95244B32E4E0D3C004CAC28 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		E96874CD2E263D140011E709 /* AboutUSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUSView.swift; sourceTree = "<group>"; };
 		E96874CF2E2650550011E709 /* ViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModal.swift; sourceTree = "<group>"; };
 		E96874D22E26601F0011E709 /* TermConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermConditionView.swift; sourceTree = "<group>"; };
@@ -208,6 +241,20 @@
 		E9864E1F2E3382B5008044CF /* ProviderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderHeaderView.swift; sourceTree = "<group>"; };
 		E9864E212E3382DF008044CF /* ServiceTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTabView.swift; sourceTree = "<group>"; };
 		E9864E232E338302008044CF /* ReviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTabView.swift; sourceTree = "<group>"; };
+		E9997D692E5487E7004A81AB /* GroupChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatView.swift; sourceTree = "<group>"; };
+		E9997D6B2E5487FF004A81AB /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
+		E9997D6D2E54880E004A81AB /* GroupChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatViewModel.swift; sourceTree = "<group>"; };
+		E9997D6F2E548827004A81AB /* GroupChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatModel.swift; sourceTree = "<group>"; };
+		E99AA2452E574DC00074363A /* ProfileDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsView.swift; sourceTree = "<group>"; };
+		E99AA2472E574DCA0074363A /* ProfileDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewModel.swift; sourceTree = "<group>"; };
+		E99AA2492E574DD40074363A /* ProfileDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsModel.swift; sourceTree = "<group>"; };
+		E99AA24B2E574FDA0074363A /* PetCardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardDetailsView.swift; sourceTree = "<group>"; };
+		E99AA24D2E574FEE0074363A /* StatusDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDetailsView.swift; sourceTree = "<group>"; };
+		E99AA24F2E5750080074363A /* EmptyPetCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPetCardDetailView.swift; sourceTree = "<group>"; };
+		E99AA2512E57501E0074363A /* OwnerCardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerCardDetailsView.swift; sourceTree = "<group>"; };
+		E99AA2532E5750780074363A /* GaleryCardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryCardDetailsView.swift; sourceTree = "<group>"; };
+		E99AA2552E5750910074363A /* MediaDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailsView.swift; sourceTree = "<group>"; };
+		E99AA27F2E575F010074363A /* CreateAccSuccessPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccSuccessPopUpView.swift; sourceTree = "<group>"; };
 		E9AF8C4C2E2FA421006C2108 /* PetProfileUpdatedSuccPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileUpdatedSuccPopUp.swift; sourceTree = "<group>"; };
 		E9AF8C4E2E2FAF12006C2108 /* ProfileSuccUpdatedPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSuccUpdatedPopUp.swift; sourceTree = "<group>"; };
 		E9AF8C542E2FBB4B006C2108 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
@@ -232,6 +279,13 @@
 		E9D2297F2E4A089E00FD343A /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		E9D229812E4A08B000FD343A /* ChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModel.swift; sourceTree = "<group>"; };
 		E9D229832E4A25D400FD343A /* DeleteChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteChatView.swift; sourceTree = "<group>"; };
+		E9D567A52E56F3B900159BC6 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		E9D567A72E56F3C200159BC6 /* DiscoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverModel.swift; sourceTree = "<group>"; };
+		E9D567A92E56F3E400159BC6 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		E9D567AB2E57236200159BC6 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		E9D567AD2E5726AF00159BC6 /* DiscoverEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverEventCard.swift; sourceTree = "<group>"; };
+		E9D567AF2E572C1500159BC6 /* PetPlacesDiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlacesDiscoverView.swift; sourceTree = "<group>"; };
+		E9D567B12E573A0100159BC6 /* ActivitiesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesCardView.swift; sourceTree = "<group>"; };
 		E9D97C062E322F19006498ED /* GalleryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCardView.swift; sourceTree = "<group>"; };
 		E9D97C092E324B50006498ED /* AddYourPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourPetView.swift; sourceTree = "<group>"; };
 		E9D97C0B2E3264C9006498ED /* PetAddSuccPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAddSuccPopUp.swift; sourceTree = "<group>"; };
@@ -254,6 +308,12 @@
 		E9ED9FFE2E2E7AA100592432 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		E9EDA0002E2E7AB000592432 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		E9EDA0022E2E7B5400592432 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		E9F5D3C92E533996003DAD35 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		E9F5D3CD2E533A4F003DAD35 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		E9F5D3D22E5344AE003DAD35 /* ChangePassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassView.swift; sourceTree = "<group>"; };
+		E9F5D3D42E5344BC003DAD35 /* ChangePassViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassViewModal.swift; sourceTree = "<group>"; };
+		E9F5D3D62E5347D0003DAD35 /* PasswordUpdateSuccPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUpdateSuccPopUp.swift; sourceTree = "<group>"; };
+		E9F5D3DA2E535AAB003DAD35 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		E9F701A42E37B2C100B3D331 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		E9F701A62E37B2D600B3D331 /* NotiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiViewModel.swift; sourceTree = "<group>"; };
 		E9F701A82E37B2E800B3D331 /* NotiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiModel.swift; sourceTree = "<group>"; };
@@ -620,6 +680,9 @@
 				DDD527C42E21460A008454B1 /* App */,
 				DDD527B12E2144DE008454B1 /* Onboarding */,
 				DD73102F2E24D9C5009A50EC /* JoinAs */,
+				E9F5D3C82E533981003DAD35 /* CreateAccountView */,
+				E9F5D3D82E535A91003DAD35 /* ForgotPassword */,
+				E9F5D3CF2E534487003DAD35 /* ChangePasswordView */,
 				DD73106B2E24EAED009A50EC /* Phone Number Login */,
 				DD7310742E250155009A50EC /* PhoneVerify */,
 				DD7310822E250C70009A50EC /* Email Login */,
@@ -628,6 +691,8 @@
 				DD7310EB2E251D00009A50EC /* LocationPermission */,
 				DD6D48CF2E27780E00A16D48 /* TabBar */,
 				DD7310EF2E251F82009A50EC /* Home */,
+				E9D567A12E56F37B00159BC6 /* DiscoverScreenView */,
+				E99AA2412E574D960074363A /* ProfileDetailsView */,
 				E96874CA2E263CB50011E709 /* AboutUs */,
 				E96874D62E2665200011E709 /* FAQs */,
 				E96874E32E267F820011E709 /* Help&Support */,
@@ -640,6 +705,7 @@
 				E9ED9FCA2E2E4CD200592432 /* ProfileFolowersView */,
 				E9D229792E4A080600FD343A /* ChatMsgListView */,
 				E9FC99FF2E28F3ED00194707 /* ChatScreens */,
+				E99A365D2E547CD600B00F51 /* GroupChatViewScreens */,
 				E9ED9FBA2E2E342900592432 /* MyEvents */,
 				E9AF8C502E2FBB18006C2108 /* Profile Screen */,
 				E9ED9FEC2E2E79E000592432 /* Edit Pet Profile */,
@@ -792,7 +858,9 @@
 			children = (
 				E97CDB912E38A48E005E8FA8 /* CreateGroup&EventView.swift */,
 				E97CDB972E38A622005E8FA8 /* PostFormView.swift */,
+				E95244872E4DC712004CAC28 /* PostCreatedPopup.swift */,
 				E97CDB992E38A62F005E8FA8 /* EventFormView.swift */,
+				E95244892E4DC86F004CAC28 /* EventCreatedPopup.swift */,
 				E97CDB9B2E38A66D005E8FA8 /* UploadMediaView.swift */,
 			);
 			path = View;
@@ -835,6 +903,89 @@
 			path = ProviderModel;
 			sourceTree = "<group>";
 		};
+		E9997D652E5487AA004A81AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9997D6F2E548827004A81AB /* GroupChatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9997D662E5487B4004A81AB /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				E9997D6D2E54880E004A81AB /* GroupChatViewModel.swift */,
+			);
+			path = ViewModal;
+			sourceTree = "<group>";
+		};
+		E9997D672E5487BD004A81AB /* BubbleView */ = {
+			isa = PBXGroup;
+			children = (
+				E9997D6B2E5487FF004A81AB /* MessageBubbleView.swift */,
+			);
+			path = BubbleView;
+			sourceTree = "<group>";
+		};
+		E9997D682E5487CC004A81AB /* GroupChatView */ = {
+			isa = PBXGroup;
+			children = (
+				E9997D692E5487E7004A81AB /* GroupChatView.swift */,
+			);
+			path = GroupChatView;
+			sourceTree = "<group>";
+		};
+		E99A365D2E547CD600B00F51 /* GroupChatViewScreens */ = {
+			isa = PBXGroup;
+			children = (
+				E9997D682E5487CC004A81AB /* GroupChatView */,
+				E9997D672E5487BD004A81AB /* BubbleView */,
+				E9997D662E5487B4004A81AB /* ViewModal */,
+				E9997D652E5487AA004A81AB /* Model */,
+			);
+			path = GroupChatViewScreens;
+			sourceTree = "<group>";
+		};
+		E99AA2412E574D960074363A /* ProfileDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				E99AA2442E574DBA0074363A /* View */,
+				E99AA2432E574DB20074363A /* ViewModel */,
+				E99AA2422E574DAA0074363A /* Model */,
+			);
+			path = ProfileDetailsView;
+			sourceTree = "<group>";
+		};
+		E99AA2422E574DAA0074363A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E99AA2492E574DD40074363A /* ProfileDetailsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E99AA2432E574DB20074363A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E99AA2472E574DCA0074363A /* ProfileDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E99AA2442E574DBA0074363A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E99AA2452E574DC00074363A /* ProfileDetailsView.swift */,
+				E99AA24B2E574FDA0074363A /* PetCardDetailsView.swift */,
+				E99AA24D2E574FEE0074363A /* StatusDetailsView.swift */,
+				E99AA24F2E5750080074363A /* EmptyPetCardDetailView.swift */,
+				E99AA2512E57501E0074363A /* OwnerCardDetailsView.swift */,
+				E99AA2532E5750780074363A /* GaleryCardDetailsView.swift */,
+				E99AA2552E5750910074363A /* MediaDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E9AF8C502E2FBB18006C2108 /* Profile Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,6 +1006,7 @@
 				E9AF8C5E2E2FBC72006C2108 /* EmptyPetCardView.swift */,
 				E9AF8C602E2FBC7E006C2108 /* OwnerCardView.swift */,
 				E9D97C062E322F19006498ED /* GalleryCardView.swift */,
+				E95244B32E4E0D3C004CAC28 /* MediaView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1014,6 +1166,44 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E9D567A12E56F37B00159BC6 /* DiscoverScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				E9D567A42E56F3B000159BC6 /* ViewModel */,
+				E9D567A32E56F3A900159BC6 /* Model */,
+				E9D567A22E56F39300159BC6 /* View */,
+			);
+			path = DiscoverScreenView;
+			sourceTree = "<group>";
+		};
+		E9D567A22E56F39300159BC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D567A52E56F3B900159BC6 /* DiscoverView.swift */,
+				E9D567AD2E5726AF00159BC6 /* DiscoverEventCard.swift */,
+				E9D567AF2E572C1500159BC6 /* PetPlacesDiscoverView.swift */,
+				E9D567B12E573A0100159BC6 /* ActivitiesCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9D567A32E56F3A900159BC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9D567A72E56F3C200159BC6 /* DiscoverModel.swift */,
+				E9D567AB2E57236200159BC6 /* EventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9D567A42E56F3B000159BC6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9D567A92E56F3E400159BC6 /* DiscoverViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E9D97C082E324B2F006498ED /* Add Your Pet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1164,6 +1354,74 @@
 				E9ED9FFC2E2E7A9000592432 /* EditProfileModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E9F5D3C82E533981003DAD35 /* CreateAccountView */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3CC2E533A41003DAD35 /* ViewModel */,
+				E9F5D3CB2E533A39003DAD35 /* View */,
+			);
+			path = CreateAccountView;
+			sourceTree = "<group>";
+		};
+		E9F5D3CB2E533A39003DAD35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3C92E533996003DAD35 /* CreateAccountView.swift */,
+				E99AA27F2E575F010074363A /* CreateAccSuccessPopUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9F5D3CC2E533A41003DAD35 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3CD2E533A4F003DAD35 /* CreateAccountViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9F5D3CF2E534487003DAD35 /* ChangePasswordView */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3D12E5344A4003DAD35 /* ViewModel */,
+				E9F5D3D02E53449C003DAD35 /* View */,
+			);
+			path = ChangePasswordView;
+			sourceTree = "<group>";
+		};
+		E9F5D3D02E53449C003DAD35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3D62E5347D0003DAD35 /* PasswordUpdateSuccPopUp.swift */,
+				E9F5D3D22E5344AE003DAD35 /* ChangePassView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9F5D3D12E5344A4003DAD35 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3D42E5344BC003DAD35 /* ChangePassViewModal.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9F5D3D82E535A91003DAD35 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3D92E535AA3003DAD35 /* View */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		E9F5D3D92E535AA3003DAD35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5D3DA2E535AAB003DAD35 /* ForgotPasswordView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E9F701A02E37B29300B3D331 /* Notification View */ = {
@@ -1436,16 +1694,22 @@
 				E9D229802E4A08AA00FD343A /* ChatListViewModel.swift in Sources */,
 				DD6D48DF2E27789300A16D48 /* CustomTextfilds.swift in Sources */,
 				E96874E72E267FE30011E709 /* HelpSupportView.swift in Sources */,
+				E99AA2502E5750160074363A /* EmptyPetCardDetailView.swift in Sources */,
 				DD73108F2E251851009A50EC /* NotificationPermissionView.swift in Sources */,
 				E9FC9A0A2E28F6CC00194707 /* ChatView.swift in Sources */,
 				E96874D32E26602C0011E709 /* TermConditionView.swift in Sources */,
+				E9F5D3DB2E535AB7003DAD35 /* ForgotPasswordView.swift in Sources */,
+				E9D567B22E573A0D00159BC6 /* ActivitiesCardView.swift in Sources */,
 				E9AF8C5B2E2FBC53006C2108 /* PetCardView.swift in Sources */,
 				E9F701A72E37B2E400B3D331 /* NotiViewModel.swift in Sources */,
 				DD7310F62E252029009A50EC /* PostCard.swift in Sources */,
 				DDD5275D2E21143F008454B1 /* Persistence.swift in Sources */,
 				DD73107A2E2505EA009A50EC /* OTPFieldView.swift in Sources */,
+				E99AA2562E57509C0074363A /* MediaDetailsView.swift in Sources */,
 				E9864E1E2E33823E008044CF /* ProviderView.swift in Sources */,
 				E96874DA2E2665860011E709 /* FAQsView.swift in Sources */,
+				E99AA24C2E574FE70074363A /* PetCardDetailsView.swift in Sources */,
+				E95244882E4DC71D004CAC28 /* PostCreatedPopup.swift in Sources */,
 				E9FC9A082E28F68400194707 /* ChatBubbleView.swift in Sources */,
 				DD7310F42E251FFF009A50EC /* HomeDataModel.swift in Sources */,
 				E97CDB982E38A62C005E8FA8 /* PostFormView.swift in Sources */,
@@ -1455,20 +1719,27 @@
 				E9CA22752E27DA71001536BB /* EventCommViewModel.swift in Sources */,
 				E9ED9FC12E2E347D00592432 /* MyEventsViewModel.swift in Sources */,
 				E9AF8C4D2E2FA436006C2108 /* PetProfileUpdatedSuccPopUp.swift in Sources */,
+				E95244B42E4E0D43004CAC28 /* MediaView.swift in Sources */,
+				E9F5D3D72E5347E0003DAD35 /* PasswordUpdateSuccPopUp.swift in Sources */,
 				E97CDB942E38A4B8005E8FA8 /* Group&EventViewModel.swift in Sources */,
 				DDD527592E21143E008454B1 /* ContentView.swift in Sources */,
 				DD7310732E24F8D4009A50EC /* PhoneNumberLoginViewModel.swift in Sources */,
 				DD6D48D82E27784600A16D48 /* ProfileCreatedPopUpView.swift in Sources */,
+				E99AA2462E574DC60074363A /* ProfileDetailsView.swift in Sources */,
 				DD6D48D92E27784600A16D48 /* WelcomePopUp.swift in Sources */,
 				DD6D48DA2E27784600A16D48 /* CommentPopupView.swift in Sources */,
+				E9997D6C2E548808004A81AB /* MessageBubbleView.swift in Sources */,
 				E9ED9FC52E2E34E000592432 /* EventCardView.swift in Sources */,
 				E9AF8C572E2FBB60006C2108 /* ProfileDataViewModel.swift in Sources */,
+				E9997D6A2E5487F0004A81AB /* GroupChatView.swift in Sources */,
 				DD6D48DB2E27784600A16D48 /* PetInfoPopupView.swift in Sources */,
 				E9ED9FFF2E2E7AAB00592432 /* EditProfileViewModel.swift in Sources */,
 				DD6D48DC2E27784600A16D48 /* AddYourDetailPopUpView.swift in Sources */,
 				E9FC99C42E28DCD400194707 /* AddParticipantsModel.swift in Sources */,
 				E9DFAA822E2A65A600F7F157 /* EditParticipantsView.swift in Sources */,
 				E9CA22692E27BC9D001536BB /* SavedModel.swift in Sources */,
+				E9D567AE2E5726C300159BC6 /* DiscoverEventCard.swift in Sources */,
+				E9F5D3D32E5344B6003DAD35 /* ChangePassView.swift in Sources */,
 				E96874E02E266A350011E709 /* FaqModal.swift in Sources */,
 				E9D229842E4A25DD00FD343A /* DeleteChatView.swift in Sources */,
 				E9F701A52E37B2CF00B3D331 /* NotificationView.swift in Sources */,
@@ -1481,6 +1752,7 @@
 				E9ED9FBF2E2E346F00592432 /* MyEventsView.swift in Sources */,
 				DDD527572E21143E008454B1 /* Slodoggies_AppApp.swift in Sources */,
 				E9F701A92E37B2F700B3D331 /* NotiModel.swift in Sources */,
+				E9F5D3CE2E533A5F003DAD35 /* CreateAccountViewModel.swift in Sources */,
 				DD73106E2E24EB08009A50EC /* PhoneNumberLoginView.swift in Sources */,
 				DD7310F82E252036009A50EC /* AdCard.swift in Sources */,
 				E9CA22612E27A3EB001536BB /* SettingViewModal.swift in Sources */,
@@ -1494,32 +1766,45 @@
 				E9D97C192E326F49006498ED /* ServiceCardView.swift in Sources */,
 				DD73106A2E24E0C9009A50EC /* HelperFile.swift in Sources */,
 				E9D97C1D2E326F66006498ED /* ServiceFilterChip.swift in Sources */,
+				E99AA24E2E574FFA0074363A /* StatusDetailsView.swift in Sources */,
 				DD6D48D02E27780E00A16D48 /* CustomTabBar.swift in Sources */,
 				DD6D48D12E27780E00A16D48 /* MainTabView.swift in Sources */,
 				E9AF8C5F2E2FBC74006C2108 /* EmptyPetCardView.swift in Sources */,
 				DD73108B2E251754009A50EC /* VerifyEmailView.swift in Sources */,
+				E9D567A62E56F3BE00159BC6 /* DiscoverView.swift in Sources */,
 				E9CA22672E27BC8F001536BB /* SavedViewModal.swift in Sources */,
 				E9CA226B2E27BCA8001536BB /* SavedView.swift in Sources */,
 				E9CA225D2E27A219001536BB /* SettingView.swift in Sources */,
 				E9CA227B2E27E5B9001536BB /* RenameCommunityView.swift in Sources */,
+				E9997D6E2E548821004A81AB /* GroupChatViewModel.swift in Sources */,
+				E9D567AA2E56F3EC00159BC6 /* DiscoverViewModel.swift in Sources */,
 				E9864E222E3382E8008044CF /* ServiceTabView.swift in Sources */,
 				E9ED9FC32E2E349600592432 /* MyEventsModel.swift in Sources */,
 				E97CDB9A2E38A635005E8FA8 /* EventFormView.swift in Sources */,
 				DDD527602E21143F008454B1 /* Slodoggies_App.xcdatamodeld in Sources */,
 				E9D97C0C2E3264D4006498ED /* PetAddSuccPopUp.swift in Sources */,
 				E97CDB922E38A4A0005E8FA8 /* CreateGroup&EventView.swift in Sources */,
+				E99AA2482E574DD10074363A /* ProfileDetailsViewModel.swift in Sources */,
 				E9D97C072E322F26006498ED /* GalleryCardView.swift in Sources */,
 				E96874EF2E2692AE0011E709 /* DeleteAccPopUpView.swift in Sources */,
 				E96874D02E26505D0011E709 /* ViewModal.swift in Sources */,
 				DD7310842E250C70009A50EC /* EmailLoginView.swift in Sources */,
+				E99AA24A2E574DDA0074363A /* ProfileDetailsModel.swift in Sources */,
+				E9F5D3D52E5344CB003DAD35 /* ChangePassViewModal.swift in Sources */,
 				E9D229822E4A08BC00FD343A /* ChatListModel.swift in Sources */,
+				E99AA2802E575F0F0074363A /* CreateAccSuccessPopUpView.swift in Sources */,
 				DD73108A2E251754009A50EC /* VerifyEmailViewModel.swift in Sources */,
+				E9F5D3CA2E5339A4003DAD35 /* CreateAccountView.swift in Sources */,
 				E9D97C152E326ED7006498ED /* ServiceViewModelView.swift in Sources */,
 				DD7310322E24DC25009A50EC /* JoinThePackView.swift in Sources */,
 				E9864E242E33830A008044CF /* ReviewTabView.swift in Sources */,
+				E9D567A82E56F3C900159BC6 /* DiscoverModel.swift in Sources */,
+				E9D567B02E572C2600159BC6 /* PetPlacesDiscoverView.swift in Sources */,
 				E9CA226D2E27C1B9001536BB /* MediaViewerView.swift in Sources */,
 				E96874E92E267FF80011E709 /* HelpSupportViewModal.swift in Sources */,
+				E952448A2E4DC881004CAC28 /* EventCreatedPopup.swift in Sources */,
 				E96874CE2E263D1F0011E709 /* AboutUSView.swift in Sources */,
+				E99AA2542E57508B0074363A /* GaleryCardDetailsView.swift in Sources */,
 				E9AF8C592E2FBB6A006C2108 /* ProfileView.swift in Sources */,
 				E9EDA0012E2E7AB800592432 /* EditProfileView.swift in Sources */,
 				E9EDA0032E2E7B6100592432 /* ImagePickerView.swift in Sources */,
@@ -1536,9 +1821,12 @@
 				E96874D52E2663B70011E709 /* PrivacyPolicyView.swift in Sources */,
 				DD7310EE2E251D15009A50EC /* LocationPermissionView.swift in Sources */,
 				E9864E1C2E338232008044CF /* ProviderViewModel.swift in Sources */,
+				E9997D702E54882E004A81AB /* GroupChatModel.swift in Sources */,
 				DD6D48CB2E2777DA00A16D48 /* HomeViewModel.swift in Sources */,
 				E96874EC2E2680950011E709 /* HelpSupportModal.swift in Sources */,
 				E9FC9A062E28F64400194707 /* ChatViewModel.swift in Sources */,
+				E99AA2522E57502C0074363A /* OwnerCardDetailsView.swift in Sources */,
+				E9D567AC2E57236F00159BC6 /* EventModel.swift in Sources */,
 				DDD527AE2E21257C008454B1 /* OnboardingView.swift in Sources */,
 				DD7310782E25017E009A50EC /* VerifyPhoneView.swift in Sources */,
 				E9FC99C22E28DCA400194707 /* AddParticipantsViewModal.swift in Sources */,

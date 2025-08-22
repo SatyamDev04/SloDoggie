@@ -24,7 +24,7 @@ struct MainTabView: View {
                     case .home:
                         HomeView()
                     case .discover:
-                        Text("Discover View")
+                        DiscoverView()
                     case .add:
                        // Text("Add Pet View")
                         CreatePostScreen()
@@ -40,6 +40,7 @@ struct MainTabView: View {
                 
                 CustomTabBar(selectedTab: $selectedTab)
             }
+            
             if showWelcomPopUp {
                 WelcomePopUp() {
                     showWelcomPopUp = false

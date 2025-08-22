@@ -15,6 +15,12 @@ struct FollowersScreenView: View {
     @State private var showToast = false
     @State private var toastMessage = ""
     
+    private let initialTab: FollowersViewModel.Tab
+
+        init(initialTab: FollowersViewModel.Tab) {
+            self.initialTab = initialTab
+        }
+    
     var body: some View {
         VStack {
             HStack(spacing: 20){
@@ -74,8 +80,8 @@ struct FollowersScreenView: View {
             }
             .padding(.horizontal)
             .padding(.top, 15)
-            .padding(.bottom, 12)
-
+            //.padding(.bottom, 12)
+            
             // Search Bar
             
             HStack{
@@ -86,19 +92,17 @@ struct FollowersScreenView: View {
                 
                 TextField("Search", text: $viewModel.searchText)
                     .padding(10)
-                    //.background(Color.gray.opacity(0.1))
-                    //.cornerRadius(8)
-                    //.padding(.horizontal)
+                //.background(Color.gray.opacity(0.1))
+                //.cornerRadius(8)
+                //.padding(.horizontal)
             }
             .background(Color.gray.opacity(0.1))
             .cornerRadius(8)
             .padding()
-
+            
             // User List
             List {
-                ForEach(viewModel.filteredUsers.indices, id: \.self) { index in
-                    let user = viewModel.filteredUsers[index]
-                    
+                ForEach(viewModel.filteredUsers) { user in
                     VStack(spacing: 0) {
                         HStack {
                             Image(user.profileImage)
@@ -112,7 +116,6 @@ struct FollowersScreenView: View {
                                         .font(.custom("Outfit-Medium", size: 15))
                                     if user.isVerified {
                                         Image("BlueTickIcon")
-                                            .foregroundColor(.blue)
                                     }
                                 }
                             }
@@ -164,25 +167,20 @@ struct FollowersScreenView: View {
                             }
                             .buttonStyle(BorderlessButtonStyle())
                         }
-                        .padding(.leading, 4)
-                        .padding(.trailing, 4)
+                        .padding(.horizontal, 4)
                         .padding(.vertical, 5)
                         
-                        // Add divider except for the last row
-                        if index < viewModel.filteredUsers.count - 1 {
-                            Divider()
-                                .padding(.top, 18) // indent divider if you want
-                        }
-                      }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear) // ✅ No background selection
-                    .contentShape(Rectangle()) // Prevent tap outside buttons
-                    .onTapGesture {} // ✅ Disable default tap on the row
+                        Divider()
                     }
-                    // Divider()
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
+                }
             }
-            
             .listStyle(PlainListStyle())
+        }
+        .onAppear {
+            // ✅ set tab when screen appears
+            viewModel.selectedTab = initialTab
         }
         .navigationTitle("")
         .navigationBarHidden(true)
@@ -206,28 +204,32 @@ struct FollowersScreenView: View {
                 }
             }
         )
-//        .overlay(
-//            Group {
-//                if showToast {
-//                    VStack {
-//                        Spacer()
-//                        Text(toastMessage)
-//                            .font(.custom("Outfit-Regular", size: 14))
-//                            .padding()
-//                            .background(Color.black.opacity(0.8))
-//                            .foregroundColor(.white)
-//                            .cornerRadius(8)
-//                            .padding(.bottom, 200) // center-ish
-//                        Spacer()
-//                    }
-//                    .transition(.opacity)
-//                    .animation(.easeInOut, value: showToast)
-//                }
-//            }
-//        )
+        .overlay(
+            Group {
+                if showToast {
+                    ZStack {
+                        // Background dimming
+                        Color(hex: "#3C3C434A").opacity(0.5)
+                            .ignoresSafeArea()
+                        
+                        Text(toastMessage)
+                            .font(.custom("Outfit-Medium", size: 16))
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 12)
+                            .background(Color.white)
+                            .foregroundColor(.black)
+                            .cornerRadius(8)
+                            .shadow(radius: 4)
+                            .transition(.opacity)
+                            .frame(width: 120, height: 30, alignment: .center)
+                            .animation(.easeInOut, value: showToast)
+                    }
+                }
+            }
+        )
     }
 }
-                                   
-#Preview {
-    FollowersScreenView()
-}
+
+   #Preview {
+       FollowersScreenView(initialTab: .followers)
+   }

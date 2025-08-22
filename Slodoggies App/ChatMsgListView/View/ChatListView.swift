@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ChatListView: View {
     @StateObject private var viewModel = ChatListViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         HStack(spacing: 20){
             Button(action: {
-                // coordinator.pop()
+                 coordinator.pop()
             }){
                 Image("Back")
                     .resizable()
@@ -26,7 +27,7 @@ struct ChatListView: View {
             //.padding(.leading, 100)
         }
         
-            .padding()
+            //.padding()
             .padding(.leading, -180)
             .padding(.horizontal,25)
         //.padding(.bottom,2)
@@ -34,35 +35,39 @@ struct ChatListView: View {
         Divider()
             .frame(height: 2)
             .background(Color(hex: "#656565"))
-        VStack{
+        
+        VStack {
             List(viewModel.chats) { chat in
-                HStack(spacing: 12) {
-                    // Profile Image
-                    Image(chat.profileImageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 48, height: 48)
-                        .clipShape(Circle())
-                    
-                    // Name & Message
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(chat.name)
-                            .font(.headline)
-                            .foregroundColor(.black)
-                        Text(chat.message)
-                            .font(.subheadline)
+                Button(action: {
+                    // Navigate to ChatView with selected chat
+                    coordinator.push(.chatView)
+                }) {
+                    HStack(spacing: 12) {
+                        Image(chat.profileImageName)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 48, height: 48)
+                            .clipShape(Circle())
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(chat.name)
+                                .font(.headline)
+                                .foregroundColor(.black)
+                            Text(chat.message)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .lineLimit(1)
+                        }
+                        
+                        Spacer()
+                        
+                        Text(chat.time)
+                            .font(.caption)
                             .foregroundColor(.gray)
-                            .lineLimit(1)
                     }
-                    
-                    Spacer()
-                    
-                    // Time
-                    Text(chat.time)
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                    .padding(.vertical, 8)
                 }
-                .padding(.vertical, 8)
+                .buttonStyle(PlainButtonStyle()) // Removes button's default styling
             }
         }
         .listStyle(PlainListStyle())

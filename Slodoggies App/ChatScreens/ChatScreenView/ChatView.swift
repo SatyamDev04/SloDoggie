@@ -6,19 +6,26 @@
 //
 import SwiftUI
 
-struct GroupChatView: View {
+struct ChatView: View {
     @StateObject private var viewModel = ChatViewModel()
     @State private var showMenu = false
     @State private var showDeletePopup = false
     @State private var showReportPopup = false
     @State private var isBlocked = false
-    
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 // Header
                 HStack(spacing: 12) {
+                    Button(action: {
+                         coordinator.pop()
+                    }){
+                        Image("Back")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
                     Image("ChatProfile")
                         .resizable()
                         .frame(width: 40, height: 40)
@@ -183,14 +190,14 @@ struct GroupChatView: View {
 
 
 #Preview {
-    GroupChatView()
+    ChatView()
 }
 
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                GroupChatView()
+                ChatView()
             }
         }
     }

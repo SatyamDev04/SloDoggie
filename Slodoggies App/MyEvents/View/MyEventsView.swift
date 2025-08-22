@@ -59,7 +59,7 @@ struct EventListView: View {
                 VStack(spacing: 16) {
                     ForEach(viewModel.events) { event in
                         EventCardView(event: event) {
-                            coordinator.push(.EventParticipants) // 👈 Navigate here
+                           // coordinator.push(.EventParticipants) // 👈 Navigate here
                         }
                     }
                 }

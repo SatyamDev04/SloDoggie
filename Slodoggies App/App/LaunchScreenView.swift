@@ -35,7 +35,7 @@ private extension LaunchScreenView {
     func handleOnAppear() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation {
-                coordinator.push(.tabBar)
+                coordinator.push(.onboarding)
 //                if viewModel.isUserLoggedIn {
 //                    coordinator.push(.tabBar)
 //                }else{
@@ -118,13 +118,31 @@ private extension LaunchScreenView {
             EventListView()
                 .navigationBarBackButtonHidden()
         case .chatView:
-            GroupChatView()
+            ChatView()
                 .navigationBarBackButtonHidden()
         case .providerProfileView:
             ProviderProfileView()
                 .navigationBarBackButtonHidden()
         case .createPostEventView:
             CreatePostScreen()
+                .navigationBarBackButtonHidden()
+        case .notificationView:
+            NotificationView()
+                .navigationBarBackButtonHidden()
+        case .chatListView:
+            ChatListView()
+                .navigationBarBackButtonHidden()
+        case .createAccountView:
+            CreateAccountView()
+                .navigationBarBackButtonHidden()
+        case .forgotPassword:
+            ForgotPasswordView()
+                .navigationBarBackButtonHidden()
+        case .groupChatView:
+            GroupChatView()
+                .navigationBarBackButtonHidden()
+        case .followersScreen(let initialTab):
+            FollowersScreenView(initialTab: initialTab)
                 .navigationBarBackButtonHidden()
         }
     }

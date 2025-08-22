@@ -27,18 +27,19 @@ struct PetCardView: View {
                         Button(action: {
                             coordinator.push(.editPetProfileView)
                         }) {
-                            Image("PencilIcon")
-                        }
+                            Image("PencilIcons")
+                       }
                     }
                     HStack {
                         Text(pet.breed)
                             .font(.custom("Outfit-Medium", size: 12))
                             .foregroundColor(Color(red: 0/255, green: 99/255, blue: 122/255))
-                            .padding(4).background(Color(red: 0/255, green: 99/255, blue: 122/255).opacity(0.10)).cornerRadius(6)
+                            .padding(.leading, 6) .padding(.trailing, 6).background(Color(red: 0/255, green: 99/255, blue: 122/255).opacity(0.1)).cornerRadius(14)
+                        
                         Text(pet.age)
                             .font(.custom("Outfit-Medium", size: 12))
                             .foregroundColor(Color(red: 225/255, green: 119/255, blue: 28/255))
-                            .padding(4).background(Color(red: 225/255, green: 119/255, blue: 28/255).opacity(0.10)).cornerRadius(6)
+                            .padding(.leading, 6) .padding(.trailing, 6) .background(Color(red: 225/255, green: 119/255, blue: 28/255).opacity(0.1)).cornerRadius(14)
                     }
                     Text(pet.bio)
                         .font(.custom("Outfit-Regular", size: 12))
@@ -51,3 +52,5 @@ struct PetCardView: View {
         .padding(.horizontal)
      }
   }
+
+

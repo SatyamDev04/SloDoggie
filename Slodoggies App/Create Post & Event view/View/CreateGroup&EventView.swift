@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CreatePostScreen: View {
     @StateObject private var viewModel = CreatePostViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         VStack {
             // Toggle
             HStack(spacing: 10){
                 Button(action: {
-                    // coordinator.pop()
+                    coordinator.pop()
                 }){
                     Image("Back")
                         .resizable()
@@ -67,7 +68,6 @@ struct CreatePostScreen: View {
         //.padding(.top)
       }
     }
-
 
   #Preview {
       CreatePostScreen()

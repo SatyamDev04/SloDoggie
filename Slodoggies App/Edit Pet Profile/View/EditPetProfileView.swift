@@ -25,7 +25,6 @@ struct PetProfileView: View {
                 }
                 Text("Edit Pet Profile")
                     .font(.custom("Outfit-Medium", size: 22))
-                    .fontWeight(.medium)
                     .foregroundColor(Color(hex: "#221B22"))
                 //.padding(.leading, 100)
                 
@@ -126,9 +125,9 @@ struct PetProfileView: View {
                 }
             }
         )
-    }
-}
-
+     }
+  }
+  
 struct CustomDropdown: View {
     var title: String
     @Binding var selection: String

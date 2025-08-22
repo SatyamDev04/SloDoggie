@@ -21,7 +21,7 @@ struct SavedView: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                 }
-                Text("Settings")
+                Text("Saved")
                     .font(.custom("Outfit-Medium", size: 20))
                     .fontWeight(.medium)
                     .foregroundColor(Color(hex: " #221B22"))

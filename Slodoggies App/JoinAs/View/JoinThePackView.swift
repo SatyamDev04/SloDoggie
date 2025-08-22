@@ -47,7 +47,9 @@ struct JoinAsView: View {
                 )
                 .onTapGesture {
                     selectedRole = .professional
-                    coordinator.push(.phoneNumberLogin)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                        coordinator.push(.phoneNumberLogin)
+                    }
                 }
                 
                 RoleOptionView(
@@ -58,7 +60,9 @@ struct JoinAsView: View {
                 )
                 .onTapGesture {
                     selectedRole = .owner
-                    coordinator.push(.phoneNumberLogin)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                        coordinator.push(.phoneNumberLogin)
+                    }
                 }
             }
             
@@ -96,7 +100,7 @@ struct RoleOptionView: View {
                 Image(isSelected ? selectedImageName : unselectedImageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 40, height: 40)
+                    .frame(width: 56, height: 56)
             }
             
             Text(title)

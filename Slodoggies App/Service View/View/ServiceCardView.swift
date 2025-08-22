@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ProviderCardView: View {
     let provider: Provider
-
+    @EnvironmentObject private var coordinator: Coordinator
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Image("DogFootIcon")
@@ -48,18 +49,18 @@ struct ProviderCardView: View {
                     RoundedRectangle(cornerRadius: 6)
                         .stroke(Color(hex: "#CDCDCD"), lineWidth: 1)
                 )
-
-            Button(action: {
-                
-            }) {
-                HStack {
-                    Image("ChatIcon1")
-                        .resizable()
-                        .frame(width: 16, height: 16)
-                    Text("Inquire now")
-                        .foregroundColor(Color(hex: "#258694"))
-                }
-            }
+            
+                Button(action: {
+                    coordinator.push(.chatView)
+                }) {
+                    HStack {
+                        Image("ChatIcon1")
+                            .resizable()
+                            .frame(width: 16, height: 16)
+                        Text("Inquire now")
+                            .foregroundColor(Color(hex: "#258694"))
+                    }
+                 }
             .font(.custom("Outfit-Medium", size: 14))
             .padding(6)
             .frame(height: 42)
@@ -68,10 +69,10 @@ struct ProviderCardView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color(hex: "#258694"), lineWidth: 1)
             )
-        }
+          }
         .padding()
         .background(Color.white)
         .cornerRadius(12)
         .shadow(radius: 2)
-    }
- }
+     }
+   }

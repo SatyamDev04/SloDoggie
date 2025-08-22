@@ -16,7 +16,6 @@ struct SettingView: View {
     @State var deleteAccountPopView: Bool = false
     
     var body: some View {
-        VStack{
             HStack(spacing: 20){
                 Button(action: {
                      coordinator.pop()
@@ -32,9 +31,9 @@ struct SettingView: View {
                 //.padding(.leading, 100)
             }
             
-            .padding()
+            //.padding()
             .padding(.leading, -180)
-            .padding(.horizontal,25)
+            //.padding(.horizontal,25)
             //.padding(.bottom,2)
             
             Divider()
@@ -96,8 +95,7 @@ struct SettingView: View {
                         }
                         Divider()
                     }
-                    .padding(.top, 30)
-                    .padding(.horizontal)
+                    .padding(.top, 20)
                 }
                 
                 Spacer()
@@ -110,7 +108,6 @@ struct SettingView: View {
                 viewModel.checkNotificationStatus()
             }
             
-        }
         .padding()
             .overlay(
                 Group {

@@ -12,6 +12,19 @@ struct VerifyPhoneView: View {
     @EnvironmentObject private var coordinator: Coordinator
    
     var body: some View {
+        HStack(spacing: 10){
+            Button(action: {
+                coordinator.pop()
+            }) {
+                Image("Back")
+                    .foregroundColor(Color(hex: "#258694"))
+                    .padding(.top, 10)
+                
+            }
+            Spacer()
+        }
+        .padding(.leading, 24)
+        
         VStack(spacing: 24) {
             Spacer().frame(height: 100)
 
@@ -20,7 +33,7 @@ struct VerifyPhoneView: View {
                 .frame(width: 87, height: 6)
 
             VStack(spacing: 8) {
-                Text("Verify Your Phone Number")
+                Text("Verify Your Account")
                     .font(.custom("Outfit-SemiBold", size: 18))
 
                 Text("Please enter the 4 digit code sent to")
@@ -66,28 +79,26 @@ struct VerifyPhoneView: View {
             }) {
                 HStack {
                     Spacer()
-                    Text("Verify")
-                    Image(systemName: "arrow.right")
+                    Text("Verify OTP")
+                        .foregroundColor(
+                            viewModel.isCodeComplete ? Color.white : Color.gray.opacity(0.5)
+                        )
                     Spacer()
                 }
                 .padding()
                 .font(.custom("Outfit-Medium", size: 15))
-                .foregroundColor(.white)
+                .foregroundColor(Color(hex: "#686868"))
                 .background(
                     viewModel.isCodeComplete ? Color(hex: "#258694") : Color.gray.opacity(0.5)
                 )
+                
+                
                 .cornerRadius(10)
             }
             .disabled(!viewModel.isCodeComplete)
-
-            Button(action: {
-                coordinator.pop()
-            }) {
-                Image(systemName: "arrow.left")
-                    .foregroundColor(Color(hex: "#258694"))
-                    .padding(.top)
-            }
-
+            .padding(.leading, 30)
+            .padding(.trailing, 30)
+            
             Spacer()
 
             HStack {

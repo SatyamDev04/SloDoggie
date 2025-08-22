@@ -21,6 +21,7 @@ struct PostFormView: View {
     @State private var addAddress = ""
     @State private var useCurrentLocation = false
     @State private var selectedPrivacy: PrivacyOption = .publicOption
+    @State private var showSuccessPopView: Bool = false
     
     @State private var selectedPet: Pets? = nil
     @State private var pets: [Pets] = [
@@ -70,9 +71,13 @@ struct PostFormView: View {
                         // Add new pet action
                     }) {
                         ZStack {
-                           Rectangle()
+                            Rectangle()
                                 .stroke(Color.gray.opacity(0.3), lineWidth: 1)
                                 .frame(width: 58, height: 78)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                                )
                             Image("AddStoryIcon")
                                 .resizable()
                                 .scaledToFit()
@@ -133,18 +138,31 @@ struct PostFormView: View {
                 }
             }
             
-            Button("Post") {
-                // Submit logic
+            Button(action: {
+                showSuccessPopView = true
+            }){
+                Text("Post")
+                    .font(.custom("Outfit-Bold", size: 16))
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(hex: "#258694"))
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                
             }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color(hex: "#258694"))
-            .foregroundColor(.white)
-            .cornerRadius(8)
+            .padding(.top, 24)
+            .frame(height: 34)
         }
+        .overlay(
+            Group {
+                if showSuccessPopView {
+                    PostCreatedSuccPopUp(isVisible: $showSuccessPopView)
+                }
+            }
+        )
         .padding()
-    }
-}
+     }
+  }
 
 struct PlaceholderTextEditor: View {
     var placeholder: String
@@ -166,5 +184,5 @@ struct PlaceholderTextEditor: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.gray.opacity(0.5), lineWidth: 1)
         )
-    }
-}
+     }
+  }

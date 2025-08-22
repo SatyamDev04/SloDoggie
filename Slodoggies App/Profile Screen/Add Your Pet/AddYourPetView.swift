@@ -28,6 +28,7 @@ struct AddYourPetView: View {
                 .ignoresSafeArea()
             
             VStack{
+                Spacer()
                 HStack{
                     Spacer()
                     Button(action: {
@@ -81,26 +82,26 @@ struct AddYourPetView: View {
                         
                         CustomDropdownField(title: "Pet Age", text: $petAge, placeholderTxt: .constant("Enter pet age"), isPickerPresented: $showAgePicker, options: petAges)
                         CustomTextField(title: "Pet Bio", placeholder: "Enter Bio", text: $petBio)
-                        
-                        CustomDropdownField(title: "Managed By", text: $managedBy, placeholderTxt: .constant("Pet Mom"), isPickerPresented: $showManagerPicker, options: managerOptions)
                     }
                     
                     HStack {
-                        Button("Skip") {
+                        Button(action: {
                             isVisible = false
-                           // backAction()
+                        }) {
+                            Text("Cancel")
+                                .font(.custom("Outfit-Medium", size: 16))
+                                .foregroundColor(.black)
+                                .padding()
+                                .frame(minWidth: 150)
                         }
-                        .font(.custom("Outfit-Medium", size: 16))
-                        .foregroundColor(.black)
-                        .frame(minWidth: 150)
-                        
+                                              
                         Spacer()
                         
                         Button(action: {
                             isVisible = false
                             //backAction()
                         }) {
-                            Text("Save & Continue")
+                            Text("Add Pet")
                                 .font(.custom("Outfit-Medium", size: 16))
                                 .foregroundColor(.white)
                                 .padding()
@@ -108,18 +109,21 @@ struct AddYourPetView: View {
                                 .background(Color(hex: "#258694"))
                                 .cornerRadius(10)
                         }
-                    }
+                      }
                     .padding(.top)
                 }
-            }
+              }
             .scrollIndicators(.hidden)
             .padding()
             .background(Color.white)
             .cornerRadius(10)
             .padding(.horizontal)
+            .frame(maxHeight: UIScreen.main.bounds.height * 0.8)
 //            .padding(.bottom)
             }
+//            .ignoresSafeArea(edges: .bottom)
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

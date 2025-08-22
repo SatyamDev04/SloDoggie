@@ -58,7 +58,7 @@ struct EventCardView: View {
 
             // Bottom button (optional)
             Button(action: {
-                coordinator.push(.chatView)
+                coordinator.push(.groupChatView)
             }) {
                 Text(event.buttonText)
                     .fontWeight(.semibold)

@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State private var viewModel = HomeViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
     
     let feedItems: [FeedItemType] = [
         .post(PostModel(username: "Lydia Vaccaro", petName: "Wixx", time: "5 Min.", text: "Meet Wixx...", image: "dog_post_1", likes: 120, comments: 20, shares: 10, tags: [])),
@@ -30,13 +31,13 @@ struct HomeView: View {
                     Spacer()
                     
                     Button(action: {
-                        
+                        coordinator.push(.notificationView)
                     }) {
                         Image("NotificationIcon")
                     }
                     
                     Button(action: {
-                        
+                        coordinator.push(.chatListView)
                     }) {
                         Image("ChatIcon")
                         

@@ -11,7 +11,6 @@ struct RemoveParticipantsPopUpView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        ZStack {
             ZStack {
                 // Background dimming
                 Color(hex: "#3C3C434A").opacity(0.5)
@@ -47,19 +46,19 @@ struct RemoveParticipantsPopUpView: View {
                         .frame(width: 144, height: 42)
                         
                         //Spacer()
-                        
-                        Button("Remove") {
+                        Button(action: {
                             isPresented = false
                             print("Account deleted")
-                            //isPresented = false
+                        }) {
+                            Text("Remove")
+                                .padding()
+                                .frame(width: 140, height: 42)
+                                .font(.custom("Outfit-Bold", size: 15))
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                                .background(Color(hex: "#258694"))
+                                .cornerRadius(8, corners: .allCorners)
                         }
-                        .padding()
-                        .frame(width: 140, height: 42)
-                        .font(.custom("Outfit-Bold", size: 15))
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .background(Color(hex: "#258694"))
-                        .cornerRadius(8, corners: .allCorners)
                     }
                     .padding([.horizontal])
                     .padding(.bottom, 30)
@@ -70,22 +69,26 @@ struct RemoveParticipantsPopUpView: View {
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 
+                .overlay(
+                    // Cross button in top-right corner of popup
+                    Button(action: {
+                        isPresented = false
+                    }) {
+                        Image("crossIcon")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding(8)
+                            //.background(Color.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 2)
+                    }
+                    .padding(.top, -40)
+                    .padding(.trailing, 34),
+                    alignment: .topTrailing
+                )
             }
-            
-            Button(action: {
-                isPresented = false
-            }) {
-                Image("crossIcon")
-                    .resizable()
-                    .frame(width: 38, height: 38)
-                    .background(Color.white.clipShape(Circle()))
-                    .padding(.top, -155)
-                    .padding(.leading, 270)
-            }
-            .offset(x: 10, y: -10)
         }
      }
-  }
 
 
 #Preview {

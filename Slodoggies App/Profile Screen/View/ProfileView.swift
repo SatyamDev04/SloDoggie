@@ -14,127 +14,137 @@ struct ProfileView: View {
     @State private var showAddPetSheet = false
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                HStack(spacing: 20){
-                    Button(action: {
-                        coordinator.pop()
-                    }){
-                        Image("Back")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    }
-                    Text("My Profile")
-                        .font(.custom("Outfit-Medium", size: 22))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color(hex: "#221B22"))
-                    //.padding(.leading, 100)
+        VStack(alignment: .leading, spacing: 16) {
+            HStack(spacing: 20){
+                Button(action: {
+                    coordinator.pop()
+                }){
+                    Image("Back")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                }
+                Text("My Profile")
+                    .font(.custom("Outfit-Medium", size: 22))
+                    .fontWeight(.medium)
+                    .foregroundColor(Color(hex: "#221B22"))
+                //.padding(.leading, 100)
+                
+                Spacer()
+                
+                Button(action: {
+                    coordinator.push(.settingView)
+                }){
+                    Image("SettingIcon")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
+            }
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
+            //.padding(.bottom,2)
+            
+            Divider()
+                .frame(height: 2)
+                .background(Color(hex: "#656565"))
+            
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("My Pets")
+                        .font(.custom("Outfit-Medium", size: 16))
+                        .padding(.leading, 20)
                     
-                    Spacer()
+                    Divider()
+                        .frame(height: 1)
+                        .background(Color(hex: "#949494"))
+                        .padding(.horizontal, 20)
                     
-                    Button(action: {
-                        coordinator.push(.settingView)
-                    }){
-                        Image("SettingIcon")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                    }
-                }
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
-                //.padding(.bottom,2)
-                
-                Divider()
-                    .frame(height: 2)
-                    .background(Color(hex: "#656565"))
-                
-                Text("My Pets")
-                    .font(.headline)
-                    .padding(.leading, 20)
-                
-                Divider()
-                    .frame(height: 1)
-                    .background(Color(hex: "#949494"))
-                    .padding(.horizontal, 20)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(viewModel.pets) { pet in
-                            Image(pet.image)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .clipShape(Circle())
-                                .overlay(
-                                    Circle().stroke(viewModel.selectedPet?.id == pet.id ? Color.blue : .clear, lineWidth: 2)
-                                )
-                                .onTapGesture {
-                                    viewModel.selectedPet = pet
-                                }
-                        }
-                        
-                        Button(action: {
-                            showAddPetSheet = true
-                        }) {
-                            Image("AddStoryIcon")
-                                .frame(width: 50, height: 50)
-                                .background(Color.gray.opacity(0.2))
-                                .clipShape(Circle())
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-                
-                if let selected = viewModel.selectedPet {
-                    PetCardView(pet: selected)
-                    StatsView(pet: selected)
-                } else {
-                    EmptyPetCardView()
-                }
-                
-                if let user = viewModel.user {
-                    OwnerCardView(user: user)
-                }
-                
-                Text("Gallery")
-                    .font(.headline)
-                    .padding(.leading)
-                
-                if viewModel.galleryItems.isEmpty {
-                    VStack {
-                        Image("DogFoot")
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .foregroundColor(.teal)
-                        Text("No Post Yet").bold()
-                        Button("Create Post") {
-                            // action
-                        }
-                        .foregroundColor(.teal)
-                    }
-                    .frame(maxWidth: .infinity)
-                } else {
-                    GalleryGridView(mediaItems: viewModelGallery.mediaItems) { index in
-                        viewModelGallery.selectItem(at: index)
-                    }
-                    .fullScreenCover(isPresented: Binding<Bool>(
-                        get: { viewModelGallery.selectedIndex != nil },
-                        set: { newValue in
-                            if !newValue {
-                                viewModelGallery.closeViewer()
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.pets) { pet in
+                                Image(pet.image)
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                    .clipShape(Circle())
+                                    .overlay(
+                                        Circle().stroke(viewModel.selectedPet?.id == pet.id ? Color(hex: "#258694") : .clear, lineWidth: 2.5)
+                                    )
+                                    .onTapGesture {
+                                        viewModel.selectedPet = pet
+                                    }
+                            }
+                            
+                            Button(action: {
+                                showAddPetSheet = true
+                            }) {
+                                Image("AddStoryIcon")
+                                    .frame(width: 50, height: 50)
+                                    .background(Color.gray.opacity(0.2))
+                                    .clipShape(Circle())
                             }
                         }
-                    )) {
-                        if let selectedIndex = viewModelGallery.selectedIndex {
-                            MediaViewerView(items: viewModelGallery.mediaItems, selectedIndex: $viewModelGallery.selectedIndex)
+                        .padding(.top, 4)
+                        .padding(.bottom, 4)
+                        .padding(.horizontal)
+                    }
+                    
+                    if let selected = viewModel.selectedPet {
+                        PetCardView(pet: selected)
+                        StatsView(pet: selected)
+                    } else {
+                        EmptyPetCardView()
+                    }
+                    
+                    if let user = viewModel.user {
+                        OwnerCardView(user: user)
+                    }
+                    
+                    Text("Gallery")
+                        .font(.custom("Outfit-Medium", size: 16))
+                        .padding(.leading)
+                    
+                    Divider()
+                        .frame(height: 1)
+                        .background(Color(hex: "#949494"))
+                        .padding(.horizontal, 20)
+                        //.padding(.top)
+                    
+                    if viewModel.galleryItems.isEmpty {
+                        VStack {
+                            Image("DogFoot")
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .foregroundColor(.teal)
+                            Text("No Post Yet").bold()
+                            Button("Create Post") {
+                                // action
+                            }
+                            .foregroundColor(.teal)
+                        }
+                        .frame(maxWidth: .infinity)
+                    } else {
+                        GalleryGridView(mediaItems: viewModelGallery.mediaItems) { index in
+                            viewModelGallery.selectItem(at: index)
+                        }
+                        .fullScreenCover(isPresented: Binding<Bool>(
+                            get: { viewModelGallery.selectedIndex != nil },
+                            set: { newValue in
+                                if !newValue {
+                                    viewModelGallery.closeViewer()
+                                }
+                            }
+                        )) {
+                            if let selectedIndex = viewModelGallery.selectedIndex {
+                                MediaViewerView(items: viewModelGallery.mediaItems, selectedIndex: $viewModelGallery.selectedIndex)
+                            }
                         }
                     }
                 }
             }
-        }
-        .sheet(isPresented: $showAddPetSheet) {
-            AddYourPetView(isVisible: .constant(true))
-                .environmentObject(coordinator) // pass coordinator if needed
-        }
+            .sheet(isPresented: $showAddPetSheet) {
+                AddYourPetView(isVisible: .constant(true))
+                    .environmentObject(coordinator) // pass coordinator if needed
+            }
+        }.padding(.bottom)
     }
 }
 

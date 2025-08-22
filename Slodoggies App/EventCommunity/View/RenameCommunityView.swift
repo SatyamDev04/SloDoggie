@@ -25,6 +25,7 @@ struct RenameCommunitySheet: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 16) {
+                    Spacer()
                     HStack{
                         Spacer()
                         Button(action: {
@@ -48,12 +49,17 @@ struct RenameCommunitySheet: View {
                             Spacer()
                         }
                         Divider()
+                            .frame(height: 1)
+                            .background(Color.gray)
+                            .padding(.bottom, 4)
+                            //.padding(.trailing, 16)
                         
                         TextField("Event Community", text: $newCommunityName)
                             .padding(.horizontal)
                             .frame(height: 50)
                             .background(Color.white)
                             .cornerRadius(8)
+                            .foregroundColor(.gray)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.gray.opacity(0.4), lineWidth: 1)
@@ -90,7 +96,9 @@ struct RenameCommunitySheet: View {
                 .padding(.leading, 10)
                 .padding(.trailing, 10)
             }
+            .background(Color.clear)
         }
+        .background(Color.clear)
      }
   }
 

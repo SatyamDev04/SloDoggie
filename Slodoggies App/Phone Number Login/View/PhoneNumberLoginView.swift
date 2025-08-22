@@ -11,40 +11,53 @@ import SwiftUI
 struct PhoneNumberLoginView: View {
     @StateObject var viewModel = PhoneNumberLoginViewModel()
     @EnvironmentObject private var coordinator: Coordinator
+    @State private var password: String = ""
+    @State private var isPasswordVisible: Bool = false
     
     var body: some View {
+        HStack(spacing: 10){
+            Button(action: {
+                coordinator.pop()
+            }) {
+                Image("Back")
+                    .foregroundColor(Color(hex: "#258694"))
+                    .padding(.top, 10)
+                
+            }
+            Spacer()
+        }
+        .padding(.leading, 24)
+        
         VStack(spacing: 24) {
-            
             Spacer().frame(height: 100)
-
             RoundedRectangle(cornerRadius: 3)
                 .fill(Color(hex: "#258694"))
                 .frame(width: 87, height: 6)
 
             VStack(spacing: 8) {
-                Text("Phone Number")
+                Text("Login")
                     .font(.custom("Outfit-SemiBold", size: 18))
                     .foregroundColor(.black)
 
-                Text("Please enter your phone number to verify your account")
-                    .font(.custom("Outfit-Medium", size: 14))
-                    .foregroundColor(Color(hex: "#949494"))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
             }
 
-            HStack {
-                TextField("Enter your phone number", text: $viewModel.phoneNumber)
-                    .font(.custom("Outfit-Regular", size: 14))
-                    .padding()
-                    .keyboardType(.numberPad)
-                    .onChange(of: viewModel.phoneNumber) { newValue, _ in
-                        viewModel.phoneNumError = nil
-                        let digits = newValue.filter { $0.isNumber }
-                        viewModel.phoneNumber = viewModel.formatAsPhoneNumber(digits)
-                        viewModel.isPhoneNumberValid = digits.count >= 10
-                    }
-
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Email/Phone")
+                    .font(.custom("Outfit-Medium", size: 14))
+                    .foregroundColor(.black)
+                    .padding(.leading, 30)
+                HStack {
+                    TextField("Enter Email/Phone", text: $viewModel.phoneNumber)
+                        .font(.custom("Outfit-Regular", size: 14))
+                        .padding()
+                        .keyboardType(.numberPad)
+                        .onChange(of: viewModel.phoneNumber) { newValue, _ in
+                            viewModel.phoneNumError = nil
+                            let digits = newValue.filter { $0.isNumber }
+                            viewModel.phoneNumber = viewModel.formatAsPhoneNumber(digits)
+                            viewModel.isPhoneNumberValid = digits.count >= 10
+                        }
+                    
                     if viewModel.isPhoneNumberValid {
                         Image("Tick")
                             .resizable()
@@ -52,14 +65,61 @@ struct PhoneNumberLoginView: View {
                             .padding(.trailing, 16)
                             .transition(.opacity)
                     }
+                }
+                .animation(.easeInOut, value: viewModel.phoneNumError)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                )
+                .padding(.horizontal,30)
+                numberErrorText
+                
+                Text("Password")
+                    .font(.custom("Outfit-Medium", size: 14))
+                    .foregroundColor(.black)
+                    .padding(.top)
+                    .padding(.leading, 30)
+                    
+                
+                HStack {
+                    if isPasswordVisible {
+                        TextField("Enter Password", text: $password)
+                            .font(.custom("Outfit-Regular", size: 14))
+                    } else {
+                        SecureField("Enter Password", text: $password)
+                            .font(.custom("Outfit-Regular", size: 14))
+                    }
+                    
+                    Button(action: {
+                        isPasswordVisible.toggle()
+                    }) {
+                        Image(isPasswordVisible ? "openeyeimg" : "openeyeimg")
+                            .foregroundColor(.gray)
+                    }
+                }
+                .padding()
+                .background(Color.white)
+                .frame(height: 50)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                )
+                .padding(.horizontal,30)
             }
-            .animation(.easeInOut, value: viewModel.phoneNumError)
-            .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-            )
-            .padding(.horizontal,30)
-            numberErrorText
+            // Forgot Password
+            HStack {
+                Spacer()
+                Button("Forgot Password?") {
+                    //coordinator.isBackGestureEnabled = true
+                    coordinator.push(.forgotPassword)
+                    // navigateToForgotPassword = true
+                }
+                .font(.custom("Outfit-Medium", size: 14))
+                .foregroundColor(.black)
+                .padding(.top, -15)
+            }
+              .padding(.horizontal, 30)
             
             Button(action: {
                 viewModel.validateFields()
@@ -67,11 +127,10 @@ struct PhoneNumberLoginView: View {
             }) {
                 HStack {
                     Spacer()
-                    Text("Continue")
+                    Text("Login")
                         .foregroundColor(.white)
                         .font(.custom("Outfit-Medium", size: 15))
-                    Image(systemName: "arrow.right")
-                        .foregroundColor(.white)
+                    
                     Spacer()
                 }
                 .padding()
@@ -81,23 +140,24 @@ struct PhoneNumberLoginView: View {
             .padding(.horizontal,30)
 
             Button(action: {
-                coordinator.push(.emailLogin)
+                
             }) {
-                HStack(spacing: 8) {
-                    Image("mailBox")
-                        .foregroundColor(.gray)
-                    Text("Continue with mail")
-                        .font(.custom("Outfit-Medium", size: 16))
-                        .foregroundColor(.gray)
+                HStack(spacing: 4) {
+                    Text("New here?")
+                        .font(.custom("Outfit-Medium", size: 14))
+                        .foregroundColor(Color(hex: "#949494"))
+                    Button(action: {
+                        //coordinator.isBackGestureEnabled = true
+                        coordinator.push(.createAccountView)
+                        // navigateToSignUp = true
+                    }) {
+                        Text("Create an Account")
+                            .underline()
+                            .font(.custom("Outfit-Medium", size: 14))
+                            .foregroundColor(Color(hex: "#258694"))
+                    }
                 }
-            }
-
-            Button(action: {
-                coordinator.pop()
-            }) {
-                Image("Back")
-                    .foregroundColor(Color(hex: "#258694"))
-                    .padding(.top, 10)
+                .padding(.top, 10)
             }
 
             Spacer()
@@ -109,6 +169,7 @@ struct PhoneNumberLoginView: View {
             }
             .padding(.horizontal)
         }
+        .padding(.top, -30)
     }
     
     private var numberErrorText: some View {
@@ -123,7 +184,6 @@ struct PhoneNumberLoginView: View {
             }
         }
     }
-  
 }
 
 #Preview {

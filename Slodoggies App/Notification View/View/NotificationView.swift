@@ -26,8 +26,7 @@ struct NotificationView: View {
                 .foregroundColor(Color(hex: " #221B22"))
             //.padding(.leading, 100)
         }
-        
-            .padding()
+            //.padding()
             .padding(.leading, -180)
             .padding(.horizontal,25)
         //.padding(.bottom,2)

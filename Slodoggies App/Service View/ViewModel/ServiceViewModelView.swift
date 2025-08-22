@@ -23,7 +23,8 @@ class ServicesListViewModel: ObservableObject {
             return allProviders.filter { $0.serviceType == filter }
         }
         return allProviders
-    }
+     }
 
     let filters = ["Walking", "Grooming", "Sitting / Boarding", "Veterinary"]
-}
+    
+  }

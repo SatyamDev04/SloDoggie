@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    
     @State private var currentPage = 0
     @EnvironmentObject private var coordinator: Coordinator
     
@@ -29,8 +28,6 @@ struct OnboardingView: View {
             .ignoresSafeArea(.all)
 //            .ignoresSafeArea(edges: .top)
 //            .ignoresSafeArea(.container, edges: .top)
-
-            
 //            .padding(.top, 10)
 
             VStack(spacing: 12) {
@@ -58,10 +55,10 @@ struct OnboardingView: View {
                         print("Skip pressed")
                         coordinator.push(.joinAs)
                     }
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color(hex: "#949494"))
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal,30)
             .padding(.bottom, 30)
         }
     }
@@ -86,25 +83,30 @@ struct OnboardingCard: View {
                     HStack(spacing: 8) {
                         ForEach(0..<totalPages, id: \.self) { index in
                             Rectangle()
-                                .fill(index == currentPage ? Color(hex: "#258694") : Color.gray.opacity(0.3))
-                                .frame(width: 15, height: 6)
+                                .fill(index == currentPage ? Color(hex: "#258694") : Color.white.opacity(0.3))
+                                .frame(width: 17, height: 6)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 3)
+                                        .stroke(Color(hex: "#949494"), lineWidth: 1) // Border color + thickness
+                                )
                                 .cornerRadius(3)
                         }
                     }
 
                     // Title
                     Text(page.title)
-                    
                         .font(.custom("Outfit-Bold", size: 24))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
 
                     // Subtitle
                     Text(page.subtitle)
-                        .font(.custom("Outfit-Regular", size: 17))
-                        .foregroundColor(.gray)
+                        .font(.custom("Outfit-Regular", size: 18))
+                        .foregroundColor(Color.black)
                         .multilineTextAlignment(.center)
-                        .padding(.horizontal)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.horizontal, 24)
                 }
                 .padding(.vertical, 30)
                 .padding(.top, 12)
@@ -119,8 +121,11 @@ struct OnboardingCard: View {
 //                    .frame(width: 40, height: 40)
 //                    .offset(x: -20, y: -20)
             }
-            .offset(y: -100)
+            .offset(y: -80)
         }
     }
 }
 
+#Preview{
+    OnboardingView()
+}

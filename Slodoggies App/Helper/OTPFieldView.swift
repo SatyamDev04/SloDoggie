@@ -99,21 +99,19 @@ struct OtpModifier: ViewModifier {
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
             .onReceive(Just(pin)) { _ in limitText(textLimit) }
-            .frame(width: 40, height: 48)
-            .font(.system(size: 14))
+            .frame(width: 64, height: 52)
+            .font(.system(size: 20))
             .background(
                 Rectangle()
-                    .frame(height: 1)
-                    .foregroundColor(.black)
+                    .frame(height: 2)
+                    .foregroundColor(Color(hex: "#B2B2B2"))
                     .offset(y: 20)
             )
+        }
     }
-}
 
-struct OTPFieldView_Previews: PreviewProvider {
-    
+struct OTPFieldView_Previews: PreviewProvider {   
     static var previews: some View {
-        
         VStack(alignment: .leading, spacing: 8) {
             Text("VERIFICATION CODE")
                 .foregroundColor(Color.gray)

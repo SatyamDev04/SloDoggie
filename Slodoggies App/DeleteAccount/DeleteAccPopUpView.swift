@@ -91,20 +91,24 @@ var body: some View {
             .padding()
             .padding(.leading, 20)
             .padding(.trailing, 20)
-            
+            .overlay(
+                // Cross button in top-right corner of popup
+                Button(action: {
+                    isPresented = false
+                }) {
+                    Image("crossIcon")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .padding(8)
+                        //.background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
+                }
+                .padding(.top, -40)
+                .padding(.trailing, 34),
+                alignment: .topTrailing
+            )
         }
-        
-        Button(action: {
-             isPresented = false
-        }) {
-            Image("crossIcon")
-                .resizable()
-                .frame(width: 38, height: 38)
-                .background(Color.white.clipShape(Circle()))
-                .padding(.top, -230)
-                .padding(.leading, 270)
-        }
-        .offset(x: 10, y: -10)
     }
   }
 }
