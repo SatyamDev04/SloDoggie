@@ -13,4 +13,5 @@ struct ChatModel: Identifiable {
     let name: String
     let message: String
     let time: String
+    let unreadCount: Int
 }

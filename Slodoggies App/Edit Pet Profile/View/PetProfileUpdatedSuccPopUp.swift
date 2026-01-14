@@ -9,8 +9,10 @@ import SwiftUI
 
 struct PetProfileUpdatedSuccPopUp: View {
     @Binding var isVisible: Bool
-      var backAction : () -> () = {}
-      var onRemove: () -> Void = {}
+    @EnvironmentObject private var coordinator: Coordinator
+    
+    var backAction : () -> () = {}
+    var onRemove: () -> Void = {}
     
      var body: some View {
 //         if isVisible{
@@ -24,7 +26,7 @@ struct PetProfileUpdatedSuccPopUp: View {
                          Spacer()
                          Button(action: {
                              isVisible = false
-                             backAction()
+                             coordinator.pop()
                          }) {
                              Image("CancelIcon")
                                  .resizable()

@@ -14,7 +14,6 @@
     
     var body: some View {
         VStack(spacing: 24) {
-            
             Spacer().frame(height: 100)
 
             RoundedRectangle(cornerRadius: 3)
@@ -60,7 +59,7 @@
             
             Button(action: {
                 if viewModel.validateEmail() {
-                    coordinator.push(.verifyPhone)
+                    coordinator.push(.verifyPhone(viewModel.profileData ?? profileDetails()))
                 }
             }) {
                 HStack {
@@ -123,5 +122,5 @@
      }
 
    #Preview {
-     PhoneNumberLoginView()
+     LoginView()
    }

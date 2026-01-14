@@ -37,3 +37,39 @@ struct GalleryItemDetails: Identifiable {
     let image: String
     let isVideo: Bool
 }
+
+
+// MARK: - Welcome
+struct OwnerProfileDetail: Codable {
+    let pets: [PetsDetailData]?
+    let owner: OwnerDetails?
+    let postCount, followerCount, followingCount: String?
+
+    enum CodingKeys: String, CodingKey {
+        case pets, owner
+        case postCount = "post_count"
+        case followerCount = "follower_count"
+        case followingCount = "following_count"
+    }
+}
+
+// MARK: - Owner
+struct Owner: Codable, Hashable {
+    let id, userID: Int?
+    let name, email, phone, address: String?
+    let latitude, longitude: String?
+    let image: String?
+    let bio, parentType: String?
+    let userStatus: Int?
+    let createdAt, updatedAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userID = "user_id"
+        case name, email, phone, address, latitude, longitude, image, bio
+        case parentType = "parent_type"
+        case userStatus = "user_status"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}

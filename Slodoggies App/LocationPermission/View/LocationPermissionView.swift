@@ -10,16 +10,35 @@ import UserNotifications
 
 struct LocationPermissionView: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @State private var animate = false
+    
     var body: some View {
             VStack(spacing: 32) {
                 Spacer().frame(height: 80)
+                ZStack {
+                    // Ripple effect circles
+                    Circle()
+                        .fill(Color(hex: "#A8D3DA").opacity(0.6)) // outer ripple color
+                        .frame(width: 200, height: 200)
+                        .scaleEffect(animate ? 1.2 : 0.8)
+                        .opacity(animate ? 0.3 : 0.6)
+                        .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: animate)
 
-                Image("allowLocation")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 145, height: 145)
-                    .foregroundColor(.white)
-                // Title and subtitle
+                    Circle()
+                        .fill(Color(hex: "#2C8A96"))
+                        .frame(width: 120, height: 120)
+
+                    // Bell Icon
+                    Image("allowLocation") // Or use your "AllowNotification" image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 120, height: 120)
+                        .foregroundColor(.white)
+                }
+                .onAppear {
+                    animate = true
+                }
+
                 VStack(spacing: 8) {
                     Text("Turn on Location")
                         .font(.custom("Outfit-SemiBold", size: 26))
@@ -30,11 +49,16 @@ struct LocationPermissionView: View {
                         .font(.custom("Outfit-Regular", size: 16))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.black)
+                        .padding(.top)
+                        .padding(.horizontal, 50)
                 }
 
                 // Turn On button
                 Button(action: {
-                    coordinator.push(.tabBar)
+                    if let settingsURL = URL(string: UIApplication.openSettingsURLString),
+                       UIApplication.shared.canOpenURL(settingsURL) {
+                        UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+                    }
                 }) {
                     Text("Turn On")
                         .font(.custom("Outfit-SemiBold", size: 18))
@@ -46,9 +70,10 @@ struct LocationPermissionView: View {
                 }
                 .padding(.horizontal)
 
+
                 // Not Now
                 Button(action: {
-                    // Handle skip or dismiss
+                    coordinator.push(.tabBar)
                 }) {
                     Text("NOT NOW")
                         .font(.custom("Outfit-SemiBold", size: 16))
@@ -71,5 +96,5 @@ struct LocationPermissionView: View {
 }
 
 #Preview {
-    NotificationPermissionView()
+    LocationPermissionView()
 }

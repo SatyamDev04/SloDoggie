@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LogoutAccountPopUpView: View {
     @Binding var isPresented: Bool
+    @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject var tabRouter: TabRouter
     
     var body: some View {
         ZStack {
@@ -41,7 +43,22 @@ struct LogoutAccountPopUpView: View {
                     
                     Button("Logout") {
                         isPresented = false
-                        print("Account logged out")
+                        
+                        // ✅ CLEAR USER DATA
+                        UserDefaults.standard.removeObject(forKey: "userType")
+                        UserDefaults.standard.removeObject(forKey: "saveLogin")
+                        UserDefaults.standard.removeObject(forKey: "signUp")
+                        UserDefaults.standard.removeObject(forKey: "addService")
+                        
+                        UserDetail.shared.removeFcmToken()
+                        UserDetail.shared.removeUserId()
+                        UserDetail.shared.removeTokenWith()
+                        
+                        // ✅ RESET TAB STATE
+                        tabRouter.selectedTab = .home
+                        
+                        // ✅ RESET NAVIGATION → JoinAs ONLY
+                        coordinator.logoutAndGoToOnboard()
                     }
                     .padding()
                     .frame(width: 140, height: 42)

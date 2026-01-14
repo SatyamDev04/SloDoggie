@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class ChatViewModel: ObservableObject {
     @Published var messages: [ChatMessage] = [
@@ -36,7 +37,7 @@ class ChatViewModel: ObservableObject {
                     isCard: true,
                     cardTitle: "Aspen Carder",
                     cardSubtitle: "The game in...",
-                    cardImage: "dog_sample")
+                    cardImage: "ChatProfile")
     ]
     
     @Published var newMessage = ""
@@ -55,4 +56,14 @@ class ChatViewModel: ObservableObject {
         messages.append(new)
         newMessage = ""
       }
+    
+//    func addImageMessage(_ image: UIImage) {
+//        let new = ChatMessage(id: UUID(), userId: currentUserId, text: "[Image]", image: image, timestamp: Date())
+//        messages.append(new)
+//    }
+//
+//    func addDocumentMessage(_ url: URL) {
+//        let new = ChatMessage(id: UUID(), userId: currentUserId, text: url.lastPathComponent, fileURL: url, timestamp: Date())
+//        messages.append(new)
+//      }
     }

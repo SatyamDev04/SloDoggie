@@ -17,7 +17,16 @@ struct LaunchScreenView: View {
             launchImageView
                 .onAppear(perform: handleOnAppear)
                 .navigationDestination(for: Route.self, destination: buildDestination(for:))
+                .onReceive(NotificationCenter.default.publisher(for: Notification.Name("logout"))) { _ in
+               handelLogout()
+            }
         }
+    }
+    func handelLogout(){
+        UserDetail.shared.removeUserId()
+        UserDetail.shared.removeTokenWith()
+        UserDetail.shared.removeName()
+        coordinator.logoutAndGoToOnboard()
     }
 }
 
@@ -25,17 +34,22 @@ private extension LaunchScreenView {
     var launchImageView: some View {
         VStack {
             Image("Launch Image Logo")
-//                .resizable()
-                  .scaledToFit()
-                  .edgesIgnoringSafeArea(.all)
-                
+              .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
         }
     }
     
     func handleOnAppear() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation {
-                coordinator.push(.onboarding)
+                UserDetail.shared.removeFistLogin()
+                if UserDetail.shared.getTokenWith() != "" {
+                    coordinator.push(.tabBar)
+                }else{
+                    coordinator.push(.onboarding)
+                }
+//                coordinator.push(.onboarding)
 //                if viewModel.isUserLoggedIn {
 //                    coordinator.push(.tabBar)
 //                }else{
@@ -60,17 +74,14 @@ private extension LaunchScreenView {
         case .joinAs:
             JoinAsView()
                 .navigationBarBackButtonHidden()
-        case .phoneNumberLogin:
-            PhoneNumberLoginView()
+        case .loginView:
+            LoginView()
                 .navigationBarBackButtonHidden()
-        case .verifyPhone:
-            VerifyPhoneView()
+        case .verifyPhone(let userData,_):
+            VerifyPhoneView(userDeatils: userData)
                 .navigationBarBackButtonHidden()
         case .emailLogin:
             EmailLoginView()
-                .navigationBarBackButtonHidden()
-        case .verifyEmail:
-            VerifyEmailView()
                 .navigationBarBackButtonHidden()
         case .notificationpermision:
             NotificationPermissionView()
@@ -108,8 +119,8 @@ private extension LaunchScreenView {
         case .addParticipants:
             AddParticipantsView()
                 .navigationBarBackButtonHidden()
-        case .editPetProfileView:
-            PetProfileView()
+        case .editPetProfileView(let petDetail):
+            PetProfileView(pet: petDetail, isPresented: .constant(true))
                 .navigationBarBackButtonHidden()
         case .editProfileView:
             EditProfileView()
@@ -120,8 +131,8 @@ private extension LaunchScreenView {
         case .chatView:
             ChatView()
                 .navigationBarBackButtonHidden()
-        case .providerProfileView:
-            ProviderProfileView()
+        case .providerProfileView(let bID):
+            ProviderProfileView(businessID: bID)
                 .navigationBarBackButtonHidden()
         case .createPostEventView:
             CreatePostScreen()
@@ -141,8 +152,55 @@ private extension LaunchScreenView {
         case .groupChatView:
             GroupChatView()
                 .navigationBarBackButtonHidden()
-        case .followersScreen(let initialTab):
-            FollowersScreenView(initialTab: initialTab)
+        case .followersScreen(let Str,let initialTab):
+            FollowersScreenView(Id: Str, initialTab: initialTab)
+                .navigationBarBackButtonHidden()
+        case.changePasswordView(let userData):
+            ChangePasswordView(userDeatils: userData)
+                .navigationBarBackButtonHidden()
+        case .busiSubscriptionView:
+            BusiSubscriptionView()
+                .navigationBarBackButtonHidden()
+        case .busiSettingsView:
+            BusiSettingsView()
+                .navigationBarBackButtonHidden()
+        case .adsDashboardView:
+            AdsDashboardView()
+                .navigationBarBackButtonHidden()
+//        case .addServiceView(let mode):
+//            BusiAddServiceView(mode: mode)
+        case let .addServiceView(mode, index):
+            BusiAddServiceView(mode: mode, Index: index)
+                .navigationBarBackButtonHidden()
+        case .editBusinessView:
+            EditBusinessView()
+                .navigationBarBackButtonHidden()
+        case .businessRegisteration:
+            BusinessRegistrationView()
+                .navigationBarBackButtonHidden()
+        case .profileDetailsView(let str,let petName):
+            ProfileDetailsView(userID: str,petName: petName)
+                .navigationBarBackButtonHidden()
+        case .accountPrivacyView:
+            AccountPrivacyView()
+                .navigationBarBackButtonHidden()
+        case .savedPostsView(let id,let str):
+            SavedPostsView(userID:id, comingFrom: str)
+                .navigationBarBackButtonHidden()
+        case .transactionView:
+            TransactionView()
+                .navigationBarBackButtonHidden()
+        case .budgetView(let ads):
+            BudgetView(adsDetail:ads)
+                .navigationBarBackButtonHidden()
+        case .adsPreviewView(let data):
+            AdsPreviewView(adsDetail: data)
+                .navigationBarBackButtonHidden()
+        case .busiProfileView(let str, let id,let hideSponsoredButton):
+            BusiProfileView(comesFrom:str,businessID: id, hideSponsoredButton: hideSponsoredButton)
+                .navigationBarBackButtonHidden()
+        case .newChatListView:
+            NewChatListView()
                 .navigationBarBackButtonHidden()
         }
     }

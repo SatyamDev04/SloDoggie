@@ -6,61 +6,98 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct EventCardView: View {
-    let event: Event
-    let onTap: () -> Void   // 👈 Add this to handle tap from parent
+    let event: SavedEvent
+    let onTap: () -> Void
     @EnvironmentObject private var coordinator: Coordinator
 
+    var mediaImages: [String] {
+        event.images?
+            .compactMap { $0.mediaPath }
+            .filter { !$0.isEmpty } ?? []
+    }
+    
+    private var buttonTitle: String {
+        switch event.eventType {
+        case "my_event":
+            return "Chat"
+        case "saved_event":
+            return "Join Event"
+        default:
+            return "Event"
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Button(action: {
-                onTap()
-            }) {
+            Button(action: onTap) {
                 VStack(alignment: .leading, spacing: 10) {
-                    Image(event.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 130)
-                        .clipped()
-                        .cornerRadius(12)
 
-                    HStack {
-                        Text(event.title)
+                    // Image Slider
+                    if !mediaImages.isEmpty {
+                        TabView {
+                            ForEach(mediaImages, id: \.self) { imageUrl in
+                                WebImage(url: URL(string: imageUrl))
+                                    .resizable()
+                                    .indicator(.activity)
+                                    .scaledToFill()
+                                    .frame(height: 132)
+                                    .clipped()
+                                    .cornerRadius(12)
+                            }
+                        }
+                        .frame(height: 132)
+                        .tabViewStyle(PageTabViewStyle())
+                    } else {
+                        // Placeholder
+                        Image("placeholderPet")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 132)
+                            .clipped()
+                            .cornerRadius(12)
+                    }
+
+                    // Title & Start Date
+                    HStack (spacing: 12){
+                        Text(event.eventTitle ?? "")
                             .font(.custom("Outfit-Medium", size: 14))
                         Spacer()
                         Image("CalenderIcon")
                             .resizable()
-                            .frame(width: 24, height: 24)
-                        Text(event.date)
-                            .font(.custom("Outfit-Regular", size: 14))
-                            .foregroundColor(.black)
+                            .frame(width: 20, height: 20)
+                        Text("\(event.eventStartDate ?? "") \(event.eventStartTime ?? "")")
+                            .font(.custom("Outfit-Regular", size: 13))
                     }
 
-                    HStack {
-                        Text("Lorem ipsum dolor sit at...")
+                    // Description & End Date
+                    HStack(spacing: 12) {
+                        Text(event.eventDescription ?? "")
                             .font(.custom("Outfit-Regular", size: 14))
                             .foregroundColor(.gray)
+                            .lineLimit(3)
                         Spacer()
-                        Label(event.duration, image: "ClockIcon")
-                            .font(.custom("Outfit-Regular", size: 14))
-                            .foregroundColor(.black)
+                        Image("CalenderIcon")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        Text("\(event.eventEndDate ?? "") \(event.eventEndTime ?? "")")
+                            .font(.custom("Outfit-Regular", size: 13))
                     }
 
-                    HStack {
-                        Label(event.location, image: "LocationPin")
-                            .font(.custom("Outfit-Medium", size: 14))
-                            .foregroundColor(.black)
-                    }
+                    // Location
+                    Label(event.address ?? "N/A", image: "LocationPin")
+                        .font(.custom("Outfit-Medium", size: 14))
                 }
             }
-            .buttonStyle(PlainButtonStyle()) // Avoid blue button style
+            .buttonStyle(PlainButtonStyle())
 
-            // Bottom button (optional)
-            Button(action: {
+            // Bottom Button
+            Button {
                 coordinator.push(.groupChatView)
-            }) {
-                Text(event.buttonText)
+            } label: {
+                Text(buttonTitle)
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -75,4 +112,10 @@ struct EventCardView: View {
         .shadow(radius: 4)
     }
 }
-
+//Button {
+//if event.eventType == "my_event" {
+//    coordinator.push(.groupChatView)
+//} else {
+//    coordinator.push(.eventDetail(event.id ?? 0))
+//}
+//}

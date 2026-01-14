@@ -8,163 +8,183 @@
 import SwiftUI
 
 struct ChangePasswordView: View {
-    @StateObject var viewModel = CreateAccViewModel()
+    
+    let userDeatils: profileDetails
+    @StateObject var viewModel = ChangePassViewModel()
     @EnvironmentObject private var coordinator: Coordinator
-    @State private var password: String = ""
-    @State private var isPasswordVisible: Bool = false
-    @State private var repeatPassword: String = ""
-    @State private var isrepeatPasswordVisible: Bool = false
     @State private var showPopUp: Bool = false
     
+    init(userDeatils: profileDetails? = nil) {
+        self.userDeatils = userDeatils ?? profileDetails()
+        print(self.userDeatils)
+    }
+    
     var body: some View {
-        HStack(spacing: 10){
-            Button(action: {
-                coordinator.pop()
-            }) {
-                Image("Back")
-                    .foregroundColor(Color(hex: "#258694"))
-                    .padding(.top, 10)
-                
-            }
-            Spacer()
-        }
-        .padding(.leading, 24)
-        
-        VStack(spacing: 24) {
-            Spacer().frame(height: 100)
-            RoundedRectangle(cornerRadius: 3)
-                .fill(Color(hex: "#258694"))
-                .frame(width: 87, height: 6)
-
-            VStack(spacing: 8) {
-                Text("New Password")
-                    .font(.custom("Outfit-SemiBold", size: 18))
-                    .foregroundColor(.black)
-
-            }
-
-            VStack(alignment: .leading, spacing: 10) {
-                Text("New Password")
-                    .font(.custom("Outfit-Medium", size: 14))
-                    .foregroundColor(.black)
-                    .padding(.top)
-                    .padding(.leading, 30)
-                    
-                
-                HStack {
-                    if isPasswordVisible {
-                        TextField("Enter Password", text: $password)
-                            .font(.custom("Outfit-Regular", size: 14))
-                    } else {
-                        SecureField("Enter Password", text: $password)
-                            .font(.custom("Outfit-Regular", size: 14))
-                    }
-                    
+        ZStack {
+            VStack {
+                // MARK: - Back Button
+                HStack(spacing: 10){
                     Button(action: {
-                        isPasswordVisible.toggle()
+                        coordinator.pop()
                     }) {
-                        Image(isPasswordVisible ? "openeyeimg" : "openeyeimg")
-                            .foregroundColor(.gray)
+                        Image("Back")
+                            .foregroundColor(Color(hex: "#258694"))
+                            .padding(.top, 10)
                     }
-                }
-                .padding()
-                .background(Color.white)
-                .frame(height: 50)
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                )
-                .padding(.horizontal,30)
-            
-            
-            Text("Confirm Password")
-                .font(.custom("Outfit-Medium", size: 14))
-                .foregroundColor(.black)
-                .padding(.top)
-                .padding(.leading, 30)
-                
-            
-            HStack {
-                if isrepeatPasswordVisible {
-                    TextField("Re-enter Password", text: $repeatPassword)
-                        .font(.custom("Outfit-Regular", size: 14))
-                } else {
-                    SecureField("Re-enter Password", text: $repeatPassword)
-                        .font(.custom("Outfit-Regular", size: 14))
-                }
-                
-                Button(action: {
-                    isrepeatPasswordVisible.toggle()
-                }) {
-                    Image(isrepeatPasswordVisible ? "openeyeimg" : "openeyeimg")
-                        .foregroundColor(.gray)
-                }
-            }
-            .padding()
-            .background(Color.white)
-            .frame(height: 50)
-            .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-            )
-            .padding(.horizontal,30)
-        }
-        
-            Button(action: {
-                viewModel.validateFields()
-                coordinator.push(.verifyPhone)
-            }) {
-                HStack {
                     Spacer()
+                }
+                .padding(.leading, 24)
+                
+                VStack(spacing: 24) {
+                    Spacer().frame(height: 100)
                     
+                    RoundedRectangle(cornerRadius: 3)
+                        .fill(Color(hex: "#258694"))
+                        .frame(width: 87, height: 6)
+                    
+                    Text("New Password")
+                        .font(.custom("Outfit-SemiBold", size: 18))
+                        .foregroundColor(.black)
+                    
+                    VStack(alignment: .leading, spacing: 15) {
+                        
+                        // MARK: - New Password Field
+                        Text("New Password")
+                            .font(.custom("Outfit-Medium", size: 14))
+                            .foregroundColor(.black)
+                            .padding(.leading, 30)
+                        
+                        HStack {
+                            if viewModel.isPasswordVisible {
+                                TextField("Enter Password", text: $viewModel.password)
+                                    .font(.custom("Outfit-Regular", size: 14))
+                                    .autocapitalization(.none)
+                            } else {
+                                SecureField("Enter Password", text: $viewModel.password)
+                                    .font(.custom("Outfit-Regular", size: 14))
+                            }
+                            
+                            Button(action: {
+                                viewModel.isPasswordVisible.toggle()
+                            }) {
+                                Image(viewModel.isPasswordVisible ? "openeyeimg" : "closeeyeimg")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(viewModel.passwordError == nil ? Color.gray.opacity(0.5) : Color.red, lineWidth: 1)
+                        )
+                        .onChange(of: viewModel.password) { _ in
+                            viewModel.validateFields()
+                        }
+                        .padding(.horizontal, 30)
+                        
+                        if let error = viewModel.passwordError {
+                            Text(error)
+                                .font(.custom("Outfit-Regular", size: 12))
+                                .foregroundColor(.red)
+                                .padding(.leading, 30)
+                        }
+                        
+                        // MARK: - Confirm Password Field
+                        Text("Confirm Password")
+                            .font(.custom("Outfit-Medium", size: 14))
+                            .foregroundColor(.black)
+                            .padding(.leading, 30)
+                        
+                        HStack {
+                            if viewModel.isConfirmPasswordVisible {
+                                TextField("Re-enter Password", text: $viewModel.confirmPassword)
+                                    .font(.custom("Outfit-Regular", size: 14))
+                                    .autocapitalization(.none)
+                            } else {
+                                SecureField("Re-enter Password", text: $viewModel.confirmPassword)
+                                    .font(.custom("Outfit-Regular", size: 14))
+                            }
+                            
+                            Button(action: {
+                                viewModel.isConfirmPasswordVisible.toggle()
+                            }) {
+                                Image(viewModel.isConfirmPasswordVisible ? "openeyeimg" : "closeeyeimg")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(viewModel.confirmPasswordError == nil ? Color.gray.opacity(0.5) : Color.red, lineWidth: 1)
+                        )
+                        .onChange(of: viewModel.confirmPassword) { _ in
+                            viewModel.validateFields()
+                        }
+                        .padding(.horizontal, 30)
+                        
+                        if let error = viewModel.confirmPasswordError {
+                            Text(error)
+                                .font(.custom("Outfit-Regular", size: 12))
+                                .foregroundColor(.red)
+                                .padding(.leading, 30)
+                        }
+                    }
+                    
+                    // MARK: - Update Password Button
                     Button(action: {
-                        showPopUp = true
+                        if viewModel.validateFields() {
+                            if let email = userDeatils.email_Phone {
+                                viewModel.changePasswordApi(emailPhone: email) { success in
+                                    if success {
+                                        showPopUp = true
+                                    }
+                                }
+                            } else {
+                                print("❌ email_Phone is nil")
+                            }
+                        }
+
                     }) {
                         Text("Update Password")
                             .foregroundColor(.white)
                             .font(.custom("Outfit-Medium", size: 15))
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color(hex: "#258694"))
+                            .cornerRadius(10)
+                            .padding(.horizontal, 30)
                     }
+                    .padding(.top, 30)
+                    
+                    Spacer()
+                    
+                    HStack {
                         Spacer()
+                        Image("PawImg")
+                            .padding(.bottom, 12)
                     }
-                    .padding()
-                    .background(Color(hex: "#258694"))
-                    .cornerRadius(10)
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal,30)
-                .padding(.top)
-                
-            Spacer()
-
-            HStack {
-                Spacer()
-                Image("PawImg")
-                    .padding(.bottom, 12)
+                .padding(.top, -30)
             }
-            .padding(.horizontal)
+            if viewModel.showActivity {
+                CustomLoderView(isVisible: $viewModel.showActivity)
+                    .ignoresSafeArea()
+            }
         }
-        .padding(.top, -30)
+        .alert(isPresented: $viewModel.isPresentAlert) {
+            Alert(title: Text(viewModel.errorMessage ?? ""))
+        }
         .overlay(
             Group {
-                if showPopUp{
+                if showPopUp {
                     PasswordUpdateSuccPopUpView(isVisible: $showPopUp)
                 }
             }
         )
-    }
-    
-    private var numberErrorText: some View {
-        Group {
-            if let numberError = viewModel.phoneNumError {
-                Text(numberError)
-                    .foregroundColor(.red)
-                    .font(.caption)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .frame(height: 10)
-                    .padding(.horizontal,30)
-            }
-        }
     }
 }
 

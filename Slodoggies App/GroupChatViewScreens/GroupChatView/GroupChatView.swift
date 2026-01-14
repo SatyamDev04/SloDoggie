@@ -21,7 +21,7 @@ struct GroupChatView: View {
                 }){
                     Image("Back")
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 24, height: 24)
                 }
                 Image("memberimage")
                     .resizable()
@@ -48,16 +48,15 @@ struct GroupChatView: View {
                 Spacer()
                 
                 Button(action: {
-                    withAnimation {
-                      showMenu.toggle()
-                    }
+                    withAnimation { showMenu.toggle() }
                 }) {
                     Image("ThreeDots")
-                        .scaledToFill()
-                        .font(.title3)
-                        .foregroundColor(.black)
-                        .frame(width: 12, height: 16)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .padding(.trailing, 0)
                 }
+                .padding(.top, 8)
             }
             .padding()
             .background(Color.white)
@@ -113,6 +112,11 @@ struct GroupChatView: View {
         // Popup menu
         .overlay(alignment: .topTrailing) {
             if showMenu {
+                Color.black.opacity(0.001)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation { showMenu = false }
+                    }
                 VStack(alignment: .leading, spacing: 12) {
                     Button(action: {
                         showMenu = false
@@ -121,18 +125,17 @@ struct GroupChatView: View {
                         Text("View Profile")
                             .foregroundColor(.black)
                     }
-                 
                 }
                 .padding()
                 .background(Color.white)
                 .cornerRadius(12)
                 .shadow(radius: 4)
                 .frame(width: 160, alignment: .leading)
-                .position(x: UIScreen.main.bounds.width - 50, y: 80)
-            }
-        }
-     }
-   }
+                .position(x: UIScreen.main.bounds.width - 70, y: 90)
+             }
+          }
+       }
+    }
 
 
  #Preview {

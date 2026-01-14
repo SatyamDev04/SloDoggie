@@ -21,10 +21,12 @@ struct AddParticipantsView: View {
                 }
                
                 Text("Add Participants")
-                    .font(.headline)
+                    .font(.custom("Outfit-Medium", size: 20))
+                    .foregroundColor(.black)
                 Spacer()
+                
                 Button(action: {
-                    // Done tapped
+                    dismiss()
                 }) {
                     Image("RightCheckMark")
                         .font(.title2)
@@ -32,18 +34,27 @@ struct AddParticipantsView: View {
             }
             .padding(.horizontal)
 
+            Divider()
+                .frame(height: 2)
+                .background(Color(hex: "#258694"))
+            
             // Search bar
             HStack{
                 Image("Search")
+                    .padding(.leading, 4)
+                    .frame(width: 15, height: 15)
                 TextField("Enter Name", text: $viewModel.searchText)
-                    .cornerRadius(8)
-                    .padding(.horizontal)
-                
+                    .padding(.leading, 10)
             }
-            .background(Color(.systemGray6))
-            .padding(10)
-
-            Spacer()
+           
+            .frame(height: 50)
+            .padding(.horizontal)
+            .background(Color(hex: "#F4F4F4"))
+            .cornerRadius(8)
+            .padding(.leading)
+            .padding(.trailing)
+            
+          
             // Selected participants horizontal list
             if !viewModel.selectedParticipants.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -53,7 +64,7 @@ struct AddParticipantsView: View {
                                 ZStack(alignment: .topTrailing) {
                                     Image(participant.imageName)
                                         .resizable()
-                                        .frame(width: 60, height: 60)
+                                        .frame(width: 50, height: 50)
                                         .clipShape(Circle())
                                     
                                     Spacer()
@@ -73,19 +84,31 @@ struct AddParticipantsView: View {
                             }
                         }
                     }
+                    .padding(.top)
                     .padding(.horizontal)
-                }
-            }
-
-            Spacer()
+                 }
+              }
+           
             // Suggested label
             HStack {
                 Text("Suggested")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.custom("Outfit-Medium", size: 16))
+                    .padding(.top)
+                
+                Divider()
+                    .frame(height: 1)
+                    .background(Color(hex: "#258694"))
+                    .padding(.leading, 16)
+                    .padding(.trailing, 16)
                 Spacer()
+                   
             }
             .padding(.horizontal)
+            
+            Divider()
+                .frame(height: 2)
+                .background(Color(hex: "#258694"))
+                .padding(.horizontal)
 
             // Suggested participants list
             List {
@@ -99,10 +122,10 @@ struct AddParticipantsView: View {
                         Text(participant.name)
                         Spacer()
                         
-                        if viewModel.selectedParticipants.contains(participant) {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.green)
-                        }
+//                    if viewModel.selectedParticipants.contains(participant) {
+//                            Image("tickIcon")
+//                                .foregroundColor(.green)
+//                        }
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {

@@ -67,7 +67,7 @@ struct ProfileCreatedPopUpView: View {
                      .frame(width: 320)
                      .padding(.vertical)
                      .background(Color.white)
-                     .cornerRadius(24)
+                     .cornerRadius(10)
                  }
                  
              }

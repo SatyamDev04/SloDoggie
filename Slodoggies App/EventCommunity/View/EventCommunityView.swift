@@ -60,13 +60,14 @@ struct EventParticipantsView: View {
                             .padding(.trailing, 10)
                     }
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 12)
+                .padding(.bottom, -10)
                 
                 Divider()
                     .frame(height: 1)
                     .background(Color(hex: "#258694"))
-                    .padding(.leading, 16)
-                    .padding(.trailing, 16)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
                 
                 // List of Participants
                 List {
@@ -130,6 +131,7 @@ struct EventParticipantsView: View {
                 },
                 onViewProfile: {
                     // Handle view profile logic
+//                    coordinator.push(.profileDetailsView())
                 }
             )
             .presentationDetents([.height(180)])

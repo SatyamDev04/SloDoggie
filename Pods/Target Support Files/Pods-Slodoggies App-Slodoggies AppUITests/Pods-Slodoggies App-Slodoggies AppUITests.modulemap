@@ -1,0 +1,6 @@
+framework module Pods_Slodoggies_App_Slodoggies_AppUITests {
+  umbrella header "Pods-Slodoggies App-Slodoggies AppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

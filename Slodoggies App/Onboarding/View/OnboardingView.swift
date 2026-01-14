@@ -36,7 +36,6 @@ struct OnboardingView: View {
                     if currentPage < onboardingData.count - 1 {
                         currentPage += 1
                     } else {
-                        print("Navigate to home or login")
                         coordinator.push(.joinAs)
                     }
                 }) {
@@ -49,17 +48,21 @@ struct OnboardingView: View {
                         .cornerRadius(10)
                 }
 
-                // Conditionally show Skip without leaving space
+                // Always reserve space for Skip
                 if currentPage < onboardingData.count - 1 {
                     Button("Skip") {
-                        print("Skip pressed")
                         coordinator.push(.joinAs)
                     }
                     .foregroundColor(Color(hex: "#949494"))
+                } else {
+                    // invisible placeholder to keep spacing same
+                    Color.clear
+                        .frame(height: 24)
                 }
             }
-            .padding(.horizontal,30)
+            .padding(.horizontal, 30)
             .padding(.bottom, 30)
+
         }
     }
 }
@@ -74,7 +77,7 @@ struct OnboardingCard: View {
             Image(page.image)
                 .resizable()
                 .scaledToFill()
-                .frame(height: 480)
+                .frame(height: 520)
                 .clipped()
 
             ZStack(alignment: .topTrailing) {
@@ -121,8 +124,9 @@ struct OnboardingCard: View {
 //                    .frame(width: 40, height: 40)
 //                    .offset(x: -20, y: -20)
             }
-            .offset(y: -80)
+            .offset(y: -40)
         }
+        .padding(.top, -80)
     }
 }
 

@@ -60,8 +60,7 @@ struct EditParticipantsView: View {
            .cornerRadius(14)
            .ignoresSafeArea(edges: .bottom)
        }
-   }
-
+    }
 
   #Preview {
      EditParticipantsView(isPresented: .constant(true))
