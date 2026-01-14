@@ -116,7 +116,6 @@ var body: some View {
   }
 }
   
-
  #Preview{
      DeleteAccountPopUpView(isPresented: .constant(true))
  }

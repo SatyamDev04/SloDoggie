@@ -31,7 +31,7 @@ class PrivacyPolicyViewModel: ObservableObject {
             } receiveValue: { response in
                 
                 if response.success  ?? false {
-                    self.privacyPolicyText = response.data?.content ?? ""
+                    self.privacyPolicyText = response.data?.content?.htmlStripped() ?? ""
                 }else{
                     self.showError = true
                     self.errorMessage = response.message ?? "Something went wrong"

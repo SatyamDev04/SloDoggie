@@ -98,9 +98,17 @@ class APIKeys {
     static let businessuserid                 = "business_user_id"
     
     static let serviceid                 = "service_id"
-    static let business_id            = "business_id"
-    static let rating                    = "rating"
-    static let message                   = "message"
+    
+    static let reportreason                 = "report_reason"
+    
+    static let text                 =   "text"
+    
+    static let petownerid                 =   "pet_owner_id"
+    
+   
+    
+   
+    
 }
 
 

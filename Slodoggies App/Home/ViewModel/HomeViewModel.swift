@@ -9,16 +9,13 @@ import SwiftUI
 import Combine
 
 class HomeViewModel: ObservableObject {
-
     // MARK: - UI States
     @Published var showWelcomPopUp: Bool = true
     @Published var isLoading: Bool = false
     @Published var showActivity = false
     @Published var showError: Bool = false
     @Published var errorMessage: String? = ""
-
     @Published var showComments: Bool = false
-    @Published var showReportPopUp: Bool = false
     @Published var showPostReportPopUp: Bool = false
     @Published var reportFor: String?
     @Published var showToast: Bool = false
@@ -31,15 +28,11 @@ class HomeViewModel: ObservableObject {
 
     // MARK: - Data
     @Published var homeDataResult: HomeModel?
-    
-    
     @Published var editPostResult: EditPostModel?
     @Published var feedItems: [HomeItem] = []
     
-    
     @Published var myPostResult: MyPostModel?
     @Published var MyPostItem: [MyPostItem] = []
-    
     
     private var cancellables = Set<AnyCancellable>()
 
@@ -118,9 +111,7 @@ class HomeViewModel: ObservableObject {
                 }
 
                 let newItems = response.data?.items ?? []
-
                 self.totalPages = response.data?.totalPage ?? 1
-
                 if isLoadMore {
                     self.feedItems.append(contentsOf: newItems)
                 } else {
@@ -138,7 +129,6 @@ class HomeViewModel: ObservableObject {
         page += 1
         getMySavedPostApi(isLoadMore: true)
     }
-    
     
     // MARK: - Home API
     
@@ -183,8 +173,6 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-
-    
     // MARK: - Pagination Trigger
     func loadMoreIfNeededMyPost(userId: String,currentIndex: Int) {
         guard currentIndex == feedItems.count - 1 else { return }
@@ -194,7 +182,6 @@ class HomeViewModel: ObservableObject {
         getMyPostApi(UserID: userId, isLoadMore: true)
     }
 
-    
     // MARK: - Follow / Unfollow
     func FollowUnfollowApi(index: String, Index1: Int) {
         self.showActivity = true
@@ -208,6 +195,36 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+ // MARK: - repostPostApi
+
+    func repostPostApi(
+        userid: String,
+        postID: String,
+        reportReason: String,
+        text: String,
+        completion: @escaping (Result<(Bool, String?), Error>) -> Void
+    ) {
+        showActivity = true
+
+        APIManager.shared.repostPostApi(
+            userid: userid,
+            postId: postID,
+            report_reason: reportReason,
+            text: text
+        )
+        .receive(on: DispatchQueue.main)
+        .sink { completionResult in
+            self.showActivity = false
+
+            if case .failure(let error) = completionResult {
+                completion(.failure(error))
+            }
+        } receiveValue: { response in
+            completion(.success((response.success ?? false, response.message)))
+        }
+        .store(in: &cancellables)
+    }
+
     func updateCommentCount(postId: String, count: Int) {
         guard let index = feedItems.firstIndex(where: { $0.postID == postId }) else { return }
 
@@ -286,7 +303,7 @@ class HomeViewModel: ObservableObject {
                     return
                 }
 
-                // ✅ Remove item locally after success
+                // Remove item locally after success
                 if comingFrom == "myPost" {
                     guard self.MyPostItem.indices.contains(index) else { return }
                     self.MyPostItem.remove(at: index)
@@ -315,7 +332,7 @@ class HomeViewModel: ObservableObject {
                 
                 self.editPostResult = response.data
                 
-                // ✅ UPDATE LOCAL MY POST LIST
+                // UPDATE LOCAL MY POST LIST
                           if let index = self.MyPostItem.firstIndex(where: {
                               "\($0.id ?? 0)" == postId
                           }) {
@@ -326,8 +343,6 @@ class HomeViewModel: ObservableObject {
         }
         .store(in: &cancellables)
     }
-
-
 
     private func intValue(_ value: Comments?) -> Int {
         switch value {
@@ -344,5 +359,3 @@ class HomeViewModel: ObservableObject {
         isPaginating = false
     }
 }
-
-

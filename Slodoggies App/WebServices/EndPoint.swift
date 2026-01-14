@@ -102,11 +102,14 @@ extension AppURL {
         
         case ServiceDetail        = "ownerServiceDetail"
         
-      //  case getservicelist        = "get_service_list"
+     
         case delete_service        = "delete_service"
         
-        case deletePetProfile     = "deletePetProfile"
-        case add_business_review  = "add_business_review"
+        
+          case reportpost        = "report_post"
+        
+        
+        
         var path: String {
             let url = AppURL.baseURL
             return url + self.rawValue

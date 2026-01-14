@@ -51,6 +51,7 @@ import Foundation
 //}
 
 
+
 import Foundation
 import Combine
 import UIKit
@@ -78,7 +79,7 @@ class BusinessServiceViewModel: ObservableObject {
 
     func getBusinessServiceDetails() {
         self.isLoading = true
-        APIManager.shared.getBussinessServiceDetails(businessID: Int(UserDetail.shared.getUserId()))
+        APIManager.shared.getBussinessServiceDetails()
             .sink { completion in
                 self.isLoading = false
                 if case .failure(let error) = completion {
@@ -96,7 +97,7 @@ class BusinessServiceViewModel: ObservableObject {
                     guard let ratings = response.data?.ratingsAndReviews else { return }
 
                           // ⭐ Summary
-                    self.averageRating = Double(ratings.averageRating ?? "") ?? 0.0
+                    self.averageRating = Double(ratings.averageRating ?? "0") ?? 0.0
                           self.totalReviews = ratings.totalReviews ?? 0
 
                           let dist = ratings.ratingDistribution ?? [:]
@@ -123,10 +124,7 @@ class BusinessServiceViewModel: ObservableObject {
                                           text: $0.comment ?? ""
                                       )
                                   },
-                                  canReply: review.canReply ?? false,
-                                  createdAt: review.createdAt ?? "",
-                                  reviewId: review.reviewID ?? 0,
-                                  user: review.user
+                                  canReply: review.canReply ?? false
                               )
                           }
                     
@@ -152,7 +150,7 @@ class BusinessServiceViewModel: ObservableObject {
             } receiveValue: { response in
                 if response.success ?? false {
 
-                    // ✅ REMOVE LOCALLY (smooth UX)
+                    // REMOVE LOCALLY (smooth UX)
                     self.businessServiceResponse?.services?.remove(at: index)
 
                 } else {
@@ -163,8 +161,6 @@ class BusinessServiceViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    
-    
     enum Tab {
         case services
         case reviews

@@ -211,11 +211,7 @@ struct PetProfileView: View {
     private var overlaysGroup: some View {
         Group {
             if deleteProfilePopView {
-                DeletePetProfile(petID: "\(pet.id ?? 0)", isPresented: $deleteProfilePopView,
-                                 ondelete: {
-                    coordinator.pop()
-                    }
-                )
+                DeletePetProfile(isPresented: $deleteProfilePopView)
             }
             if showSuccessPopView {
                 PetProfileUpdatedSuccPopUp(isVisible: $showSuccessPopView)

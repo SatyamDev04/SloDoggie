@@ -28,6 +28,7 @@ struct DiscoverEventCard: View {
     var onLikeTap: (_ isCurrentlyLiked: Bool) -> Void
     var onReportPostTap: () -> Void = {}
     let onJoinCommunityTap: () -> Void
+    var onSaveTap: () -> Void = {}
     var mediaImages: [HPostMedia] { event.postMedia }
     @State private var playingIndex: Int? = nil
     @State private var players: [Int: AVPlayer] = [:]
@@ -327,16 +328,17 @@ struct DiscoverEventCard: View {
                     Spacer()
                    
                     Button(action: {
-                        isBookmarked.toggle()
-                        if isBookmarked {
+                       // isBookmarked.toggle()
+                        onSaveTap()
+                        if ((event.itemsuccess?.isSave ?? false) == false) {
                             showSavedPopup = true
                         }
                     }) {
                         HStack(spacing: 6) {
                             Text("Interested")
                                 .font(.custom("Outfit-Regular", size: 14))
-                                .foregroundColor(isBookmarked ? Color(hex: "#258694") : .black) // Blue when saved
-                            Image(isBookmarked ? "intrestedFilledimage" : "intrestedEmptyimage")
+                                .foregroundColor((event.itemsuccess?.isSave ?? false) ? Color(hex: "#258694") : .black) // Blue when saved
+                            Image((event.itemsuccess?.isSave ?? false) ? "intrestedFilledimage" : "intrestedEmptyimage")
                          }
                      }
                  }

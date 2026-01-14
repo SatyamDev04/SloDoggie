@@ -225,28 +225,3 @@ extension RandomAccessCollection where Self.Element: Identifiable {
 extension String {
     var trimmed: String { self.trimmingCharacters(in: .whitespacesAndNewlines) }
 }
-extension String {
-    func height(width: CGFloat, font: UIFont, lineLimit: Int?) -> CGFloat {
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.lineBreakMode = .byWordWrapping
-
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: font,
-            .paragraphStyle: paragraph
-        ]
-
-        let maxSize = CGSize(
-            width: width,
-            height: lineLimit == nil ? .greatestFiniteMagnitude : font.lineHeight * CGFloat(lineLimit!)
-        )
-
-        let rect = self.boundingRect(
-            with: maxSize,
-            options: [.usesLineFragmentOrigin],
-            attributes: attributes,
-            context: nil
-        )
-
-        return ceil(rect.height)
-    }
-}

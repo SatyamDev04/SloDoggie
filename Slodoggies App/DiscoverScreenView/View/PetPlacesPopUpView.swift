@@ -13,7 +13,6 @@ struct PetPlacesPopUpView: View {
     @State private var message: String = ""
     @State private var feedbackMessage: String = ""
     @State private var isExpanded = false
-    @State private var showMore = false
     let place: PetPlace
     var onCancel: (() -> Void)
     var onSubmit: (() -> Void)
@@ -58,9 +57,8 @@ struct PetPlacesPopUpView: View {
                     if let urlString = place.image,
                        let url = URL(string: urlString),
                        !urlString.isEmpty {
-                        Image.loadImage(place.image)
-//                        WebImage(url: url)
-//                            .resizable()
+                        WebImage(url: url)
+                            .resizable()
                             .scaledToFill()
                             .frame(height: 200)
                             .frame(maxWidth: .infinity)
@@ -90,35 +88,24 @@ struct PetPlacesPopUpView: View {
                         
                         // Fixed Text concatenation
                         Text(place.overview)
-                                .font(.custom("Outfit-Regular", size: 15))
-                                .foregroundColor(.gray)
-                                .lineLimit(isExpanded ? nil : 2)
-                                .animation(.easeInOut, value: isExpanded)
-
-                            if showMore && !isExpanded {
-                                Text("more")
-                                    .font(.custom("Outfit-Regular", size: 13))
-                                    .foregroundColor(Color(hex: "#258694"))
-                                    .underline()
-                                    .onTapGesture {
-                                        withAnimation {
-                                            isExpanded = true
-                                        }
-                                    }
-                            }
-
-                            // Hidden measurer
-                            TextSizeReader(
-                                text: place.overview,
-                                font: UIFont(name: "Outfit-Regular", size: 15)!,
-                                lineLimit: 2,
-                                width: UIScreen.main.bounds.width - 40
-                            ) { needsMore in
-                                showMore = needsMore
+                            .font(.custom("Outfit-Regular", size: 15))
+                            .foregroundColor(.gray)
+                            .lineSpacing(4)
+                            .lineLimit(isExpanded ? nil : 5)
+                            .animation(.easeInOut, value: isExpanded)
+                        
+                        Text(isExpanded ? "" : " more")
+                            .font(.custom("Outfit-Regular", size: 13))
+                            .foregroundColor(Color(hex: "#258694"))
+                            .underline()
+                            .onTapGesture {
+                                withAnimation {
+                                    isExpanded.toggle()
+                                }
                             }
                         }
                     //.padding(.horizontal)
-//                    .padding(.bottom, 40)
+                    .padding(.bottom, 40)
                     .background(Color.white)
                     .cornerRadius(16)
                     .padding(16)

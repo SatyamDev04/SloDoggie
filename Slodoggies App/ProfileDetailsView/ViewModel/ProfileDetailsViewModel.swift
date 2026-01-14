@@ -108,4 +108,22 @@ class ProfileDetailsViewModel: ObservableObject {
                 
             }.store(in: &cancellables)
        }
+    
+    func FollowUnfollowApi(followerID: String) {
+        self.showActivity = true
+        APIManager.shared.FollowUnfollowApi(followerID: followerID)
+            .sink { _ in } receiveValue: { response in
+                self.showActivity = false
+                guard response.success == true else { return }
+                print(response,"yahi hai response")
+                
+                if response.success ?? false {
+                    self.data?.isFollowing = !(self.data?.isFollowing ?? false)
+                }
+                
+//                let current = self.feedItems[Index1].itemsuccess?.iAmFollowing ?? false
+//                self.feedItems[Index1].itemsuccess?.iAmFollowing = !current
+            }
+            .store(in: &cancellables)
+    }
 }

@@ -73,6 +73,8 @@ class DiscoverViewModel: ObservableObject {
     @Published var selectedEvent: DiscoverEventItem? = nil
     
     @Published var isLoading: Bool = false
+    
+    @Published var showPostReportPopUp: Bool = false
 
     // MARK: - Actions
     func openMenu(for event: DiscoverEventItem) {
@@ -364,6 +366,35 @@ class DiscoverViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    
+    func repostPostApi(
+        userid: String,
+        postID: String,
+        reportReason: String,
+        text: String,
+        completion: @escaping (Result<(Bool, String?), Error>) -> Void
+    ) {
+        showActivity = true
+
+        APIManager.shared.repostPostApi(
+            userid: userid,
+            postId: postID,
+            report_reason: reportReason,
+            text: text
+        )
+        .receive(on: DispatchQueue.main)
+        .sink { completionResult in
+            self.showActivity = false
+
+            if case .failure(let error) = completionResult {
+                completion(.failure(error))
+            }
+        } receiveValue: { response in
+            completion(.success((response.success ?? false, response.message)))
+        }
+        .store(in: &cancellables)
+    }
 
     // MARK: - Trending Hashtag API
     func fetchTrendingHashtag() {
@@ -407,6 +438,28 @@ class DiscoverViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    func saveUnsaveApi(postId: String, index: Int, postType: String) {
+        self.showActivity = true
+        APIManager.shared.SaveUnsaveApi(postId: postId, postType: postType)
+            .sink { _ in } receiveValue: { response in
+                self.showActivity = false
+                guard response.success == true else { return }
+
+                if postType == "Activity" {
+                    let current = self.activities[index].itemsuccess?.isSave ?? false
+                    self.activities[index].itemsuccess?.isSave = !current
+                }
+              else if postType == "Event" {
+                    let current = self.events[index].itemsuccess?.isSave ?? false
+                    self.events[index].itemsuccess?.isSave = !current
+                }else {
+                    let current = self.events[index].itemsuccess?.isSave ?? false
+                    self.events[index].itemsuccess?.isSave = !current }
+           
+            }
+            .store(in: &cancellables)
+    }
+    
     func likeUnlikeActivityApi(postId: String, index: Int, postType: String) {
         self.showActivity = true
         APIManager.shared.LikeUnlikeApi(postId: postId, postType: postType)
@@ -420,6 +473,19 @@ class DiscoverViewModel: ObservableObject {
                 self.activities[index].itemsuccess?.isLiked = !isLiked
                 self.activities[index].engagement?.likes = .integer(
                     isLiked ? max(currentLikes - 1, 0) : currentLikes + 1)
+            }
+            .store(in: &cancellables)
+    }
+    
+    // MARK: - Follow / Unfollow
+    func FollowUnfollowApi(index: String, Index1: Int) {
+        self.showActivity = true
+        APIManager.shared.FollowUnfollowApi(followerID: index)
+            .sink { _ in } receiveValue: { response in
+                self.showActivity = false
+                guard response.success == true else { return }
+                let current = self.activities[Index1].itemsuccess?.iAmFollowing ?? false
+                self.activities[Index1].itemsuccess?.iAmFollowing = !current
             }
             .store(in: &cancellables)
     }

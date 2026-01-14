@@ -23,12 +23,11 @@ struct DiscoverEventsData: Codable {
     let total: Int
     let items: [DiscoverEventItem]
 }
-
 struct DiscoverEventItem: Codable {
     let postId: String
     let userId: String
     let groupId: String
-    let alreadyJoined: Bool
+    let alreadyJoined: Bool?
     let type: String
     let author: EventAuthor
     let content: EventContent
@@ -54,7 +53,6 @@ struct EventContent: Codable {
     let startTime: String
     let endTime: String
 }
-
 struct EventMedia: Codable {
     let imageUrl: String?
     let parentImageUrl: String?
@@ -72,9 +70,9 @@ struct EventEngagement: Codable {
 }
 struct ItemSuccessE: Codable {
     var isLiked: Bool?
-    let isSave: Bool?
-    let userFollowMe: Bool?
-    let iAmFollowing: Bool?
+    var isSave: Bool?
+    var userFollowMe: Bool?
+    var iAmFollowing: Bool?
 }
 
 

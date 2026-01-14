@@ -22,7 +22,7 @@ class TermConditionViewModel: ObservableObject {
         self.showActivity = true
         APIManager.shared.getTnc()
             .sink { completionn in
-                   
+                self.showActivity = false
                 if case .failure(let error) = completionn {
                     print("Failed to send OTP with error: \(error.localizedDescription)")
                     self.showError = true
@@ -31,7 +31,7 @@ class TermConditionViewModel: ObservableObject {
             } receiveValue: { response in
                 
                 if response.success  ?? false {
-                    self.termConditionText = response.data?.content ?? ""
+                    self.termConditionText = response.data?.content?.htmlStripped() ?? ""
                 }else{
                     self.showError = true
                     self.errorMessage = response.message ?? "Something went wrong"

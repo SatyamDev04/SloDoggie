@@ -33,6 +33,7 @@ struct BusiAddServiceView: View {
                 HStack(spacing: 4){
                     Button(action: {
                         coordinator.pop()
+                        coordinator.shouldRefreshServices = true
                     }){
                         Image("Back")
                             .resizable()
@@ -190,7 +191,11 @@ struct BusiAddServiceView: View {
                     if serviceAddedPopUp {
                         ServiceAddedSuccPopUp(
                             isVisible: $serviceAddedPopUp,
+                            onAddAnother: {
+                                       viewModel.resetForm()   // ✅ clear all fields
+                                   }
                         )
+                        
                     }
                     if serviceUpdatedPopUp {
                         ServiceUpdatedSuccPopUpView(
@@ -242,6 +247,7 @@ struct BusiAddServiceView: View {
             viewModel.setRemoteImages(urls)
         }
     }
+    
   }
 
 extension View {

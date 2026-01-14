@@ -201,32 +201,29 @@ class BusiPostEventViewModel: ObservableObject {
 //    }
     
     func convertDateTime(from input: String) -> (date: String, time: String)? {
+        
+        // Input format: "20 Nov 2025 at 8:19 PM"
         let inputFormatter = DateFormatter()
-        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
         inputFormatter.dateFormat = "dd MMM yyyy 'at' h:mm a"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
 
-        let cleanedInput = input
-            .replacingOccurrences(of: "\u{202F}", with: " ")
-            .replacingOccurrences(of: "\u{00A0}", with: " ")
-
-        guard let date = inputFormatter.date(from: cleanedInput) else {
-            print("❌ Invalid Date Format:", cleanedInput)
+        // Convert string → Date
+        guard let date = inputFormatter.date(from: input) else {
+            print("Invalid Date Format")
             return nil
         }
 
-        // API Date Format
+        // Convert date → "yyyy-MM-dd"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        let finalDate = dateFormatter.string(from: date)
 
-        // ✅ 12-hour Time Format
+        // Convert time → "hh:mma"
         let timeFormatter = DateFormatter()
-        timeFormatter.locale = Locale(identifier: "en_US_POSIX")
-        timeFormatter.dateFormat = "h:mm a"
+        timeFormatter.dateFormat = "hh:mma"
+        let finalTime = timeFormatter.string(from: date)
 
-        return (
-            dateFormatter.string(from: date),
-            timeFormatter.string(from: date)
-        )
+        return (finalDate, finalTime)
     }
     
 }

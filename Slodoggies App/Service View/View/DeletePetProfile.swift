@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct DeletePetProfile: View {
-    var petID: String
     @Binding var isPresented: Bool
     @EnvironmentObject private var coordinator: Coordinator
-    @StateObject private var viewModel = PetProfileViewModel()
-    var ondelete: () -> Void
+    
     var body: some View {
         ZStack {
             // Background dimming
@@ -53,16 +51,9 @@ struct DeletePetProfile: View {
                 
                 HStack {
                     Button("Delete") {
-//                        isPresented = false
+                        isPresented = false
                         //coordinator.logoutAndGoToLogin()
-//                        print("Pet Deleted")
-                        viewModel.deletePet(petId: petID) { status in
-                            if status{
-                                isPresented = false
-                                ondelete()
-                            }
-                        }
-//                        onDelete()
+                        print("Pet Deleted")
                     }
                     .padding()
                     .frame(width: 140, height: 42)
@@ -102,22 +93,11 @@ struct DeletePetProfile: View {
                 .padding(.trailing, 30),
                 alignment: .topTrailing
             )
-            
-            if viewModel.showActivity{
-                CustomLoderView(isVisible: $viewModel.showActivity)
-            }
-        }
-        .alert(isPresented: $viewModel.showError) {
-            Alert(
-                title: Text(""),
-                message: Text(viewModel.errorMessage ?? "Something went wrong"),
-                dismissButton: .default(Text("OK"))
-            )
         }
     }
 }
 
 #Preview {
-    DeletePetProfile(petID: "", isPresented: .constant(true), ondelete: {})
+    DeletePetProfile(isPresented: .constant(true))
 }
 

@@ -4,7 +4,6 @@
 //
 //  Created by YES IT Labs on 25/07/25.
 //
-
 import Foundation
 
 struct BusiServiceModel: Identifiable {
@@ -37,9 +36,6 @@ struct BusiServiceReview: Identifiable {
     let timeAgo: String
     var reply: ReviewReply? = nil
     let canReply: Bool
-    let createdAt: String
-    let reviewId: Int
-    let user: BusinessUser?
 }
 
 struct ReviewReply: Equatable {
@@ -79,7 +75,7 @@ struct RatingsAndReviews: Codable {
     let totalReviews: Int?
     let ratingDistribution: [String: Int]?
     let reviews: [BusinessReview]?
- 
+
     enum CodingKeys: String, CodingKey {
         case serviceID = "serviceId"
         case averageRating, totalReviews, ratingDistribution, reviews

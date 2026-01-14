@@ -32,7 +32,7 @@ class AboutUsViewModel: ObservableObject {
             } receiveValue: { response in
                 
                 if response.success  ?? false {
-                    self.aboutUsText = response.data?.content ?? ""
+                    self.aboutUsText = response.data?.content?.htmlStripped() ?? ""
                 }else{
                     self.showError = true
                     self.errorMessage = response.message ?? "Something went wrong"

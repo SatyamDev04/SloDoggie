@@ -73,6 +73,15 @@ class AddServiceViewModel: ObservableObject {
             selectedImageHashes.remove(id)
         }
     }
+    
+    func resetForm() {
+        title = ""
+        description = ""
+        price = ""
+        images.removeAll()
+        pickerItems.removeAll()
+    }
+
 
     @MainActor
     func loadPickerImages(_ items: [PhotosPickerItem]) async {

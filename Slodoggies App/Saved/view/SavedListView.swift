@@ -32,7 +32,6 @@ struct SavedView: View {
 
                 if viewModel.mediaItems.isEmpty && !viewModel.showActivity {
                     noDataView()
-                    Spacer()
                 } else {
                     gridView()
                 }

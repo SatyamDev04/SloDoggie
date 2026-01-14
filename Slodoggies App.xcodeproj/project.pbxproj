@@ -12,13 +12,11 @@
 		86C01FB2A09A605E694C8E42 /* Pods_Slodoggies_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC263FF50432ED26EA632B10 /* Pods_Slodoggies_AppTests.framework */; };
 		DD4834032E9D1D310007DA80 /* DisclaimerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4834022E9D1D240007DA80 /* DisclaimerPopUpView.swift */; };
 		DD49DAC62F03B56800DF06A2 /* MyPostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD49DAC52F03B54B00DF06A2 /* MyPostCardView.swift */; };
-		DD55A1C42F111B00000BA819 /* TextSizeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD55A1C32F111B00000BA819 /* TextSizeReader.swift */; };
 		DD5BD4492EC488E3006388AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BD4482EC488E3006388AC /* AppDelegate.swift */; };
 		DD5D68612ECB4E02008ADE1A /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = DD5D68602ECB4E02008ADE1A /* GooglePlaces */; };
 		DD5D68642ECB4F4F008ADE1A /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = DD5D68632ECB4F4F008ADE1A /* GoogleMaps */; };
 		DD5D68682ECB551C008ADE1A /* AddressSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5D68672ECB551C008ADE1A /* AddressSearchSheet.swift */; };
 		DD5EEBFA2ED70C51004022AA /* ThumbnilCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EEBF92ED70C51004022AA /* ThumbnilCreate.swift */; };
-		DD6B21302F17BEFB002DDD14 /* HTMLWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6B212F2F17BEFB002DDD14 /* HTMLWebView.swift */; };
 		DD6B472B2EC5E3EE00A1E90C /* OwnerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6B472A2EC5E3EE00A1E90C /* OwnerDetails.swift */; };
 		DD6D48CB2E2777DA00A16D48 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D48C92E2777DA00A16D48 /* HomeViewModel.swift */; };
 		DD6D48D02E27780E00A16D48 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D48CC2E27780E00A16D48 /* CustomTabBar.swift */; };
@@ -75,7 +73,7 @@
 		DD7DB1852EBC7F4F002CD453 /* PDFDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB1742EBC7F4F002CD453 /* PDFDownloader.swift */; };
 		DD7DB1862EBC7F4F002CD453 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB1732EBC7F4F002CD453 /* LottieView.swift */; };
 		DD7DB1872EBC7F4F002CD453 /* Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = DD7DB1672EBC7F4F002CD453 /* Animation.json */; };
-		DD836BCA2F0B849B00921090 /* Anubhav.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD836BC92F0B849900921090 /* Anubhav.swift */; };
+		DD836BCA2F0B849B00921090 /* AnubhavOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD836BC92F0B849900921090 /* AnubhavOld.swift */; };
 		DD836BDB2F0B86A600921090 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD836BD62F0B86A600921090 /* StatusView.swift */; };
 		DD836BDC2F0B86A600921090 /* PetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD836BD42F0B86A600921090 /* PetCardView.swift */; };
 		DD836BDD2F0B86A600921090 /* ProfileDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD836BD82F0B86A600921090 /* ProfileDataViewModel.swift */; };
@@ -318,11 +316,9 @@
 		CF13978AC102D195C541DB83 /* Pods-Slodoggies App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slodoggies App.debug.xcconfig"; path = "Target Support Files/Pods-Slodoggies App/Pods-Slodoggies App.debug.xcconfig"; sourceTree = "<group>"; };
 		DD4834022E9D1D240007DA80 /* DisclaimerPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerPopUpView.swift; sourceTree = "<group>"; };
 		DD49DAC52F03B54B00DF06A2 /* MyPostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostCardView.swift; sourceTree = "<group>"; };
-		DD55A1C32F111B00000BA819 /* TextSizeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeReader.swift; sourceTree = "<group>"; };
 		DD5BD4482EC488E3006388AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD5D68672ECB551C008ADE1A /* AddressSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchSheet.swift; sourceTree = "<group>"; };
 		DD5EEBF92ED70C51004022AA /* ThumbnilCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnilCreate.swift; sourceTree = "<group>"; };
-		DD6B212F2F17BEFB002DDD14 /* HTMLWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLWebView.swift; sourceTree = "<group>"; };
 		DD6B472A2EC5E3EE00A1E90C /* OwnerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerDetails.swift; sourceTree = "<group>"; };
 		DD6D48C92E2777DA00A16D48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DD6D48CC2E27780E00A16D48 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -381,7 +377,7 @@
 		DD7DB1742EBC7F4F002CD453 /* PDFDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDownloader.swift; sourceTree = "<group>"; };
 		DD7DB1752EBC7F4F002CD453 /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
 		DD7DB1762EBC7F4F002CD453 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
-		DD836BC92F0B849900921090 /* Anubhav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anubhav.swift; sourceTree = "<group>"; };
+		DD836BC92F0B849900921090 /* AnubhavOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnubhavOld.swift; sourceTree = "<group>"; };
 		DD836BCB2F0B86A600921090 /* AddYourPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourPetView.swift; sourceTree = "<group>"; };
 		DD836BCC2F0B86A600921090 /* PetAddSuccPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAddSuccPopUp.swift; sourceTree = "<group>"; };
 		DD836BCE2F0B86A600921090 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
@@ -1103,8 +1099,8 @@
 			isa = PBXGroup;
 			children = (
 				DD836BE72F0B878B00921090 /* Model */,
-				DD836BED2F0B878B00921090 /* ViewModel */,
 				DD836BEB2F0B878B00921090 /* View */,
+				DD836BED2F0B878B00921090 /* ViewModel */,
 			);
 			path = "Edit Pet Profile";
 			sourceTree = "<group>";
@@ -1127,7 +1123,6 @@
 				DD836BFA2F0B8FCE00921090 /* EventSavedSuccessPopUp.swift */,
 				DD836BFB2F0B8FCE00921090 /* PetPlacesDiscoverView.swift */,
 				DD836BFC2F0B8FCE00921090 /* PetPlacesPopUpView.swift */,
-				DD55A1C32F111B00000BA819 /* TextSizeReader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1249,7 +1244,7 @@
 		DDD527B72E2145F8008454B1 /* Slodoggies App */ = {
 			isa = PBXGroup;
 			children = (
-				DD836BC92F0B849900921090 /* Anubhav.swift */,
+				DD836BC92F0B849900921090 /* AnubhavOld.swift */,
 				DD725CBF2EC4B26900B93983 /* Slodoggies App.entitlements */,
 				DD5BD4482EC488E3006388AC /* AppDelegate.swift */,
 				DD725C712EC4A69300B93983 /* GoogleService-Info.plist */,
@@ -1380,7 +1375,6 @@
 		E96874CC2E263D0A0011E709 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD6B212F2F17BEFB002DDD14 /* HTMLWebView.swift */,
 				E96874D22E26601F0011E709 /* TermConditionView.swift */,
 				E96874CD2E263D140011E709 /* AboutUSView.swift */,
 				E96874D42E2663AC0011E709 /* PrivacyPolicyView.swift */,
@@ -2873,7 +2867,6 @@
 				E9D2999E2E703D7400F5FB7B /* ImagePopUpView.swift in Sources */,
 				E9D61FB22E6EE864003735F8 /* SavedPostsModel.swift in Sources */,
 				E9ED9FBF2E2E346F00592432 /* MyEventsView.swift in Sources */,
-				DD55A1C42F111B00000BA819 /* TextSizeReader.swift in Sources */,
 				DDD527572E21143E008454B1 /* Slodoggies_AppApp.swift in Sources */,
 				E9F701A92E37B2F700B3D331 /* NotiModel.swift in Sources */,
 				E9F5D3CE2E533A5F003DAD35 /* CreateAccountViewModel.swift in Sources */,
@@ -2904,7 +2897,7 @@
 				DD73106A2E24E0C9009A50EC /* HelperFile.swift in Sources */,
 				E9D97C1D2E326F66006498ED /* ServiceFilterChip.swift in Sources */,
 				E99AA24E2E574FFA0074363A /* StatusDetailsView.swift in Sources */,
-				DD836BCA2F0B849B00921090 /* Anubhav.swift in Sources */,
+				DD836BCA2F0B849B00921090 /* AnubhavOld.swift in Sources */,
 				DD6D48D02E27780E00A16D48 /* CustomTabBar.swift in Sources */,
 				DD6D48D12E27780E00A16D48 /* MainTabView.swift in Sources */,
 				E9CA22672E27BC8F001536BB /* SavedViewModal.swift in Sources */,
@@ -2941,7 +2934,6 @@
 				DD7310842E250C70009A50EC /* EmailLoginView.swift in Sources */,
 				E9E8C8802E60331B003BEF82 /* BusiEditProfileView.swift in Sources */,
 				E99AA24A2E574DDA0074363A /* ProfileDetailsModel.swift in Sources */,
-				DD6B21302F17BEFB002DDD14 /* HTMLWebView.swift in Sources */,
 				E9F5D3D52E5344CB003DAD35 /* ChangePassViewModal.swift in Sources */,
 				E9D229822E4A08BC00FD343A /* ChatListModel.swift in Sources */,
 				E9C9ED342E7A80C20095A1BA /* BudgetViewModel.swift in Sources */,

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ToastView: View {
+    let message: String
+    let isSuccess: Bool
     var onCancel: (() -> Void)
     var body: some View {
         ZStack{
@@ -19,7 +21,7 @@ struct ToastView: View {
                 Spacer()
                 VStack(spacing: 10) {
                     HStack {
-                        Text("Report Sent!")
+                        Text(isSuccess ? "Report Sent!" : "Already Reported")
                             .font(.custom("Outfit-Regular", size: 14))
                         
                         Divider().frame(width: 1,height: 18)
@@ -28,7 +30,7 @@ struct ToastView: View {
                         Text("Admin will get back to you.")
                             .font(.custom("Outfit-Regular", size: 14))
                         
-                        Spacer()
+                            Spacer()
                         
                         Button(action: {
                             onCancel()
@@ -48,6 +50,7 @@ struct ToastView: View {
     }
 }
 
-#Preview {
-    ToastView(onCancel: {})
-}
+
+//#Preview {
+//    ToastView(onCancel: {})
+//}

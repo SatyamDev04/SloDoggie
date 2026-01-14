@@ -11,7 +11,7 @@ struct BusiServiceReviewsTabView: View {
 //    @Binding var reviews: [BusiServiceReview]
 //
 //    let ratingCounts: [Int] = [40, 25, 15, 5, 2]
-    let maxCount: Int = 1
+    let maxCount: Int = 40
 //    let averageRating: Double = 4.0
 //    let totalReviews: Int = 52
     
@@ -111,25 +111,21 @@ struct RatingBarRow: View {
                 .foregroundColor(.orange)
 
             // Rating bar with dynamic width
-            if count == 0{
-                Spacer()
-            }else{
-                GeometryReader { geo in
-                    let ratio = CGFloat(max(min(count, maxCount), 0)) / CGFloat(max(1, maxCount))
-                    HStack(spacing: 14) {
-                        RoundedRectangle(cornerRadius: 4)
-                            .fill(Color(hex: "#258694"))
-                            .frame(width: geo.size.width * ratio, height: 6)
-                        
-                        // Rating count after the bar
-                        Text("\(count)")
-                            .font(.caption2)
-                            .foregroundColor(.gray)
-                            .frame(minWidth: 24, alignment: .leading)
-                    }
+            GeometryReader { geo in
+                let ratio = CGFloat(max(min(count, maxCount), 0)) / CGFloat(max(1, maxCount))
+                HStack(spacing: 14) {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color(hex: "#258694"))
+                        .frame(width: geo.size.width * ratio, height: 6)
+
+                    // Rating count after the bar
+                    Text("\(count)")
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                        .frame(minWidth: 24, alignment: .leading)
                 }
-                .frame(height: 6)
             }
+            .frame(height: 6)
         }
     }
 }
@@ -142,7 +138,7 @@ struct ReviewRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ReviewerHeader(
-                profileImg: review.user?.profileImage ?? "", name: review.reviewerName,
+                name: review.reviewerName,
                 rating: review.rating,
                 time: review.timeAgo
             )
@@ -168,15 +164,14 @@ struct ReviewRow: View {
   }
 
 struct ReviewerHeader: View {
-    let profileImg:String
     let name: String
     let rating: Int
     let time: String
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            Image.loadImage(profileImg)
-//                .resizable()
+            Image("People1")
+                .resizable()
                 .frame(width: 38, height: 38)
                 .clipShape(Circle())
 

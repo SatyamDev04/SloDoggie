@@ -71,7 +71,7 @@ struct BusiServiceHeaderView: View {
                             }
                             
                         }
-                     
+
                         
                         // Profile Row
                         HStack(spacing: 6) {

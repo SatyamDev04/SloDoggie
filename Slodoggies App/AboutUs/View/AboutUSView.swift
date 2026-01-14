@@ -38,20 +38,14 @@ struct AboutUSView: View {
                     .background(Color(hex: "#258694"))
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    HTMLWebView(htmlContent: viewModel.aboutUsText)
-                        .frame(maxHeight: .infinity)
-
-//                    ScrollView {
-////                        HTMLView(html: viewModel.aboutUsText)
-////                            .frame(height: 1000)
-////                            .frame(minHeight: 300)
-////                        Text(viewModel.aboutUsText)
-////                            .font(.custom("Outfit-Regular", size: 18))
-////                            .foregroundColor(Color(hex: "#252E32"))
-////                            .padding(.leading, 35)
-////                            .padding(.trailing, 35)
-////                            .padding(.top, 20)
-//                    }
+                    ScrollView {
+                        Text(viewModel.aboutUsText)
+                            .font(.custom("Outfit-Regular", size: 18))
+                            .foregroundColor(Color(hex: "#252E32"))
+                            .padding(.leading, 35)
+                            .padding(.trailing, 35)
+                            .padding(.top, 20)
+                    }
                 }
             }
             .onAppear(){

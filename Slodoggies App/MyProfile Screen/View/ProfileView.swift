@@ -70,7 +70,7 @@ struct ProfileView: View {
                 },errorHandler: { msg in
                     viewModel.errorMessage = msg
                     viewModel.showError = true
-                } , comesFrom: "TabBar")
+                } , comesFrom: "Profile")
             }
         }
         .onAppear {

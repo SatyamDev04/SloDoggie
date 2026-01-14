@@ -59,30 +59,4 @@ class PetProfileViewModel: ObservableObject {
             }.store(in: &cancellables)
         
     }
-    
-    func deletePet(petId:String , completion: @escaping (Bool) -> Void) {
-        self.showActivity = true
-        APIManager.shared.DeletePetProfile(petId: petId)
-            .sink { completionn in
-                self.showActivity = false
-                if case .failure(let error) = completionn {
-                    print("Failed to send OTP with error: \(error.localizedDescription)")
-                    self.showError = true
-                    self.errorMessage = error.localizedDescription
-                    completion(false)
-                }
-            } receiveValue: { response in
-                
-                if response.success  ?? false {
-                    completion(true)
-                }else{
-                    self.showError = true
-                    self.errorMessage = response.message ?? "Something went wrong"
-                    completion(false)
-                }
-                
-            }.store(in: &cancellables)
-        
-    }
-    
 }

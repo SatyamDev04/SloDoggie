@@ -38,16 +38,14 @@ struct PrivacyPolicyView: View {
                     .background(Color(hex: "#258694"))
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    HTMLWebView(htmlContent: viewModel.privacyPolicyText)
-                        .frame(maxHeight: .infinity)
-//                    ScrollView {
-//                        Text(viewModel.privacyPolicyText)
-//                            .font(.custom("Outfit-Regular", size: 18))
-//                            .foregroundColor(Color(hex: "#252E32"))
-//                            .padding(.leading, 35)
-//                            .padding(.trailing, 35)
-//                            .padding(.top, 20)
-//                    }
+                    ScrollView {
+                        Text(viewModel.privacyPolicyText)
+                            .font(.custom("Outfit-Regular", size: 18))
+                            .foregroundColor(Color(hex: "#252E32"))
+                            .padding(.leading, 35)
+                            .padding(.trailing, 35)
+                            .padding(.top, 20)
+                    }
                 }
             }
             .onAppear(){

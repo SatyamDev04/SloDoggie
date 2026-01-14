@@ -287,32 +287,26 @@ class CreatePostViewModel: ObservableObject {
     func convertDateTime(from input: String) -> (date: String, time: String)? {
         let inputFormatter = DateFormatter()
         inputFormatter.locale = Locale(identifier: "en_US_POSIX")
-        inputFormatter.dateFormat = "dd MMM yyyy 'at' h:mm a"
+        inputFormatter.dateFormat = "MMM dd, yyyy 'at' h:mm a"  // Correct format
 
-        let cleanedInput = input
-            .replacingOccurrences(of: "\u{202F}", with: " ")
-            .replacingOccurrences(of: "\u{00A0}", with: " ")
+        // Replace narrow no-break space U+202F with normal space, to avoid parsing failure
+        let cleanedInput = input.replacingOccurrences(of: "\u{202F}", with: " ")
 
         guard let date = inputFormatter.date(from: cleanedInput) else {
             print("❌ Invalid Date Format:", cleanedInput)
             return nil
         }
 
-        // API Date Format
+        // API required formats
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
-        // ✅ 12-hour Time Format
         let timeFormatter = DateFormatter()
-        timeFormatter.locale = Locale(identifier: "en_US_POSIX")
-        timeFormatter.dateFormat = "h:mm a"
+        timeFormatter.dateFormat = "HH:mm:ss"
 
-        return (
-            dateFormatter.string(from: date),
-            timeFormatter.string(from: date)
-        )
+        return (dateFormatter.string(from: date),
+                timeFormatter.string(from: date))
     }
-
     
     func GetServiceList() {
         self.showActivity = true

@@ -59,9 +59,7 @@ struct PetPlaceCard: View {
                     Image.loadImage(imageUrl)
 //                    WebImage(url: url)
 //                        .resizable()
-                        .scaledToFill()
-//                        .frame(height: 200)
-                        .frame(maxWidth: .infinity)
+                        .scaledToFit()
                 } else {
                     Image("download")
                         .resizable()
@@ -91,7 +89,6 @@ struct PetPlaceCard: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color(hex: "#CEE1E5"), lineWidth: 0.5)
         )
-        
     }
 }
 

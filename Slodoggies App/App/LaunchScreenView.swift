@@ -8,8 +8,11 @@
 
 import SwiftUI
 
+
 struct LaunchScreenView: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @State private var showLogoutAlert = false
+    @State private var ShowInterErrorAlert = false
 //    @StateObject private var viewModel: LaunchScreenVM = LaunchScreenVM()
     
     var body: some View {
@@ -17,10 +20,42 @@ struct LaunchScreenView: View {
             launchImageView
                 .onAppear(perform: handleOnAppear)
                 .navigationDestination(for: Route.self, destination: buildDestination(for:))
+            
+                .onReceive(
+                    NotificationCenter.default.publisher(for: Notification.Name("ServerError"))
+                ) { notification in
+
+                    if let code = notification.userInfo?["code"] as? Int {
+                        print("Server error code:", code)
+
+                        // show alert
+                        ShowInterErrorAlert = true
+                    }
+                }
+
                 .onReceive(NotificationCenter.default.publisher(for: Notification.Name("logout"))) { _ in
-               handelLogout()
+                    showLogoutAlert = true   // 👈 show alert
+//               handelLogout()
             }
         }
+        .alert(isPresented: $showLogoutAlert) {
+            Alert(
+                title: Text("Are you sure you want to logout?"),
+                dismissButton: .default(Text("OK")) {
+                    handelLogout()
+                }
+            )
+        }
+        .alert(isPresented: $ShowInterErrorAlert) {
+            Alert(
+                title: Text("Server Error"),
+                message: Text("Something went wrong. Please try again."),
+                dismissButton: .default(Text("OK")) {
+                    handelLogout()
+                }
+            )
+        }
+
     }
     func handelLogout(){
         UserDetail.shared.removeUserId()
@@ -178,8 +213,8 @@ private extension LaunchScreenView {
         case .businessRegisteration:
             BusinessRegistrationView()
                 .navigationBarBackButtonHidden()
-        case .profileDetailsView(let str,let petName):
-            ProfileDetailsView(userID: str,petName: petName)
+        case .profileDetailsView(let str,let petName) :
+            ProfileDetailsView(userID: str, petName: petName)
                 .navigationBarBackButtonHidden()
         case .accountPrivacyView:
             AccountPrivacyView()
