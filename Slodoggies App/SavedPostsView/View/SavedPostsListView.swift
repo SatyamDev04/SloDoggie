@@ -19,11 +19,15 @@ struct SavedPostsView: View {
     @State private var showReportPostPopUp = false
     @State private var activeMenuIndex: Int? = nil
     @State private var selectedPostID: String = ""
-    
+    @State private var showEventSavedPopup = false
     @State private var showDeletePopUp = false
     @State private var showEditPost = false
     
-    var onSelect: (() -> Void)? = nil   // ✅ ADD THIS
+    @State private var toastMessage = ""
+    
+   @State private var toastSuccess = false
+    
+    var onSelect: (() -> Void)? = nil
     
     @State private var postID: String = ""
     @State private var indexneedtodelete: Int = 0
@@ -122,7 +126,7 @@ struct SavedPostsView: View {
                     },
                     onReportTapped: {
                         showComments = false
-                        viewModel.showReportPopUp = true
+                        viewModel.showPostReportPopUp = true
                     },   onCommentsUpdated: { newCount in
                         viewModel.updateCommentCount(
                             postId: selectedPostID,
@@ -133,15 +137,15 @@ struct SavedPostsView: View {
             }
             
             // Report Popup
-            if viewModel.showReportPopUp {
+            if viewModel.showPostReportPopUp {
                 ReportCommentPopup(
                     reportOn: viewModel.reportFor ?? "",
                     onCancel: {
-                        viewModel.showReportPopUp = false
+                        viewModel.showPostReportPopUp = false
                         tabRouter.isTabBarHidden = false
                     },
                     onSubmit: {
-                        viewModel.showReportPopUp = false
+                        viewModel.showPostReportPopUp = false
                         tabRouter.isTabBarHidden = false
                         self.showToast = true
                     }
@@ -149,20 +153,24 @@ struct SavedPostsView: View {
             }
             
             // Toast
-            if self.showToast {
-                ToastView {
-                    self.showToast = false
-                }
+            if showToast {
+                ToastView(
+                    message: toastMessage,
+                    isSuccess: toastSuccess,
+                    onCancel: {
+                        showToast = false
+                    }
+                )
             }
-            
-            if showReportPostPopUp{
+//
+            if showReportPostPopUp {
                 ReportPostPopUp(
                     reportOn: "Post",
                     onCancel: {
                         showReportPostPopUp = false
                         tabRouter.isTabBarHidden = false
                     },
-                    onSubmit: {
+                    onSubmit: {reason,message in
                         showReportPostPopUp = false
                         tabRouter.isTabBarHidden = false
                         showToast = true
@@ -179,12 +187,8 @@ struct SavedPostsView: View {
                     post: post,
                     onSave: { newText in
                         tabRouter.isTabBarHidden = false
-
-                        // 🔥 API call
                         viewModel.editPostApi(postId: postID, text: newText)
 
-//                        // 🔥 Update UI instantly
-//                            .. viewModel.MyPostItem[index].postTitle = newText
                     }
                 )
                 .transition(.move(edge: .bottom))
@@ -196,11 +200,13 @@ struct SavedPostsView: View {
             }
 
             if showToast {
-                ToastView(onCancel: {
-                    self.showToast = false
-                })
-                .ignoresSafeArea()
-                .transition(.move(edge: .bottom))
+                ToastView(
+                    message: toastMessage,
+                    isSuccess: toastSuccess,
+                    onCancel: {
+                        showToast = false
+                    }
+                )
             }
             
             if showDeletePopUp {
@@ -266,7 +272,7 @@ struct SavedPostsView: View {
                     tabRouter.isTabBarHidden = true
                 },
                 onReportTap: {
-                    viewModel.showReportPopUp = true
+                    viewModel.showPostReportPopUp = true
                     tabRouter.isTabBarHidden = true
                 },
                 onShareTap: {
@@ -287,7 +293,7 @@ struct SavedPostsView: View {
                 },
                 onJoinCommunityTap: {
                     coordinator.push(.groupChatView)
-                },
+                }, showSavedPopup: $showEventSavedPopup,
                 onFollowTap: {
                     viewModel.FollowUnfollowApi(index: item.userID ?? "", Index1: index)
                 },
@@ -310,7 +316,7 @@ struct SavedPostsView: View {
                     set: { isVisible in activeMenuIndex = isVisible ? index : nil }
                 ),
                 onReportTap: {
-                    viewModel.showReportPopUp = true
+                    viewModel.showPostReportPopUp = true
                     tabRouter.isTabBarHidden = true
                 },
                 onShareTap: {
@@ -353,7 +359,7 @@ struct SavedPostsView: View {
                     activeMenuIndex = nil
                     showReportPostPopUp = true
                     tabRouter.isTabBarHidden = true
-                },
+                }, showSavedPopup: $showEventSavedPopup,
                 onFollowTap: {
                     activeMenuIndex = nil
                     viewModel.FollowUnfollowApi(index: item.userID ?? "", Index1: index)

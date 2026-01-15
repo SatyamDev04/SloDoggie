@@ -12,6 +12,7 @@ struct ServiceAddedSuccPopUp: View {
     @EnvironmentObject private var coordinator: Coordinator
       var backAction : () -> () = {}
       var onRemove: () -> Void = {}
+    var onAddAnother: () -> Void
     @EnvironmentObject var tabRouter: TabRouter
     
      var body: some View {
@@ -55,6 +56,7 @@ struct ServiceAddedSuccPopUp: View {
                          VStack{
                              Button(action: {
                                  isVisible = false
+                                 onAddAnother()   // ✅ reset form
                              }) {
                                  HStack{
                                      Text("+")
@@ -89,7 +91,7 @@ struct ServiceAddedSuccPopUp: View {
                                         .frame(width: 20, height: 20)
                                         .foregroundColor(Color(hex: "#258694"))
                                      Text("Go To Home")
-                                }
+                                 }
                                      .frame(maxWidth: .infinity)
                                      .padding()
                                      .foregroundColor(Color(hex: "#258694"))
@@ -114,7 +116,7 @@ struct ServiceAddedSuccPopUp: View {
 
 #Preview {
     ServiceAddedSuccPopUp(
-        isVisible: .constant(true))
+        isVisible: .constant(true), onAddAnother: { })
 //        backAction: {
 //            print("Popup closed")
 //        }

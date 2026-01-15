@@ -21,6 +21,7 @@ struct EventCard: View {
     let onProfileTap: () -> Void
     let onJoinCommunityTap: () -> Void
     
+    @Binding var showSavedPopup: Bool
    // @State private var isBookmarked = false
     
     @State private var currentIndex = 0
@@ -59,13 +60,6 @@ struct EventCard: View {
             // MARK: - Profile Row
             HStack {
                 Button(action: onProfileTap) {
-//                    AsyncImage(url: URL(string: item.media?.parentImageURL ?? "")) { img in
-//                        img.resizable()
-//                    } placeholder: {
-//                        Image("NoUserFound")
-//                            .resizable()
-//                            .scaledToFill()
-//                    }
                     if let userImage = item.media?.parentImageURL,
                        !userImage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                         
@@ -85,10 +79,6 @@ struct EventCard: View {
                             .frame(width: 40, height: 40)
                             .clipShape(Circle())
                     }
-//                    .frame(width: 40, height: 40)
-//                    .clipShape(Circle())
-//                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                    
                     VStack(alignment: .leading, spacing: 2) {
                         Text(authorName)
                             .font(.custom("Outfit-Medium", size: 14))
@@ -263,6 +253,9 @@ struct EventCard: View {
                //    isBookmarked.toggle()
 //                    print("Save tapped")
                     onSaveTap()
+                    if ((item.itemsuccess?.isSave ?? false) == false) {
+                        showSavedPopup = true
+                    }
                 }) {
                     HStack(spacing: 6) {
                         Text("Interested")

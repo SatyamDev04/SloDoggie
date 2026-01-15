@@ -26,6 +26,7 @@ struct PetPostCardView: View {
     @State private var isExpanded = false
    // @State private var isFollowing = false
     
+    @Binding var showSavedPopup: Bool
     var onFollowTap: () -> Void = {}
     
     let onLikeTap: (_ isCurrentlyLiked: Bool) -> Void
@@ -306,6 +307,9 @@ struct PetPostCardView: View {
 
                 Button(action: {
                     onSaveTap()
+                    if ((item.itemsuccess?.isSave ?? false) == false) {
+                        showSavedPopup = true
+                    }
                 }) {
                     HStack(spacing: 6) {
                                           Text("Save")

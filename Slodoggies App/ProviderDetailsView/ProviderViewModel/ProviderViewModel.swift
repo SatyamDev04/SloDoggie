@@ -27,29 +27,6 @@ class ProviderProfileViewModel: ObservableObject {
         case services
         case reviews
     }
-
-//    @Published var reviews: [BusiServiceReview] = [
-//        BusiServiceReview(
-//            id: UUID(uuidString: "12345678-1234-1234-1234-1234567890ab")!,
-//            reviewerName: "Courtney Henry",
-//            rating: 5,
-//            comment: "Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation.",
-//            timeAgo: "2 mins ago",
-//            reply: ReviewReply(
-//                authorName: "Rosy Morgan",
-//                role: "Provider",
-//                time: "Just now",
-//                text: "Thanks so much for the kind words, Courtney! We're thrilled your pup enjoyed their visit. 🐾"
-//            ), canReply: false
-//        ),
-//        BusiServiceReview(
-//            id: UUID(),
-//            reviewerName: "Cameron Williamson",
-//            rating: 4,
-//            comment: "Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco.",
-//            timeAgo: "5 mins ago", canReply: false
-//        )
-//    ]
     
     func toggleFollow() {
 //        var updatedProvider = provider
@@ -138,5 +115,4 @@ class ProviderProfileViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
 }

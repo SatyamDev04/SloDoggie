@@ -125,8 +125,8 @@ struct Engagement: Codable {
 // MARK: - ItemSuccess (Flags)
 struct ItemSuccessA: Codable {
     var isLiked: Bool?
-    let isSave: Bool?
+    var isSave: Bool?
     let userFollowMe: Bool?
-    let iAmFollowing: Bool?
+    var iAmFollowing: Bool?
 }
 

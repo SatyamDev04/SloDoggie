@@ -101,6 +101,11 @@ class APIKeys {
     static let business_id            = "business_id"
     static let rating                    = "rating"
     static let message                   = "message"
+    static let reportreason                 = "report_reason"
+    
+    static let text                 =   "text"
+    
+    static let petownerid                 =   "pet_owner_id"
 }
 
 

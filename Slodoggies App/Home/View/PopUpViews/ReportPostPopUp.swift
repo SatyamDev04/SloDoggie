@@ -19,7 +19,9 @@ struct ReportPostPopUp: View {
         "Scam, fraud or spam"
     ]
     var onCancel: (() -> Void)
-    var onSubmit: (() -> Void)
+    //var onSubmit: (() -> Void)
+    
+    var onSubmit: (_ reason: String, _ message: String) -> Void
     
     var body: some View {
             ZStack {
@@ -112,16 +114,23 @@ struct ReportPostPopUp: View {
                             
                             Button(action: {
                                 print("Report submitted: \(selectedReason ?? "") - \(message)")
-                                onSubmit()
+                               // onSubmit()
+                                onSubmit("\(selectedReason ?? "")", message)
                             }) {
                                 Text("Send report")
                                     .font(.custom("Outfit-Medium", size: 15))
                                     .frame(maxWidth: .infinity)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(Color(hex: "#258694"))
+                                   // .background(Color(hex: "#258694"))
+                                    .background(
+                                               (selectedReason?.isEmpty ?? true)
+                                               ? Color.gray.opacity(0.5)   // Disabled color
+                                               : Color(hex: "#258694")     // Enabled color
+                                           )
                                     .cornerRadius(12)
                             }
+                            .disabled(selectedReason?.isEmpty ?? true)
                         }
                         .padding(.horizontal)
                         .padding(.bottom, 20)
@@ -166,5 +175,5 @@ struct ReportPostPopUp: View {
 //}
 
  #Preview {
-     ReportPostPopUp(reportOn: "Comment",onCancel: {},onSubmit: {})
+     ReportPostPopUp(reportOn: "Comment",onCancel: {},onSubmit: {reason,message in })
  }

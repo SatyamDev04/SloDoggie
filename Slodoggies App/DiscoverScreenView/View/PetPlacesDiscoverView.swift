@@ -91,7 +91,6 @@ struct PetPlaceCard: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color(hex: "#CEE1E5"), lineWidth: 0.5)
         )
-        
     }
 }
 

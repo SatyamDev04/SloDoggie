@@ -12,6 +12,10 @@ struct ProviderProfileView: View {
     @StateObject private var viewModel = ProviderProfileViewModel()
     @StateObject private var viewModel1 = BusinessServiceViewModel()
     @EnvironmentObject private var coordinator: Coordinator
+    // Popup state
+    @State private var showImagePopup = false
+    @State private var popupPhotos: [String] = []
+    @State private var popupIndex: Int = 0
     
     @State private var showReplyPopup = false
     @State private var replyingTo: UUID? = nil
@@ -84,28 +88,6 @@ struct ProviderProfileView: View {
                                        },onreviewSuccess: {
                                            viewModel.getServiceDetails(BusinessID: businessID)
                                        })
-//                        BusiServiceReviewsTabView(
-//                            reviews: $viewModel1.reviews,
-//                            ratingCounts: viewModel1.ratingCounts,
-//                            averageRating: viewModel1.averageRating,
-//                            totalReviews: viewModel1.totalReviews,
-//                            onTapReply: { review in
-//                                replyingTo = review.id
-//                                showReplyPopup = true
-//                            },
-//                            onSendReply: { reply, reviewId in
-//                                if let idx = viewModel1.reviews.firstIndex(where: { $0.id == reviewId }) {
-//                                    viewModel1.reviews[idx].reply = ReviewReply(
-//                                        authorName: "Rosy Morgan",
-//                                        role: "Provider",
-//                                        time: "Just now",
-//                                        text: reply
-//                                    )
-//                                }
-//                                showReplyPopup = false
-//                                replyText = ""
-//                            }
-//                        )
                     }
                 }
                 .padding(.top, 12)
@@ -139,7 +121,6 @@ struct ProviderProfileView: View {
                 .transition(.scale.combined(with: .opacity))
                 .zIndex(2)
             }
-            
             if showReplyPopup {
                 CommentReplyPopupView(isPresented: $showReplyPopup) { reply in
                     if let id = replyingTo {

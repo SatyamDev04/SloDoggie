@@ -63,6 +63,7 @@ struct DeletePetProfile: View {
                             }
                         }
 //                        onDelete()
+
                     }
                     .padding()
                     .frame(width: 140, height: 42)

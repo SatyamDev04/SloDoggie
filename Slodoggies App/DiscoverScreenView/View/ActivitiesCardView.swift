@@ -20,10 +20,13 @@ struct ActivitiesCardView: View {
     @Binding var isMenuVisible: Bool
     @EnvironmentObject private var coordinator: Coordinator
     var onCommentTap: () -> Void = {}
-    var onReportTap: () -> Void = {}
     var onShareTap: () -> Void = {}
     var onReportPostTap: () -> Void = {}
+    
     let onLikeTap: (_ isCurrentlyLiked: Bool) -> Void
+    var onFollowTap: () -> Void = {}
+    var onSaveTap: () -> Void = {}
+    
     var mediaImages: [String] {
         activity.postMedia?
             .compactMap { $0.type?.lowercased() == "image" ? $0.mediaUrl : nil } ?? []
@@ -200,16 +203,15 @@ struct ActivitiesCardView: View {
                 
                 Button(action: {
                     withAnimation {
-                        isFollowing.toggle()
+                       // isFollowing.toggle()
+                        onFollowTap()
                     }
                 }) {
-                    Text(isFollowing ? "Following" : "Follow")
+                    Text((activity.itemsuccess?.iAmFollowing ?? false) ? "Following" : "Follow")
                         .font(.custom("Outfit-Regular", size: 12))
-                        //.padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .frame(width: 70)
-                        .background(isFollowing ? Color.clear : Color(hex: "#258694"))
-                        .foregroundColor(isFollowing ? Color(hex: "#258694") : .white)
+                        .frame(width: 70, height: 26)
+                        .background((activity.itemsuccess?.iAmFollowing ?? false) ? Color.clear : Color(hex: "#258694"))
+                        .foregroundColor((activity.itemsuccess?.iAmFollowing ?? false) ? Color(hex: "#258694") : .white)
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
                                 .stroke(Color(hex: "#258694"), lineWidth: 1)
@@ -309,14 +311,15 @@ struct ActivitiesCardView: View {
                 Spacer()
                 
                 Button(action: {
-                    isBookmarked.toggle()
+                    onSaveTap()
+                  // isBookmarked.toggle()
                     print("Export tapped")
                 }) {
                     HStack(spacing: 6) {
                         Text("Save")
                             .font(.custom("Outfit-Regular", size: 14))
-                            .foregroundColor(isBookmarked ? Color(hex: "#258694") : .black) // Blue when saved
-                        Image(isBookmarked ? "savedfillicon" : "savedIcon")
+                            .foregroundColor((activity.itemsuccess?.isSave ?? false) ? Color(hex: "#258694") : .black) // Blue when saved
+                        Image((activity.itemsuccess?.isSave ?? false) ? "savedfillicon" : "savedIcon")
                             .frame(width: 24, height: 25)
                     }
                 }

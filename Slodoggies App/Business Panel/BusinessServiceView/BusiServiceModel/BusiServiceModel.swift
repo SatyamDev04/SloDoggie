@@ -4,7 +4,6 @@
 //
 //  Created by YES IT Labs on 25/07/25.
 //
-
 import Foundation
 
 struct BusiServiceModel: Identifiable {
@@ -79,7 +78,6 @@ struct RatingsAndReviews: Codable {
     let totalReviews: Int?
     let ratingDistribution: [String: Int]?
     let reviews: [BusinessReview]?
- 
     enum CodingKeys: String, CodingKey {
         case serviceID = "serviceId"
         case averageRating, totalReviews, ratingDistribution, reviews

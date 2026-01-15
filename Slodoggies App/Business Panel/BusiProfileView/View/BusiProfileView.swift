@@ -118,7 +118,10 @@ struct BusiProfileView: View {
                                 Text("No Post Yet").bold()
 
                                 if businessID == UserDetail.shared.getUserId(){
-                                    Button("Create Post") { }
+                                    Button("Create Post") {
+                                        tabRouter.selectedTab = .add
+                                        tabRouter.isTabBarHidden = true
+                                    }
                                         .foregroundColor(.teal)
                                 }
                             }

@@ -61,6 +61,14 @@ struct ReviewsTabView: View {
                                     selectedRating = star
                                 }
                         }
+                        .padding(.vertical, 8)
+                        
+                        Text(review.comment)
+                            .font(.custom("Outfit-Regular", size: 12))
+                            .padding(.top, -5)
+                            .padding(.bottom)
+                        
+                        Divider()
                     }
                     .padding(.vertical, 8)
                     

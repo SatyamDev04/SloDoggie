@@ -116,7 +116,7 @@ struct ProviderHeaderView: View {
                         Image("StarIcon")
                             .foregroundColor(.yellow)
                             .font(.caption)
-                        Text("\(provider?.rating ?? "")/5")
+                        Text("\(provider?.rating ?? "0")/5")
                             .font(.caption)
                     }
                 }

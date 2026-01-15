@@ -119,6 +119,7 @@ struct PetPlacesPopUpView: View {
                         }
                     //.padding(.horizontal)
 //                    .padding(.bottom, 40)
+
                     .background(Color.white)
                     .cornerRadius(16)
                     .padding(16)

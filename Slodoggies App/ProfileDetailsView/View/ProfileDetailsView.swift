@@ -150,8 +150,11 @@ struct ProfileDetailsView: View {
     private var followAndMessageButtons: some View {
         HStack(spacing: 16) {
             
-            Button(action: { isFollowing.toggle() }) {
-                Text(isFollowing ? "Following" : "Follow")
+            Button(action: {
+                //isFollowing.toggle()
+                viewModel.FollowUnfollowApi(followerID: userID)
+            }) {
+                Text((viewModel.data?.isFollowing ?? false) ? "Following" : "Follow")
                     .font(.system(size: 16, weight: .semibold))
                     .frame(maxWidth: .infinity)
                     .padding()

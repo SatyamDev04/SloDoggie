@@ -83,12 +83,17 @@ final class APIServices<T: Decodable>: APIServiceProtocol {
                     if let statusCode = response.response?.statusCode {
                         if statusCode == 401 {
                             print("Unauthorized (401) detected. Logging out...")
-                            
                             self.handleUnauthorized()
+                           
                             return
                         }
+                        if statusCode == 500 {
+                            print("Server Error (500) detected.")
+                            self.handleInternalServerError(Code: statusCode)
+                            return
+                        }
+
                     }
-                    
                     print("\n==========================Parameters=====================\n")
                     print(parameters)
                     print("\n==========================Header=====================\n")
@@ -190,8 +195,13 @@ final class APIServices<T: Decodable>: APIServiceProtocol {
                 if let statusCode = response.response?.statusCode {
                     if statusCode == 401 {
                         print("Unauthorized (401) detected. Logging out...")
-                        
                         self.handleUnauthorized()
+                       
+                        return
+                    }
+                    if statusCode == 500 {
+                        print("Server Error (500) detected.")
+                        self.handleInternalServerError(Code: statusCode)
                         return
                     }
                 }
@@ -266,8 +276,15 @@ final class APIServices<T: Decodable>: APIServiceProtocol {
                     if statusCode == 401 {
                         print("Unauthorized (401) detected. Logging out...")
                         self.handleUnauthorized()
+                       
                         return
                     }
+                    if statusCode == 500 {
+                        print("Server Error (500) detected.")
+                        self.handleInternalServerError(Code: statusCode)
+                        return
+                    }
+
                 }
                 print("\n==========================Response=======================\n")
                 
@@ -327,10 +344,16 @@ final class APIServices<T: Decodable>: APIServiceProtocol {
                         if let statusCode = response.response?.statusCode {
                             if statusCode == 401 {
                                 print("Unauthorized (401) detected. Logging out...")
-                                
                                 self.handleUnauthorized()
+                               
                                 return
                             }
+                            if statusCode == 500 {
+                                print("Server Error (500) detected.")
+                                self.handleInternalServerError(Code: statusCode)
+                                return
+                            }
+
                         }
                         
                         print("==========================URL=====================")
@@ -427,10 +450,16 @@ final class APIServices<T: Decodable>: APIServiceProtocol {
                     if let statusCode = response.response?.statusCode {
                         if statusCode == 401 {
                             print("Unauthorized (401) detected. Logging out...")
-                            
                             self.handleUnauthorized()
+                           
                             return
                         }
+                        if statusCode == 500 {
+                            print("Server Error (500) detected.")
+                            self.handleInternalServerError(Code: statusCode)
+                            return
+                        }
+
                     }
                     print("==========================URL=====================")
                     print(endpoint.path)
@@ -519,8 +548,15 @@ final class APIServices<T: Decodable>: APIServiceProtocol {
                     if statusCode == 401 {
                         print("Unauthorized (401) detected. Logging out...")
                         self.handleUnauthorized()
+                       
                         return
                     }
+                    if statusCode == 500 {
+                        print("Server Error (500) detected.")
+                        self.handleInternalServerError(Code: statusCode)
+                        return
+                    }
+
                 }
                 print("==========================URL=====================")
                 print(endpoint.path)
@@ -552,11 +588,18 @@ final class APIServices<T: Decodable>: APIServiceProtocol {
         .eraseToAnyPublisher()
     }
     func handleUnauthorized() {
-//        userDefaultsManager.removeKeyData(key: .authToken)
-//        UserDetail.shared.removeName()
-//        UserDetail.shared.removeProfileImg()
-//        UserDetail.shared.removeEmailId()
+
         NotificationCenter.default.post(name: Notification.Name("logout"), object: nil)
+    }
+    func handleInternalServerError(Code: Int) {
+
+        NotificationCenter.default.post(
+            name: Notification.Name("ServerError"),
+            object: nil,
+            userInfo: ["code": Code]
+        )
+
+       
     }
 }
 

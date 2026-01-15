@@ -627,7 +627,20 @@ class APIManager {
                 .post(endpoint: .addremovefollower, parameters: parameters)
                 .eraseToAnyPublisher()
         }
-        
+    // MARK: - RepotPOSTAPI
+    
+    func repostPostApi(userid: String,postId: String, report_reason: String,text:String) -> AnyPublisher<BaseResponse<EmptyModel>, Error> {
+        let parameters: [String: Any] = [
+            APIKeys.user_id: userid,
+            APIKeys.postid: postId,
+            APIKeys.reportreason: report_reason,
+            APIKeys.text: text
+           
+        ]
+        return APIServices<EmptyModel>()
+            .post(endpoint: .reportpost, parameters: parameters)
+            .eraseToAnyPublisher()
+    }
         
         // MARK: -  addReplyApi
         func addReplyCommentApi(commentTxt:String,commentId:String,postID:String, ) -> AnyPublisher<BaseResponse<CommentReply>, Error> {
@@ -703,6 +716,12 @@ class APIManager {
         func SaveUnsaveApi(postId:String, postType:String) -> AnyPublisher<BaseResponse<EmptyModel>, Error> {
             var parameters: [String: Any] = [:]
             
+            if postType == "Activity"{
+                 parameters = [
+                    APIKeys.user_id: UserDetail.shared.getUserId(),
+                    APIKeys.postid: postId
+                ]
+            }
             if postType == "Post"{
                  parameters = [
                     APIKeys.user_id: UserDetail.shared.getUserId(),
@@ -834,6 +853,16 @@ class APIManager {
                 .eraseToAnyPublisher()
         }
     
+    // MARK: -  getBussinessServiceDetails API Call
+        func getBussinessServiceDetails() -> AnyPublisher<BaseResponse<BusinessServiceModel>, Error> {
+            let parameters: [String: Any] = [
+                APIKeys.businessuserid : UserDetail.shared.getUserId()
+            ]
+            
+            return APIServices<BusinessServiceModel>()
+                .post(endpoint: .ServiceDetail, parameters: parameters)
+                .eraseToAnyPublisher()
+        }
         // Ravi End
     func CreateAds(adsData: adsDataModel) -> AnyPublisher<BaseResponse<EmptyModel>, Error> {
         let parameters: [String: Any] = [
@@ -913,7 +942,6 @@ class APIManager {
                 .post(endpoint: .delete_service, parameters: parameters)
                 .eraseToAnyPublisher()
         }
-    
     
     func DeletePetProfile(petId:String) -> AnyPublisher<BaseResponse<EmptyModel>, Error> {
         let parameters: [String: Any] = [

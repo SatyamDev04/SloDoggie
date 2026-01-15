@@ -96,7 +96,7 @@ class BusinessServiceViewModel: ObservableObject {
                     guard let ratings = response.data?.ratingsAndReviews else { return }
 
                           // ⭐ Summary
-                    self.averageRating = Double(ratings.averageRating ?? "") ?? 0.0
+                    self.averageRating = Double(ratings.averageRating ?? "0") ?? 0.0
                           self.totalReviews = ratings.totalReviews ?? 0
 
                           let dist = ratings.ratingDistribution ?? [:]
@@ -151,8 +151,6 @@ class BusinessServiceViewModel: ObservableObject {
                 }
             } receiveValue: { response in
                 if response.success ?? false {
-
-                    // ✅ REMOVE LOCALLY (smooth UX)
                     self.businessServiceResponse?.services?.remove(at: index)
 
                 } else {
@@ -162,9 +160,6 @@ class BusinessServiceViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
-    
-    
     enum Tab {
         case services
         case reviews

@@ -216,6 +216,7 @@ struct PetProfileView: View {
                     coordinator.pop()
                     }
                 )
+
             }
             if showSuccessPopView {
                 PetProfileUpdatedSuccPopUp(isVisible: $showSuccessPopView)
