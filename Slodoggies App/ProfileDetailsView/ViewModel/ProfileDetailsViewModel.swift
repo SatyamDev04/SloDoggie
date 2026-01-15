@@ -118,11 +118,24 @@ class ProfileDetailsViewModel: ObservableObject {
                 print(response,"yahi hai response")
                 
                 if response.success ?? false {
+
+                    // Toggle follow state
                     self.data?.isFollowing = !(self.data?.isFollowing ?? false)
+
+                    // Convert followerCount String → Int
+                    let currentCount = Int(self.data?.followerCount ?? "0") ?? 0
+                    var updatedCount = currentCount
+
+                    if self.data?.isFollowing ?? false {
+                        updatedCount += 1
+                    } else {
+                        updatedCount = max(0, updatedCount - 1) // prevent negative
+                    }
+
+                    // Convert back to String for UI/API consistency
+                    self.data?.followerCount = "\(updatedCount)"
                 }
-                
-//                let current = self.feedItems[Index1].itemsuccess?.iAmFollowing ?? false
-//                self.feedItems[Index1].itemsuccess?.iAmFollowing = !current
+ 
             }
             .store(in: &cancellables)
     }

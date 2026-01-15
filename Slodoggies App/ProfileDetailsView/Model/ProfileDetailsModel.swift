@@ -43,7 +43,7 @@ struct GalleryItemDetails: Identifiable {
 struct OwnerProfileDetail: Codable {
     let pets: [PetsDetailData]?
     let owner: OwnerDetails?
-    let postCount, followerCount, followingCount: String?
+    var postCount, followerCount, followingCount: String?
     var isFollowing: Bool?
 
     enum CodingKeys: String, CodingKey {
@@ -51,7 +51,7 @@ struct OwnerProfileDetail: Codable {
         case postCount = "post_count"
         case followerCount = "follower_count"
         case followingCount = "following_count"
-        case isFollowing = "is_Following"
+        case isFollowing = "is_following"
     }
 }
 
