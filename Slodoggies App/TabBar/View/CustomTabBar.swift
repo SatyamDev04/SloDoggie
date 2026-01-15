@@ -12,9 +12,8 @@ enum CustomTab {
     case home, discover, add, services, profile
 }
 
-
 struct CustomTabBar: View {
-    @Binding var selectedTab: CustomTab
+    @EnvironmentObject var tabRouter: TabRouter
 
     var body: some View {
         ZStack {
@@ -39,44 +38,40 @@ struct CustomTabBar: View {
                     .padding(10)
             }
             .padding(.horizontal)
-            
+
+            // Middle tab
             Button(action: {
-                selectedTab = .add
+                tabRouter.selectedTab = .add
+                tabRouter.isTabBarHidden = true   // Hide tab bar
             }) {
                 Image("PawTab")
                     .frame(width: 40, height: 40)
             }
             .offset(y: -10)
         }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 
     @ViewBuilder
     private func tabButton(_ tab: CustomTab, selectedImage: String, unselectedImage: String, label: String) -> some View {
         Button(action: {
-            selectedTab = tab
+            tabRouter.selectedTab = tab
+            tabRouter.isTabBarHidden = false   // Show tab bar for normal tabs
         }) {
             VStack(spacing: 4) {
-                Image(selectedTab == tab ? selectedImage : unselectedImage)
+                Image(tabRouter.selectedTab == tab ? selectedImage : unselectedImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 22, height: 22)
 
                 Text(label)
-                    .font(selectedTab == tab ? .custom("Outfit-Medium", size: 12) : .custom("Outfit-Regular", size: 12))
-                
-                    .foregroundColor(selectedTab == tab ? Color(hex: "#258694") : .gray)
-
-//                if selectedTab == tab {
-//                    RoundedRectangle(cornerRadius: 2)
-//                        .fill(Color(hex: "#258694"))
-//                        .frame(height: 3)
-//                        .padding(.top, 2)
-//                        .padding(.horizontal, 6)
-//                }
+                    .font(tabRouter.selectedTab == tab ? .custom("Outfit-Medium", size: 12) : .custom("Outfit-Regular", size: 12))
+                    .foregroundColor(tabRouter.selectedTab == tab ? Color(hex: "#258694") : .gray)
             }
         }
     }
 }
+
 #Preview {
-    CustomTabBar(selectedTab: .constant(.home))
+    CustomTabBar()
 }

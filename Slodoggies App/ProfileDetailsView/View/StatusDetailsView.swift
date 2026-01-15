@@ -8,30 +8,34 @@
 import SwiftUI
 
 struct StatusDetailsView: View {
-    let pet: Pet
+    var userID: String
+    let postCount: String?
+    let followersCount: String?
+    let followingCount: String?
     @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
         HStack {
-            StatBlock(title: "Posts", value: "\(pet.posts)")
+            StatBlock(title: "Posts", value: postCount ?? "")
             
             Divider().frame(width: 1.2, height: 30)
                 .background(Color(hex: "#258694"))
             
-            StatBlock(title: "Followers", value: "\(pet.followers / 1000000)M") {
-                coordinator.push(.followersScreen(initialTab: .followers)) // 👈 followers tab
+            StatBlock(title: "Followers", value: followersCount ?? "") {
+                coordinator.push(.followersScreen(userID, initialTab: .followers)) // 👈 followers tab
             }
             
             Divider().frame(width: 1.2, height: 30)
                 .background(Color(hex: "#258694"))
             
-            StatBlock(title: "Following", value: "\(pet.following)") {
-                coordinator.push(.followersScreen(initialTab: .following)) // 👈 following tab
+            StatBlock(title: "Following", value: followingCount ?? "") {
+                coordinator.push(.followersScreen(userID, initialTab: .following)) // 👈 following tab
             }
         }
         .padding()
     }
 }
+
 
 
 struct StatDetailsBlock: View {
@@ -54,6 +58,6 @@ struct StatDetailsBlock: View {
         .onTapGesture {
             action?()  // run action only if provided
         }
+      }
     }
-}
 

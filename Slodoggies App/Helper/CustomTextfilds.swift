@@ -8,11 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct CustomTextField: View {
+ struct CustomTextField: View {
     let title: String
     let placeholder: String
     @Binding var text: String
-
+    var borderColor: Color = Color.gray.opacity(0.4) // 👈 default value
+     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
@@ -21,8 +22,12 @@ struct CustomTextField: View {
 
             TextField(placeholder, text: $text)
                 .font(.custom("Outfit-Regular", size: 15))
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.4)))
+                .padding(.horizontal, 12)
+                .frame(height: 48)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .strokeBorder(borderColor, lineWidth: 1) // ✅ consistent border
+            )
         }
     }
 }

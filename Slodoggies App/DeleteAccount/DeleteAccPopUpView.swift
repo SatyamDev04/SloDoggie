@@ -10,6 +10,7 @@ import SwiftUI
  struct DeleteAccountPopUpView: View {
     @State private var deleteText: String = ""
     @Binding var isPresented: Bool
+    @EnvironmentObject private var coordinator: Coordinator
     
 var body: some View {
     ZStack {
@@ -60,7 +61,7 @@ var body: some View {
                 // Buttons
                 HStack {
                     Button("Cancel") {
-                         isPresented = false
+                        isPresented = false
                     }
                     .font(.custom("Outfit-Medium", size: 16))
                     .foregroundColor(.black)
@@ -69,19 +70,21 @@ var body: some View {
                     
                     //Spacer()
                     
-                    Button("Delete") {
-                        // Handle deletion
-                        print("Account deleted")
+                    Button(action: {
                         isPresented = false
+                        coordinator.logoutAndGoToLogin()
+                        print("Account deleted")
+                    }) {
+                        Text("Delete")
+                            .disabled(deleteText != "DELETE")
+                            .font(.custom("Outfit-Bold", size: 15))
+                            .padding()
+                            .frame(width: 140, height: 42)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .background(Color(hex: "#258694"))
+                            .cornerRadius(8, corners: .allCorners)
                     }
-                    .disabled(deleteText != "DELETE")
-                    .font(.custom("Outfit-Bold", size: 15))
-                    .padding()
-                    .frame(width: 140, height: 42)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                    .background(Color(hex: "#258694"))
-                    .cornerRadius(8, corners: .allCorners)
                 }
                 .padding([.horizontal])
                 .padding(.bottom, 30)

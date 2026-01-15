@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct FilterChip: View {
+    
     let title: String
     let isSelected: Bool
     let action: () -> Void
-    
+
     var body: some View {
         Button(action: action) {
             Text(title)
@@ -19,7 +20,6 @@ struct FilterChip: View {
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .frame(height: 42)
-                .frame(maxWidth: .infinity)
                 .background(
                     isSelected ? Color(hex: "#258694") : Color.clear
                 )
@@ -37,6 +37,7 @@ struct FilterChip: View {
         }
     }
 }
+
 
 struct FilterChipListView: View {
     let options = ["Option 1", "Option 2", "Option 3"]

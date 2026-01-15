@@ -7,29 +7,44 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class FAQViewModel: ObservableObject {
     @Published var faqItems: [FAQItem] = []
     @Published var expandedIndex: Int? = 0 // First item expanded by default
+    private var cancellables = Set<AnyCancellable>()
+    @Published var showActivity = false
 
+    @Published var showError: Bool = false
+    @Published var errorMessage: String? = nil
+
+    @Published var faqText: String = ""
     init() {
-        loadFAQData()
+        fetchFAQData()
     }
 
-    func loadFAQData() {
-        faqItems = [
-            FAQItem(question: "What is Slodoggies?",
-                    answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses."),
-            FAQItem(question: "Who can join Slodoggies?", answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses."),
-            FAQItem(question: "How do I create a profile?", answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses."),
-            FAQItem(question: "Is there a cost to use the app?", answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses."),
-            FAQItem(question: "Can I create events or meetups?", answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses."),
-            FAQItem(question: "How do I promote my pet business?", answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses."),
-            FAQItem(question: "How is my information used?", answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses."),
-            FAQItem(question: "How do I contact support?", answer: "Slodoggies is a community-driven app for pet lovers and service providers in San Luis Obispo County. Share pet moments, discover local events, and connect with pet-friendly businesses.")
-        ]
-     }
-
+    func fetchFAQData() {
+        self.showActivity = true
+        APIManager.shared.getFAQData()
+            .sink { completionn in
+                self.showActivity = false
+                if case .failure(let error) = completionn {
+                    print("Failed to send OTP with error: \(error.localizedDescription)")
+                    self.showError = true
+                    self.errorMessage = error.localizedDescription
+                }
+            } receiveValue: { response in
+                
+                if response.success  ?? false {
+                    self.faqItems = response.data ?? []
+                }else{
+                    self.showError = true
+                    self.errorMessage = response.message ?? "Something went wrong"
+                }
+                
+            }.store(in: &cancellables)
+       }
+                                                 
     func toggleExpansion(for index: Int) {
         withAnimation {
             expandedIndex = (expandedIndex == index) ? nil : index
@@ -40,3 +55,8 @@ class FAQViewModel: ObservableObject {
         return expandedIndex == index
     }
  }
+
+
+
+
+    

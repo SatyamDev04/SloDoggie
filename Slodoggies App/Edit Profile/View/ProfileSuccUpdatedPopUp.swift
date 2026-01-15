@@ -9,22 +9,23 @@ import SwiftUI
 
 struct ProfileUpdatedSuccPopUp: View {
     @Binding var isVisible: Bool
-      var backAction : () -> () = {}
-      var onRemove: () -> Void = {}
+    @EnvironmentObject private var coordinator: Coordinator
+    var backAction : () -> () = {}
+    var onRemove: () -> Void = {}
     
-     var body: some View {
-//         if isVisible{
-             ZStack {
-                 // Background dimming
-                 Color(hex: "#3C3C434A").opacity(0.5)
-                     .ignoresSafeArea()
-                 
-                 VStack{
-                     HStack{
-                         Spacer()
+    var body: some View {
+    // if isVisible{
+        ZStack {
+            // Background dimming
+            Color(hex: "#3C3C434A").opacity(0.5)
+                .ignoresSafeArea()
+            
+            VStack{
+                HStack{
+                    Spacer()
                          Button(action: {
                              isVisible = false
-                             backAction()
+                             coordinator.pop()
                          }) {
                              Image("CancelIcon")
                                  .resizable()
@@ -33,28 +34,27 @@ struct ProfileUpdatedSuccPopUp: View {
                          }
                      }
                      .padding(.top)
-                     .padding(.trailing,45)
+                     .padding(.trailing, 1)
                      
                      VStack(spacing: 20) {
-                         
                          Image("ProfileSuccess")
                              .scaledToFit()
                              .frame(width: 50, height: 50, alignment: .center)
                              .foregroundColor(.blue)
-                             
-                    //       .padding(.top, -20)
+                         //  .padding(.top, -20)
                          
                          Text("Profile Updated!")
-                             .font(.custom("Outfit-Medium", size: 17))
+                             .font(.custom("Outfit-Medium", size: 16))
                          
                          Text("""
-    Your information has been saved."
-Thanks for keeping things up to date!
-"""
-)
-                             .font(.custom("Outfit-Regular", size: 15))
-                             .multilineTextAlignment(.center)
-                         
+                              Your information has been saved.
+                              Thanks for keeping things up to date!
+                            """
+                         )
+                         .font(.custom("Outfit-Regular", size: 14))
+                         .multilineTextAlignment(.center)
+                         .padding(.top, -10)
+                         .padding(.bottom, 10)
                      }
                      .padding(.horizontal,10)
                      .frame(maxWidth: .infinity)
@@ -65,11 +65,11 @@ Thanks for keeping things up to date!
                  .padding(.leading, 30)
                  .padding(.trailing, 30)
                  //.padding(.bottom, 30)
-                 
              }
 //         }
      }
  }
+
 #Preview {
     ProfileUpdatedSuccPopUp(
         isVisible: .constant(true))

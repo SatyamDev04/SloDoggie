@@ -9,8 +9,6 @@
 import SwiftUI
 import Combine
 
-
-// A SwiftUI view for entering OTP (One-Time Password).
 struct OTPFieldView: View {
     
     @FocusState private var pinFocusState: FocusPin?
@@ -37,36 +35,36 @@ struct OTPFieldView: View {
                     .font(.custom("Outfit-Medium", size: 15))
                     .foregroundColor(.black)
                     .onChange(of: pins[index]) { newVal in
+                        
                         if newVal.count == 1 {
+                            // move to next box
                             if index < numberOfFields - 1 {
-                                pinFocusState = FocusPin.pin(index + 1)
-                            } else {
-                                // Uncomment this if you want to clear focus after the last digit
-                                // pinFocusState = nil
+                                pinFocusState = .pin(index + 1)
                             }
                         }
-                        else if newVal.count == numberOfFields, let intValue = Int(newVal) {
-                            // Pasted value
+                        else if newVal.count == numberOfFields {
+                            // pasted full OTP
                             otp = newVal
                             updatePinsFromOTP()
-                            pinFocusState = FocusPin.pin(numberOfFields - 1)
+                            pinFocusState = .pin(numberOfFields - 1)
                         }
                         else if newVal.isEmpty {
-                            if index > 0 {
-                                pinFocusState = FocusPin.pin(index - 1)
+                            // stay on current field when deleting
+                            // only move back if current was empty already
+                            if index > 0 && pins[index].isEmpty && otp.count >= index {
+                                pinFocusState = .pin(index - 1)
                             }
                         }
+                        
                         updateOTPString()
                     }
-                    .focused($pinFocusState, equals: FocusPin.pin(index))
+                    .focused($pinFocusState, equals: .pin(index))
                     .onTapGesture {
-                        // Set focus to the current field when tapped
-                        pinFocusState = FocusPin.pin(index)
+                        pinFocusState = .pin(index)
                     }
-            }
+              }
         }
         .onAppear {
-            // Initialize pins based on the OTP string
             updatePinsFromOTP()
         }
     }
@@ -104,11 +102,11 @@ struct OtpModifier: ViewModifier {
             .background(
                 Rectangle()
                     .frame(height: 2)
-                    .foregroundColor(Color(hex: "#B2B2B2"))
+                    .foregroundColor(Color.gray.opacity(0.5))
                     .offset(y: 20)
             )
-        }
     }
+}
 
 struct OTPFieldView_Previews: PreviewProvider {   
     static var previews: some View {

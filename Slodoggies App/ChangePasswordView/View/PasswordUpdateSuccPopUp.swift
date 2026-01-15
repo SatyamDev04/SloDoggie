@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PasswordUpdateSuccPopUpView: View {
+    @EnvironmentObject private var coordinator: Coordinator
   
   @Binding var isVisible: Bool
     var backAction : () -> () = {}
@@ -36,28 +37,39 @@ struct PasswordUpdateSuccPopUpView: View {
                      .padding(.trailing,45)
                      
                      VStack(spacing: 20) {
-                         
                          Image("CongratulationIcon")
                              .scaledToFit()
                              .frame(width: 50, height: 50)
                              .foregroundColor(.blue)
-                         //                         .padding(.top, -20)
+                         //  .padding(.top, -20)
                          
                          Text("Password Updated Successfully!")
                              .font(.custom("Outfit-Medium", size: 18))
-                         
+                             .padding(.top, 0)
                          Text("Your password has been changed. ")
-                             .font(.custom("Outfit-Regular", size: 15))
+                             .font(.custom("Outfit-Regular", size: 14))
                              .multilineTextAlignment(.center)
-                         
+                             .padding(.top, -10)
+                             .padding(.bottom, -10)
+                         Button(action: {
+                             isVisible = false
+                             coordinator.logoutAndGoToLogin()
+                         }) {
+                             Text("Go To Login")
+                                 .font(.custom("Outfit-Medium", size: 14))
+                                 .foregroundColor(.white)
+                                 .frame(maxWidth: .infinity)
+                                 .padding()
+                                 .background(Color(hex: "#258694"))
+                                 .cornerRadius(10)
+                         }
                      }
                      .padding(.horizontal,10)
                      .frame(width: 320)
                      .padding(.vertical)
                      .background(Color.white)
-                     .cornerRadius(24)
+                     .cornerRadius(10)
                  }
-                 
              }
 //         }
      }

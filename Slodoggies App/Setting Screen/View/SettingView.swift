@@ -13,28 +13,25 @@ struct SettingView: View {
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject private var coordinator: Coordinator
     @State var logoutAccountPopView: Bool = false
-    @State var deleteAccountPopView: Bool = false
     
     var body: some View {
+        VStack{
             HStack(spacing: 20){
                 Button(action: {
-                     coordinator.pop()
+                    coordinator.pop()
                 }){
                     Image("Back")
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 24, height: 24)
                 }
                 Text("Settings")
                     .font(.custom("Outfit-Medium", size: 20))
                     .fontWeight(.medium)
                     .foregroundColor(Color(hex: " #221B22"))
-                //.padding(.leading, 100)
+                Spacer()
             }
             
-            //.padding()
-            .padding(.leading, -180)
-            //.padding(.horizontal,25)
-            //.padding(.bottom,2)
+            .padding(.horizontal, 20)
             
             Divider()
                 .frame(height: 2)
@@ -49,24 +46,27 @@ struct SettingView: View {
                         Divider()
                         
                         settingsRow(title: "Events".localized(), image: "EventsIcon") {
-                             coordinator.push(.myEvents)
+                            coordinator.push(.myEvents)
                         }
                         Divider()
                         
                         notificationToggleRow
                         Divider()
-                        settingsRow(title: "Delete Account".localized(), image: "deleteIcon 1") {
-                            deleteAccountPopView = true
+                        settingsRow(title: "Account Privacy".localized(), image: "accountpicon") {
+                            coordinator.push(.accountPrivacyView)
                             //viewModel.handleDeleteAccount()
                         }
+                        
                         Divider()
                         settingsRow(title: "About Us".localized(), image: "AboutIcon") {
                             coordinator.push(.aboutUs)
                         }
+                        
                         Divider()
                         settingsRow(title: "Terms & Conditions".localized(), image: "TermConditionIcon", showArrow: true) {
                             coordinator.push(.termsAndCondition)
                         }
+                        
                         Divider()
                         settingsRow(title: "Privacy Policy".localized(), image: "PrivacyPolicyIcon", showArrow: true) {
                             coordinator.push(.privacyPolicy)
@@ -75,6 +75,7 @@ struct SettingView: View {
                         settingsRow(title: "FAQs".localized(), image: "FaqIcon") {
                             coordinator.push(.faq)
                         }
+                        
                         Divider()
                         settingsRow(title: "Help & Support".localized(), image: "HelpSupportIcon") {
                             coordinator.push(.helpSupport)
@@ -82,20 +83,24 @@ struct SettingView: View {
                         
                         Divider()
                         
-                        Button(action: {
-                            logoutAccountPopView = true
-                            //viewModel.handleLogout()
-                        }) {
-                            HStack {
-                                Label("Logout".localized(), image: "RedExitIcon")
-                                    .foregroundColor(.red)
-                                Spacer()
+                        HStack{
+                            Button(action: {
+                                logoutAccountPopView = true
+                                //viewModel.handleLogout()
+                            }) {
+                                HStack {
+                                    Label("Logout".localized(), image: "RedExitIcon")
+                                        .foregroundColor(.red)
+                                    Spacer()
+                                }
+                                .padding(.horizontal)
                             }
-                            .padding(.horizontal)
+                            Divider()
+                            Spacer()
+                            
                         }
-                        Divider()
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 4)
                 }
                 
                 Spacer()
@@ -108,57 +113,60 @@ struct SettingView: View {
                 viewModel.checkNotificationStatus()
             }
             
-        .padding()
-            .overlay(
-                Group {
-                    if logoutAccountPopView {
-                        LogoutAccountPopUpView(isPresented: $logoutAccountPopView)
-                    }
-
-                    if deleteAccountPopView {
-                        DeleteAccountPopUpView(isPresented: $deleteAccountPopView)
-                    }
+        }
+       // .padding()
+        .overlay(
+            Group {
+                if logoutAccountPopView {
+                    LogoutAccountPopUpView(isPresented: $logoutAccountPopView)
                 }
-            )
-         }
-    
-            // MARK: - UI Rows
-            private func settingsRow(title: String, image: String, showArrow: Bool = false, action: @escaping () -> Void) -> some View {
-                Button(action: action) {
-                    HStack {
-                        Image(image)
-                            .resizable()
-                            .frame(width: 22, height: 22) // Increased icon size
-                        Text(title)
-                            .font(.custom("Outfit-Regular", size: 18)) // Increased font size
-                            .foregroundColor(.black)
-                        Spacer()
-                        Spacer()
-                        if showArrow {
-                            Image("RightArrowIcon")
-                               // .foregroundColor(.gray)
-                        }
-                      }
-                    .foregroundColor(.black)
-                    .padding(.horizontal)
-                }
-              }
-
-            private var notificationToggleRow: some View {
-                HStack {
-                    Label("Notification".localized(), image: "NotificationIcon")
-                    Spacer()
-                    Toggle("", isOn: Binding<Bool>(
-                        get: { viewModel.isNotificationEnabled },
-                        set: { _ in viewModel.openNotificationSettings() }
-                    ))
-                    .toggleStyle(SwitchToggleStyle(tint: .teal))
-                 }
-                .padding(.leading, -6)
-                .padding(.horizontal)
             }
-         }
-
-   #Preview{
-      SettingView()
+        )
     }
+    
+    // MARK: - UI Rows
+    private func settingsRow(title: String, image: String, showArrow: Bool = false, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack {
+                Image(image)
+                    .resizable()
+                    .frame(width: 22, height: 22)
+
+                Text(title)
+                    .font(.custom("Outfit-Regular", size: 18))
+                    .foregroundColor(.black)
+
+                Spacer()
+
+                if showArrow {
+                    Image("RightArrowIcon")
+                }
+            }
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.white) // <— ensures tap covers entire area
+            .contentShape(Rectangle()) // <— makes entire area tappable
+        }
+        .buttonStyle(PlainButtonStyle()) // <— removes default blue tint
+    }
+
+    
+    
+    private var notificationToggleRow: some View {
+        HStack {
+            Label("Notification".localized(), image: "NotificationIcon")
+            Spacer()
+            Toggle("", isOn: Binding<Bool>(
+                get: { viewModel.isNotificationEnabled },
+                set: { _ in viewModel.openNotificationSettings() }
+            ))
+            .toggleStyle(SwitchToggleStyle(tint: .teal))
+        }
+        .padding(.leading, -6)
+        .padding(.horizontal)
+    }
+}
+
+#Preview{
+    SettingView()
+}

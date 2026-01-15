@@ -21,14 +21,13 @@ struct EventListView: View {
                 }){
                     Image("Back")
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 24, height: 24)
                 }
                 Text("My Events")
-                    .font(.custom("Outfit-Medium", size: 22))
+                    .font(.custom("Outfit-SemiBold", size: 22))
                     .foregroundColor(Color(hex: " #221B22"))
-                //.padding(.leading, 100)
+                     Spacer()
             }
-            .padding(.leading, -180)
             .padding(.horizontal,25)
             //.padding(.bottom,2)
             
@@ -42,7 +41,7 @@ struct EventListView: View {
                         viewModel.selectTab(tab)
                     }) {
                         Text(tab)
-                            .font(.custom("Outfit-Regular", size: 14))
+                            .font(.custom("Outfit-SemiBold", size: 14))
                             .padding(.vertical, 8)
                             .frame(maxWidth: .infinity)
                             .background(viewModel.selectedTab == tab ? Color(hex: "#258694") : Color.clear)
@@ -57,9 +56,9 @@ struct EventListView: View {
             // Event List
             ScrollView {
                 VStack(spacing: 16) {
-                    ForEach(viewModel.events) { event in
+                    ForEach(viewModel.myEvents) { event in
                         EventCardView(event: event) {
-                           // coordinator.push(.EventParticipants) // 👈 Navigate here
+                           // coordinator.push(.EventParticipants) // Navigate here
                         }
                     }
                 }

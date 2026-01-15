@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ReportUserBottomSheetView: View {
-    @Binding var isPresented: Bool
     @State private var selectedReason: String? = nil
     @State private var message: String = ""
+    @State private var feedbackMessage: String = ""
+    var reportOn: String
+    @Binding var isPresented: Bool
     
     let reasons = [
         "Bullying or unwanted contact",
@@ -20,113 +22,121 @@ struct ReportUserBottomSheetView: View {
     ]
     
     var body: some View {
-        ZStack {
-            // Dimmed background
-            if isPresented {
+            ZStack {
+                // Dimmed background
                 Color.black.opacity(0.4)
-                    .ignoresSafeArea()
-                    .onTapGesture { isPresented = false }
-            }
-            
-            // Bottom sheet
-            VStack(spacing: 16) {
-                Capsule()
-                    .fill(Color.gray.opacity(0.4))
-                    .frame(width: 40, height: 5)
-                    .padding(.top, 8)
-                
-                Text("Report")
-                    .font(.custom("Outfit-Medium", size: 20))
-                    .fontWeight(.medium)
-                    .foregroundColor(.black)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                Divider()
-                    .frame(height: 2)
-                    .background(Color(hex: "#258694"))
-                
-                Text("Why are you reporting this comment?")
-                    .font(.custom("Outfit-Medium", size: 16))
-                    .fontWeight(.medium)
-                    .foregroundColor(.black)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                // Reason list
-                VStack(alignment: .leading, spacing: 12) {
-                    ForEach(reasons, id: \.self) { reason in
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        isPresented = false
+                    }
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            isPresented = false
+                        }) {
+                            Image("crossIcon")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(Color.blue)
+                        }
+                        .padding(.trailing, 12)
+                    }
+                    
+//                  .padding(.top)
+                    VStack(spacing: 10) {
                         HStack {
-//                            Image(systemName: selectedReason == reason ? "circle.inset.filled" : "circle")
-//                                .foregroundColor(selectedReason == reason ? .teal : .gray)
-                            Text(reason)
+                            Text("Report User")
+                                .font(.custom("Outfit-Medium", size: 20))
+                            Spacer()
+                        }
+                        .padding()
+                        .padding(.bottom, -10)
+                        
+                        Divider()
+                            .frame(height: 2)
+                            .background(Color(hex: "#258694"))
+                        
+                        // Question
+                        Text("Why are you reporting this comment?")
+                            .font(.custom("Outfit-Medium", size: 14))
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                        
+                        // Reasons List
+                        VStack(alignment: .leading, spacing: 5) {
+                            ForEach(reasons, id: \.self) { reason in
+                                Button(action: { selectedReason = reason }) {
+                                    HStack {
+                                        Text(reason)
+                                            .font(.custom("Outfit-Regular", size: 14))
+                                            .foregroundColor(.black)
+                                        Spacer()
+                                        if selectedReason == reason {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .foregroundColor(Color(hex: "#258694"))
+                                         }
+                                     }
+//                                    .padding(.vertical, 6)
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                        
+                        // Message Box
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Message (Optional)")
+                                .font(.custom("Outfit-Medium", size: 14))
                                 .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.top, 4)
+                            
+                            PlaceholderTextEditor(placeholder: "Write something here....", text: $message)
+                                .frame(height: 120)
                         }
 
-                        .onTapGesture {
-                            selectedReason = reason
+                        .padding(.horizontal)
+       
+                        // Buttons
+                        HStack {
+                            Button(action: {
+                                isPresented = false
+                            }) {
+                                Text("Cancel")
+                                    .font(.custom("Outfit-Medium", size: 15))
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .foregroundColor(.black)
+                                    .cornerRadius(12)
+                            }
+                            
+                            Button(action: {
+                                print("Report submitted: \(selectedReason ?? "") - \(message)")
+                                isPresented = false
+                               // onSubmit()
+                            }) {
+                                Text("Send report")
+                                    .font(.custom("Outfit-Regular", size: 14))
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color(hex: "#258694"))
+                                    .cornerRadius(12)
+                            }
                         }
+                        .padding(.horizontal)
+                        .padding(.bottom, 20)
                     }
+                    .background(Color.white)
+                    .cornerRadius(16)
+                    .padding(10)
                 }
-                
-                // Message field
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Message (Optional)")
-                        .font(.custom("Outfit-Medium", size: 16))
-                        .fontWeight(.medium)
-                        .foregroundColor(.black)
-                    TextEditor(text: $message)
-                        .frame(height: 80)
-                        .padding(8)
-                        //.background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                        )
-                }
-                
-                // Buttons
-                HStack {
-                    Button("Cancel") {
-                        isPresented = false
-                    }
-                    .font(.custom("Outfit-Medium", size: 16))
-                        .foregroundColor(.black)
-                        .padding()
-                        .frame(width: 170, height: 44)
-                    
-                    
-                    //Spacer()
-                    Button("Sent Report") {
-                        isPresented = false
-                    }
-                    .padding()
-                        .frame(width: 170, height: 44)
-                        .font(.custom("Outfit-Bold", size: 15))
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .background(Color(hex: "#258694"))
-                        .cornerRadius(8, corners: .allCorners)
-                  }
-                .padding([.horizontal])
-                .padding(.bottom, 30)
-               
             }
-            .padding(.leading)
-            .padding(.trailing)
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .cornerRadius(16, corners: [.topLeft, .topRight])
-            .shadow(radius: 8)
-            .frame(maxHeight: .infinity, alignment: .bottom)
-            .offset(y: isPresented ? 0 : UIScreen.main.bounds.height)
-            .animation(.spring(), value: isPresented)
+            .padding(.bottom, -20)
         }
-      }
     }
 
-
 #Preview {
-    ReportUserBottomSheetView(isPresented: .constant(true))
+    ReportUserBottomSheetView(reportOn: "Comment", isPresented: .constant(true))
 }

@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct SearchBarView: View {
-    @State private var searchText = ""
+
+    @Binding var searchText: String
 
     var body: some View {
         HStack {
             Image("Search")
             TextField("Search", text: $searchText)
+                .font(.custom("Outfit-Regular", size: 14))
         }
         .padding(8)
         .background(Color.gray.opacity(0.1))
         .cornerRadius(8)
-        .padding()
+        .padding(.horizontal)
     }
 }

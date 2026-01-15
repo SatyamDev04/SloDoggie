@@ -17,8 +17,8 @@ struct SupportItem: Identifiable {
     let id = UUID()
     let type: SupportItemType
     let title: String
-    let message: String
-    let phone: String?
-    let email: String?
+    var message: String
+    var phone: String?
+    var email: String?
 }
 

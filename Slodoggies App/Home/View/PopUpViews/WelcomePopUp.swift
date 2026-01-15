@@ -12,7 +12,6 @@ struct WelcomePopUp: View {
     
 //    @Binding var isVisible: Bool
     var backAction : () -> () = {}
-    
      var body: some View {
 //         if isVisible{
              ZStack {
@@ -47,7 +46,7 @@ struct WelcomePopUp: View {
                          Text("Welcome to SloDoggies!")
                              .font(.custom("Outfit-Medium", size: 18))
                          
-                         Text("We're excited you're here!  Rather than excited to have you. Thanks")
+                         Text("You're officially part of the SloDoggies pack! Let's keep the tail wagging!")
                              .font(.custom("Outfit-Regular", size: 15))
                              .multilineTextAlignment(.center)
                          
@@ -67,7 +66,7 @@ struct WelcomePopUp: View {
                      .frame(width: 320)
                      .padding(.vertical)
                      .background(Color.white)
-                     .cornerRadius(24)
+                     .cornerRadius(10)
                  }
              }
 //         }

@@ -8,58 +8,91 @@
 import SwiftUI
 
 struct ServicesView: View {
-    @StateObject private var viewModel = ServicesListViewModel()
+    
+    @StateObject private var viewModel = ServiceFilterChipViewModel()
     @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var tabRouter: TabRouter
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 20){
-                Button(action: {
-                     coordinator.pop()
-                }){
-                    Image("Back")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                }
-                Text("Services")
-                    .font(.custom("Outfit-Medium", size: 20))
-                    .fontWeight(.medium)
-                    .foregroundColor(Color(hex: " #221B22"))
-                //.padding(.leading, 100)
-            }
             
-              .padding()
-//            .padding(.leading, -180)
-//            .padding(.horizontal,25)
-            //.padding(.bottom,2)
+            header
             
             Divider()
-                .frame(height: 2)
                 .background(Color(hex: "#258694"))
-            SearchBarView()
+            
+            SearchBarView(searchText: $viewModel.searchText)
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(viewModel.filters, id: \.self) { filter in
-                        FilterChip(title: filter,
-                                   isSelected: viewModel.selectedFilter == filter) {
-                            viewModel.selectedFilter = viewModel.selectedFilter == filter ? nil : filter
-                        }
-                    }
-                }.padding(.horizontal)
+            categoryChips
+            
+            Text("Top Providers")
+                .font(.custom("Outfit-SemiBold", size: 14))
+                .padding(.leading, 12)
+                .padding(.top, 10)
+            
+            providersGrid
+        }
+        .onAppear {
+            viewModel.fetchCategories()
+            viewModel.fetchProviders()
+        }
+    }
+    
+    private var header: some View {
+        HStack {
+            Button {
+                tabRouter.selectedTab = .home
+            } label: {
+                Image("Back")
+                    .resizable()
+                    .frame(width: 24, height: 24)
             }
+            
+            Text("Services")
+                .font(.custom("Outfit-Medium", size: 20))
+            
+            Spacer()
+        }
+        .padding(.horizontal, 20)
+    }
+    
+    private var categoryChips: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(viewModel.categories) { category in
+                    FilterChip(
+                        title: category.categoryName ?? "N/A",
+                        isSelected: viewModel.selectedCategory == category.categoryName
+                    ) {
+                        // Toggle category
+                        viewModel.selectedCategory =
+                            viewModel.selectedCategory == category.categoryName
+                            ? nil
+                            : category.categoryName
 
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                    ForEach(viewModel.filteredProviders) { provider in
-                        ProviderCardView(provider: provider)
-                            .onTapGesture {
-                                coordinator.push(.providerProfileView)
-                            }
+                        // Clear search text
+                        viewModel.searchText = ""
                     }
                 }
-                .padding()
             }
+            .padding(.horizontal)
+        }
+    }
+
+    private var providersGrid: some View {
+        ScrollView {
+            LazyVGrid(
+                columns: [GridItem(.flexible()), GridItem(.flexible())],
+                spacing: 16
+            ) {
+                ForEach(viewModel.filteredServiceProviders) { provider in
+                    ProviderCardView(provider: provider)
+                        .onTapGesture {
+                            coordinator.push(.providerProfileView(provider.providerId ?? 0))
+                        }
+                }
+            }
+            .padding()
         }
     }
 }

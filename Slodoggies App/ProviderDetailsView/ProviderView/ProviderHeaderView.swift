@@ -7,23 +7,85 @@
 
 import SwiftUI
 
-struct ProviderHeaderView: View {
-    let provider: ProviderModel
-    let followAction: () -> Void
+// MARK: - Custom Disclosure (no default arrow)
+struct CustomDisclosure<Content: View>: View {
+    let title: String
+    @Binding var isExpanded: Bool
+    let content: () -> Content
 
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Button(action: {
+                withAnimation(nil) {
+                    isExpanded.toggle()
+                }
+            }) {
+                HStack {
+                    // Title text teal
+                    Text(title)
+                        .foregroundColor(Color(hex: "#258694"))
+                        .font(.custom("Outfit-SemiBold", size: 14))
+
+                    Spacer()
+
+                    // Arrow in teal also
+                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                        .foregroundColor(Color(hex: "#258694"))
+                }
+            }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+
+            if isExpanded {
+                content()
+                    .transition(.opacity.combined(with: .slide))
+                    .padding(.bottom, 8)
+                    .padding(.horizontal, 12)
+            }
+        }
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color(hex: "#258694"), lineWidth: 1)
+        )
+    }
+}
+
+
+// MARK: - ProviderHeaderView
+struct ProviderHeaderView: View {
+    let provider: BusinessServiceModel?
+    let followAction: () -> Void
+    @EnvironmentObject private var coordinator: Coordinator
     @State private var showInfo = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Top Row
             HStack {
-                Image("DogFootIcon")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-
+                if let uiImage = provider?.profileImage {
+                    AsyncImage(url: URL(string: uiImage)) { image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 55, height: 55)
+                            .clipShape(Circle())
+                    } placeholder: {
+                        ZStack{
+                            Color.gray.opacity(0.2)
+                                .frame(width: 55, height: 55)
+                                .clipShape(Circle())
+                            ProgressView()
+                        }
+                    }
+                    
+                } else {
+                    Image("DummyIcon") // your default placeholder asset
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 55, height: 55)
+                        .clipShape(Circle())
+                }
                 Spacer()
 
-                Text("Grooming")
+                Text(provider?.category?.first ?? "")
                     .font(.custom("Outfit-Medium", size: 10))
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
@@ -32,65 +94,68 @@ struct ProviderHeaderView: View {
                     .frame(width: 71 , height: 25)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray, lineWidth: 1)
+                            .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                     )
             }
+            .padding(.trailing, 2)
+
 
             // Title & Rating & Buttons
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Pawfect Pet Care")
-                        .font(.headline)
-                    
+                    HStack {
+                        Text(provider?.businessName ?? "")
+                            .font(.custom("Outfit-Medium", size: 14))
+                        if provider?.verificationstatus ?? false{
+                            Image("BlueTickIcon")
+                                .foregroundColor(.blue)
+                                .font(.caption2)
+                        }
+                    }
                     HStack(spacing: 4) {
                         Image("StarIcon")
                             .foregroundColor(.yellow)
                             .font(.caption)
-                        Text("4.8/5")
+                        Text("\(provider?.rating ?? "")/5")
                             .font(.caption)
                     }
                 }
-                
+
                 Spacer()
-                VStack{
-                    Button(action: {}) {
-                        HStack {
+
+                VStack {
+                    Button(action: {
+                        coordinator.push(.chatView)
+                    }) {
+                        HStack(spacing: 6) {
                             Image("ChatIcon1")
                             Text("Inquire now")
                         }
-                        .font(.footnote)
-                        .foregroundColor(Color.init(hex: "#258694"))
-                        .padding(.horizontal, 12)
+                        .font(.custom("Outfit-SemiBold", size: 12))
+                        .foregroundColor(Color(hex: "#258694"))
+                        .padding(.horizontal, 8)
                         .frame(width: 121, height: 31)
-                        .padding(.vertical, 6)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color(hex: "#258694"), lineWidth: 1)
                         )
                     }
+                    .padding(.top, 10)
                 }
             }
 
             // Provider Info Row
             HStack(spacing: 6) {
-                Image("People1") // Replace with actual image
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .clipShape(Circle())
-
                 Text("Provider Name")
-                    .font(.subheadline)
-                Image("BlueTickIcon")
-                    .foregroundColor(.blue)
-                    .font(.caption2)
+                    .font(.custom("Outfit-Medium", size: 14))
 
                 Spacer()
-                
+
                 Button(action: {
                     followAction()
                 }) {
-                    Text(provider.isFollowing ? "Following" : "Follow")
-                        .font(.footnote)
+                    Text(/*provider.isFollowing ? "Following" : */"Follow")
+                        .font(.custom("Outfit-SemiBold", size: 12))
                         .foregroundColor(.white)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
@@ -100,69 +165,62 @@ struct ProviderHeaderView: View {
                 }
             }
 
-            // Dropdown
-            DisclosureGroup("Additional Info.", isExpanded: $showInfo) {
+            // Custom Dropdown (no default arrow)
+            CustomDisclosure(title: "Additional Info.", isExpanded: $showInfo) {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(provider.description)
+                    (
+                        Text("Business Description : ")
+                            .font(.custom("Outfit-Medium", size: 12))
+                        +
+                        Text(provider?.businessDescription ?? "")
+                            .font(.custom("Outfit-Regular", size: 12))
+                    )
+                    .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.leading)
                     .padding(.bottom, 8)
-                    HStack{
+
+                    HStack {
                         Image("Phone2")
                             .frame(width: 15, height: 15)
                         Text("Phone: ")
                             .font(.custom("Outfit-Medium", size: 14))
                             .foregroundColor(.black)
                         Spacer()
-                        Text("\(provider.phone)")
+                        Text("\(provider?.phone ?? "")")
                     }
-                    .padding(.trailing, 10)
-                    .padding(.leading, 10)
-                    
-                    HStack{
+                    .padding(.horizontal, 10)
+
+                    HStack {
                         Image("WebsiteIcon")
                             .frame(width: 15, height: 15)
                         Text("Website: ")
                             .font(.custom("Outfit-Medium", size: 14))
                             .foregroundColor(.black)
                         Spacer()
-                        Text("\(provider.website)")
+                        Text("\(provider?.website ?? "")")
                             .foregroundColor(Color(hex: "#258694"))
                             .underline()
                     }
-                    .padding(.trailing, 10)
-                    .padding(.leading, 10)
-                    
-                    HStack{
+                    .padding(.horizontal, 10)
+
+                    HStack {
                         Image("LocationIcon")
                             .frame(width: 15, height: 15)
                         Text("Address: ")
                             .font(.custom("Outfit-Medium", size: 14))
                             .foregroundColor(.black)
                         Spacer()
-                        Text("\(provider.address)")
+                        Text("\(provider?.address ?? "")")
                     }
-                    .padding(.trailing, 10)
-                    .padding(.leading, 10)
-                    }
-                
+                    .padding(.horizontal, 10)
+                }
                 .font(.caption)
             }
-            //.padding()
-            .padding(.top, 8)
-            .padding(.bottom, 8)
-            .padding(.leading, 12)
-            .padding(.trailing, 12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color(hex: "#258694"), lineWidth: 1)
-            )
-            .accentColor(Color(hex: "#258694"))
-            //.padding(.horizontal, 24)
         }
         .padding()
-        //.padding(.trailing, 24)
         .background(Color.white)
         .cornerRadius(12)
         .shadow(radius: 2)
         .padding(.horizontal, 16)
-      }
-  }
+    }
+}

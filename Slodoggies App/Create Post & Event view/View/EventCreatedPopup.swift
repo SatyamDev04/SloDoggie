@@ -9,8 +9,9 @@ import SwiftUI
 
 struct EventCreatedSuccPopUp: View {
     @Binding var isVisible: Bool
-      var backAction : () -> () = {}
-      var onRemove: () -> Void = {}
+    @EnvironmentObject var tabRouter: TabRouter
+    var backAction : () -> () = {}
+    var onRemove: () -> Void = {}
     
      var body: some View {
 //         if isVisible{
@@ -23,8 +24,8 @@ struct EventCreatedSuccPopUp: View {
                      HStack{
                          Spacer()
                          Button(action: {
-                             isVisible = false
-                             backAction()
+                             tabRouter.selectedTab = .home
+                             tabRouter.isTabBarHidden = false
                          }) {
                              Image("CancelIcon")
                                  .resizable()

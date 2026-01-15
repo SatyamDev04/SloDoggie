@@ -13,7 +13,7 @@ class EmailLoginViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var alertPresnt: Bool = false
-    
+    @Published var profileData : profileDetails?
     @Published var email: String = "" {
         didSet {
             validateEmail()

@@ -7,18 +7,25 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class HelpSupportViewModel: ObservableObject {
     @Published var items: [SupportItem] = []
+    
+    private var cancellables = Set<AnyCancellable>()
+    @Published var showActivity = false
+    
+    @Published var showError: Bool = false
+    @Published var errorMessage: String? = nil
     
     init() {
         items = [
             SupportItem(
                 type: .contact,
                 title: "Need a paw? We're here for you!",
-                message: "Whether you're having trouble with your profile, reporting a bug, or just need help finding features, our support team is ready to assist.",
-                phone: "(555) 123 456",
-                email: "help@slodoggies.com"
+                message: "",
+                phone: "",
+                email: ""
             ),
             SupportItem(
                 type: .faq,
@@ -47,4 +54,30 @@ class HelpSupportViewModel: ObservableObject {
         guard let url = URL(string: "mailto:\(email)") else { return }
         UIApplication.shared.open(url)
     }
+    
+    func getHelpSupporstDatadata() {
+        self.showActivity = true
+        APIManager.shared.getHelpSupport()
+            .sink { completionn in
+                self.showActivity = false
+                if case .failure(let error) = completionn {
+                    print("Failed to send OTP with error: \(error.localizedDescription)")
+                    self.showError = true
+                    self.errorMessage = error.localizedDescription
+                }
+            } receiveValue: { response in
+                
+                if response.success  ?? false {
+                    self.items[0].message = response.data?.content?.htmlStripped() ?? ""
+                    self.items[0].email = response.data?.email ?? ""
+                    self.items[0].phone = response.data?.phone ?? ""
+                }else{
+                    self.showError = true
+                    self.errorMessage = response.message ?? "Something went wrong"
+                }
+                
+            }.store(in: &cancellables)
+        
+    }
+    
 }

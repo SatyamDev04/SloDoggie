@@ -5,7 +5,6 @@
 //  Created by YES IT Labs on 15/07/25.
 //
 
-
 import SwiftUI
 
 struct FAQsView: View {
@@ -21,9 +20,9 @@ struct FAQsView: View {
                 }) {
                     Image("Back")
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 24, height: 24)
                 }
-                
+            
                 Text("FAQs")
                     .font(.custom("Outfit-Medium", size: 20))
                     .fontWeight(.medium)
@@ -31,7 +30,7 @@ struct FAQsView: View {
                 
                 Spacer()
             }
-            .padding(.horizontal, 25)
+            .padding(.horizontal, 20)
             .padding(.vertical, 10)
             
             Divider()
@@ -47,7 +46,7 @@ struct FAQsView: View {
                             }) {
                                 HStack {
                                     Text(viewModel.faqItems[index].question)
-                                        .fontWeight(.semibold)
+                                        .font(.custom("Outfit-Regular", size: 14))
                                         .foregroundColor(.white)
                                     
                                     Spacer()
@@ -69,7 +68,7 @@ struct FAQsView: View {
                             if viewModel.isExpanded(index: index),
                                !viewModel.faqItems[index].answer.isEmpty {
                                 Text(viewModel.faqItems[index].answer)
-                                    .font(.custom("Outfit-Regular", size: 15))
+                                    .font(.custom("Outfit-Regular", size: 14))
                                     .foregroundColor(Color(hex: "#252E32"))
                                     .padding()
                                     .background(Color(hex: "#E5EFF2"))

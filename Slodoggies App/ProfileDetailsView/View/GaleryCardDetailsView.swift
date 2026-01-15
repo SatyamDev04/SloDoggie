@@ -8,44 +8,67 @@
 import SwiftUI
 
 struct GaleryCardDetailsView: View {
-    let mediaItems: [MediaItem]
+    let userId: String
+    @ObservedObject var viewModel: ProfileDetailsViewModel
+    let mediaItems: [PostGalleryList]
     let onSelect: (Int) -> Void
 
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    private let columns = Array(
+        repeating: GridItem(.flexible(), spacing: 10),
+        count: 3
+    )
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(Array(mediaItems.enumerated()), id: \.offset) { index, item in
+ 
+            ForEach(mediaItems.indices, id: \.self) { index in
+                let item = mediaItems[index]
+                let media = mediaItems[index].mediaPath?.first
+ 
                 ZStack {
-                    Group {
-                        if let uiImage = UIImage(named: item.thumbnail) {
-                            Image(uiImage: uiImage)
+ 
+                    // VIDEO
+                    if media?.type?.lowercased() == "video",
+                       let url = media?.url {
+                        VideoThumbnailView11(videoURL: url)
+                    }
+                    // IMAGE
+                    else {
+                        AsyncImage(url: URL(string: media?.url ?? "")) { image in
+                            image
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
-                        } else {
+                                //.aspectRatio(contentMode: .fill)
+                                .frame(height: 135)
+                                .frame(maxWidth: .infinity)
+                        } placeholder: {
                             ZStack {
-                                Color.gray.opacity(0.3)
-                                Image(systemName: item.mediaType == .video ? "video" : "photo")
-                                    .font(.system(size: 30))
-                                    .foregroundColor(.gray)
-                            }
+                               Color.gray.opacity(0.2)
+                               ProgressView()
+                           }
                         }
+//                        Image.loadImage(media?.url)
+//                            .frame(height: 135)
+//                            .frame(maxWidth: .infinity)
+                       
                     }
-                    .frame(height: 110)
-                    .clipped()
-                    .cornerRadius(8)
-
-                    if item.mediaType == .video {
-                        Image(systemName: "play.circle.fill")
-                            .font(.system(size: 30))
-                            .foregroundColor(.white)
-                    }
+                    
                 }
+                .frame(height: 135)
+                .frame(maxWidth: .infinity)
+                .clipped()
+                .cornerRadius(10)
                 .onTapGesture {
                     onSelect(index)
                 }
-             }
-          }
-        .padding()
+                .onAppear {
+                    viewModel.loadMoreIfNeeded(userId: userId, currentItem: item)
+               }
+            }
+            
+        }
+        .padding(.horizontal)
+
       }
-   }
+}
+
+

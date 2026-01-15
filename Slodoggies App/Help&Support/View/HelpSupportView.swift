@@ -12,61 +12,78 @@ struct HelpSupportView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        VStack(spacing: 0) {
-            
-            // Header
-            HStack(spacing: 12) {
-                Button(action: {
-                    coordinator.pop()
-                }) {
-                    Image("Back")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                }
+        ZStack{
+            VStack(spacing: 0) {
                 
-                Text("Help & Support")
-                    .font(.custom("Outfit-Medium", size: 20))
-                    .fontWeight(.medium)
-                    .foregroundColor(Color(hex: "#221B22"))
-                
-                Spacer()
-            }
-            .padding(.horizontal, 25)
-            .padding(.vertical, 10)
-            
-            Divider()
-                .frame(height: 2)
-                .background(Color(hex: "#258694"))
-            
-            // Content
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(viewModel.items) { item in
-                        HelpSupportCardView(item: item, viewModel: viewModel)
+                // Header
+                HStack(spacing: 12) {
+                    Button(action: {
+                        coordinator.pop()
+                    }) {
+                        Image("Back")
+                            .resizable()
+                            .frame(width: 24, height: 24)
                     }
                     
+                    Text("Help & Support")
+                        .font(.custom("Outfit-Medium", size: 20))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color(hex: "#221B22"))
+                    
+                    Spacer()
                 }
-                .padding(.horizontal, 16)
-                .padding(.top, 20)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                
+                Divider()
+                    .frame(height: 2)
+                    .background(Color(hex: "#258694"))
+                
+                // Content
+                ScrollView {
+                    VStack(spacing: 20) {
+                        ForEach(viewModel.items) { item in
+                            HelpSupportCardView(item: item, viewModel: viewModel)
+                        }
+                        
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.top, 20)
+                }
+                //.background(Color(.systemGroupedBackground).ignoresSafeArea()) // optional
             }
-            //.background(Color(.systemGroupedBackground).ignoresSafeArea()) // optional
-         }
+            .onAppear(){
+                viewModel.getHelpSupporstDatadata()
+            }
+            
+            if viewModel.showActivity {
+                CustomLoderView(isVisible: $viewModel.showActivity)
+                    .ignoresSafeArea()
+            }
+        }
+        .alert(isPresented: $viewModel.showError) {
+            Alert(title: Text(viewModel.errorMessage ?? ""))
+        }
        }
      }
 
 struct HelpSupportCardView: View {
     let item: SupportItem
     let viewModel: HelpSupportViewModel
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 22) {
+        VStack(alignment: .leading, spacing: item.message.isEmpty ? 8 : 22) {
             Text(item.title)
                 .font(.custom("Outfit-Medium", size: 17))
                 .foregroundColor(.black)
             
-            Text(item.message)
-                .font(.custom("Outfit-Regular", size: 15))
-                .foregroundColor(.black)
+            // Show message only if it's not empty
+            if !item.message.isEmpty {
+                Text(item.message)
+                    .font(.custom("Outfit-Regular", size: 15))
+                    .foregroundColor(.black)
+            }
             
             if item.type == .contact {
                 VStack(alignment: .leading, spacing: 22) {
@@ -105,18 +122,31 @@ struct HelpSupportCardView: View {
                     }
                 }
             } else if item.type == .faq {
-                Text("Check out our ") +
-                Text("[FAQ section]")
-                    .underline()
-                    .foregroundColor(Color(hex: "#258694")) +
-                Text(" for common questions about using the app, managing your account, or promoting your pet business.")
-                    .font(.custom("Outfit-Regular", size: 15))
-                    .foregroundColor(.black)
+                VStack(alignment: .leading, spacing: 4) {
+                    // Single line with mixed clickable + non-clickable text
+                    (
+                        Text("Check out our ")
+                            .font(.custom("Outfit-Regular", size: 15))
+                            .foregroundColor(.black)
+                        +
+                        Text("[FAQ section]")
+                            .font(.custom("Outfit-Medium", size: 15))
+                            .foregroundColor(Color(hex: "#258694"))
+                        +
+                        Text(" for common questions about using the app, managing your account, or promoting your pet business.")
+                            .font(.custom("Outfit-Regular", size: 15))
+                            .foregroundColor(.black)
+                    )
+                    .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.leading)
+                    .onTapGesture {
+                        coordinator.push(.faq)
+                    }
+                }
             }
         }
         .padding()
-        .padding(.leading, 14)
-        .padding(.trailing, 14)
+        .padding(.horizontal, 14)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.white)
         .cornerRadius(10)
