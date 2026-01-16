@@ -51,31 +51,6 @@ struct HomeView: View {
                     .frame(height: 2)
                     .background(Color(hex: "#258694"))
                    
-//<<<<<<< HEAD
-                if viewModel.feedItems.isEmpty{
-                    Spacer()
-                    NoDataFoundView()
-                    Spacer()
-                }else{
-//                    // Feed
-//                    ScrollView {
-//                        Spacer().frame(height: 10)
-//                        
-//                        LazyVStack(spacing: 16) {
-//                            
-//                            ForEach(Array(viewModel.feedItems.enumerated()), id: \.offset) { index, item in
-//                                viewForItem(item, index: index)
-//                                    .onAppear {
-//                                        //  Pagination Trigger
-//                                        viewModel.loadMoreIfNeeded(currentIndex: index)
-//                                    }
-//                            }
-//                            
-//                            //  Bottom Pagination Loader
-//                            if viewModel.isPaginating && viewModel.page > 1 {
-//                                ProgressView()
-//                                    .padding(.vertical, 20)
-//=======
                 // Feed
                 ScrollView {
                     Spacer().frame(height: 10)
@@ -210,155 +185,9 @@ struct HomeView: View {
                                     toastMessage = "You already reported this post."
                                    // showToast = true
                                 }
-//>>>>>>> 65ad98018317ed822912fc5b7e6652d29bd87b2b
                             }
                         }
-                        .padding(.bottom, 40) // for safe area / tab bar
                     }
-//<<<<<<< HEAD
-//                    .refreshable {
-//                        //                    viewModel.page = 1
-//                        //                    viewModel.limit = 20
-//                        //                    viewModel.homeDataApi()
-//                    }
-//                    .background(Color(hex: "#E5EFF2"))
-//                    .padding(.top, -8)
-//                }
-//            }
-//            
-//            // Comments Popup
-//            if showShare {
-//                CustomShareSheetView(
-//                    isPresented: .constant(true), onCancel: {
-//                        showShare = false
-//                        tabRouter.isTabBarHidden = false
-//                      }
-//                    )
-//                  }
-//              
-//            if showComments {
-//                CommentsPopupView(
-//                    postId: selectedPostID,
-//                     onCancel: {
-//                        showComments = false
-//                        tabRouter.isTabBarHidden = false
-//                     },
-//                    onReportTapped: {
-//                        showComments = false
-//                        viewModel.showReportPopUp = true
-//                    },   onCommentsUpdated: { newCount in
-//                        viewModel.updateCommentCount(
-//                            postId: selectedPostID,
-//                            count: newCount
-//                        )
-//                    }
-//                )
-//            }
-//            
-//            // Report Popup
-//            if viewModel.showReportPopUp {
-//                ReportCommentPopup(
-//                    reportOn: viewModel.reportFor ?? "",
-//                    onCancel: {
-//                        viewModel.showReportPopUp = false
-//                        tabRouter.isTabBarHidden = false
-//                    },
-//                    onSubmit: {
-//                        viewModel.showReportPopUp = false
-//                        tabRouter.isTabBarHidden = false
-//                        self.showToast = true
-//                    }
-//                )
-//            }
-//            
-//            // Toast
-//            if self.showToast {
-//                ToastView {
-//                    self.showToast = false
-//                }
-//            }
-//            if showReportPostPopUp{
-//                ReportPostPopUp(
-//                    reportOn: "Post",
-//                    onCancel: {
-//                        showReportPostPopUp = false
-//                        tabRouter.isTabBarHidden = false
-//                    },
-//                    onSubmit: {
-//                        showReportPostPopUp = false
-//                        tabRouter.isTabBarHidden = false
-//                        showToast = true
-//                    }
-//                )
-//            }
-//            if viewModel.showActivity {
-//                CustomLoderView(isVisible: $viewModel.showActivity)
-//                    .ignoresSafeArea()
-//            }
-//        }
-//        .onAppear() {
-//            viewModel.page = 1
-//            viewModel.limit = 20
-//            viewModel.homeDataApi()
-//        }
-//       
-//    }
-//    
-//    // MARK: - Helper
-//    @ViewBuilder
-//    private func viewForItem(_ item: HomeItem, index: Int) -> some View {
-//      
-//        switch item.type {
-//        
-//        case .community:
-//            EventCard(
-//                item: item,
-//                isMenuVisible: Binding(
-//                    get: { activeMenuIndex == index },
-//                    set: { activeMenuIndex = $0 ? index : nil }
-//                ),
-//                onCommentTap: {
-//                    selectedPostID = item.postID ?? ""
-//                    showComments = true
-//                    tabRouter.isTabBarHidden = true
-//                },
-//                onReportTap: {
-//                    viewModel.showReportPopUp = true
-//                    tabRouter.isTabBarHidden = true
-//                },
-//                onShareTap: {
-//                    showShare = true
-//                    tabRouter.isTabBarHidden = true
-//                },
-//                onReportPostTap: {
-//                    showReportPostPopUp = true
-//                    tabRouter.isTabBarHidden = true
-//                },
-//                onProfileTap: {
-//                    if item.author?.authorType == .owner {
-//                        coordinator.push(.profileDetailsView(item.author?.userID ?? "",""))
-//                    }else{
-//                        coordinator.push(.busiProfileView("Home", item.author?.userID ?? "", hideSponsoredButton: true))
-//                    }
-//                    
-//                },
-//                onJoinCommunityTap: {
-//                    coordinator.push(.groupChatView)
-//                },
-//                onFollowTap: {
-//                    viewModel.FollowUnfollowApi(index: item.userID ?? "", Index1: index)
-//                    },
-//                onLikeTap: { isLiked in
-//                  
-//                    viewModel.likeUnlikeApi(postId: item.postID ?? "", index: index, postType: "Event", comingFrom: "")
-//                },
-//               
-//                onSaveTap: {
-//                    viewModel.SaveUnsaveApi(postId: item.postID ?? "", Index1: index, postType: "Event", comingFrom: "")
-//                    }
-//            )
-//
-//=======
                 )
             }
 
@@ -434,7 +263,6 @@ struct HomeView: View {
                 
             )
 
-//>>>>>>> 65ad98018317ed822912fc5b7e6652d29bd87b2b
         case .sponsored:
             AdCard (
                 ad: item,
@@ -490,7 +318,7 @@ struct HomeView: View {
                     selectedPostID = item.postID ?? ""
                     viewModel.showPostReportPopUp = true
                     tabRouter.isTabBarHidden = true
-                }, showSavedPopup: $showEventSavedPopup, 
+                }, showSavedPopup: $showEventSavedPopup,
                 onFollowTap: {
                     viewModel.FollowUnfollowApi(index: item.userID ?? "", Index1: index)
                     },

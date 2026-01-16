@@ -21,11 +21,6 @@ struct ProviderProfileView: View {
     @State private var replyingTo: UUID? = nil
     @State private var replyText: String = ""
     
-    // Popup state
-    @State private var showImagePopup = false
-    @State private var popupPhotos: [String] = []
-    @State private var popupIndex: Int = 0
-    
     var body: some View {
         ZStack{
             VStack {

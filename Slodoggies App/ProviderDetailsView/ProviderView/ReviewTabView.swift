@@ -61,14 +61,6 @@ struct ReviewsTabView: View {
                                     selectedRating = star
                                 }
                         }
-                        .padding(.vertical, 8)
-                        
-                        Text(review.comment)
-                            .font(.custom("Outfit-Regular", size: 12))
-                            .padding(.top, -5)
-                            .padding(.bottom)
-                        
-                        Divider()
                     }
                     .padding(.vertical, 8)
                     
@@ -101,7 +93,7 @@ struct ReviewsTabView: View {
                 .padding(.horizontal, 16)
                 
 //                VStack(alignment: .leading, spacing: 16) {
-//                   
+//
 //                }
                 
             }

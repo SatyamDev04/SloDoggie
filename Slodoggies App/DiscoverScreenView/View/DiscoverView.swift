@@ -24,19 +24,6 @@ struct DiscoverView: View {
     @State private var showShare = false
     @State private var showReportPostPopUp = false
     @State private var activeMenuIndex: Int? = nil
-    
-    @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject private var tabRouter: TabRouter
-    
-    // MARK: - Local States
-    @State private var selectedPlace: PetPlace?
-    @State private var showPopup = false
-    @State private var showComments = false
-    @State private var showEventSavedPopup = false
-    @State private var showShare = false
-    @State private var showReportPostPopUp = false
-    @State private var activeMenuIndex: Int? = nil
-    
     @State private var selectedPostID: String = ""
     
     @State private var showToast: Bool = false
@@ -616,24 +603,6 @@ private extension DiscoverView {
         .padding(.horizontal)
 //>>>>>>> 65ad98018317ed822912fc5b7e6652d29bd87b2b
     }
-    
-    // MARK: - Helpers
-    func closePopup() {
-        showPopup = false
-        tabRouter.isTabBarHidden = false
-    }
-    
-    func closeReportPopup() {
-        viewModel.showReportPopup = false
-        tabRouter.isTabBarHidden = false
-    }
-    
-    func closePostReportPopup() {
-        showReportPostPopUp = false
-        tabRouter.isTabBarHidden = false
-    }
-}
-
     // MARK: - Hashtags
     var hashtagsSection: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -940,6 +909,7 @@ private extension DiscoverView {
         tabRouter.isTabBarHidden = false
     }
 }
+
 
 // MARK: - Preview
 #Preview {

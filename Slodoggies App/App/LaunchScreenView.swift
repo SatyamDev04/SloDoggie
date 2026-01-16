@@ -62,12 +62,6 @@ struct LaunchScreenView: View {
         UserDetail.shared.removeName()
         coordinator.logoutAndGoToOnboard()
     }
-    func handelLogout(){
-        UserDetail.shared.removeUserId()
-        UserDetail.shared.removeTokenWith()
-        UserDetail.shared.removeName()
-        coordinator.logoutAndGoToOnboard()
-    }
 }
 
 private extension LaunchScreenView {
